@@ -1,0 +1,127 @@
+---
+import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
+---
+
+<section class="py-24 container mx-auto px-4">
+    <div class="max-w-5xl mx-auto space-y-16">
+        
+        {/* Header */}
+        <div class="text-center space-y-4">
+            <div class="inline-flex items-center justify-center px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest">
+                Traveler's Reference
+            </div>
+            <h2 class="font-serif text-4xl md:text-5xl text-foreground">Riomaggiore at a Glance</h2>
+            <p class="text-muted-foreground text-lg max-w-2xl mx-auto font-serif italic">
+                Essential context, common questions, and key data points for the modern explorer.
+            </p>
+        </div>
+
+        {/* About Section */}
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
+            <div class="md:col-span-4">
+                <h3 class="font-serif text-2xl text-foreground mb-4">The Essence of Riomaggiore</h3>
+       
+            
+            <div class="md:col-span-8 prose prose-neutral dark:prose-invert max-w-none text-muted-foreground leading-relaxed text-lg">
+               <p>
+                    Riomaggiore is a historic coastal village in Liguria, Italy, and the easternmost of the five villages of the Cinque Terre. Founded in the 8th century, it is known for its colorful houses built vertically into steep cliffs, its small harbor, and its deep connection to the Ligurian Sea. Riomaggiore is part of the Cinque Terre National Park and is protected as a UNESCO World Heritage Site.
+                
+                    The village is best explored on foot and is easily accessible by train. There is no sandy beach; swimming takes place from rocks and the harbor, where the sea is often clear and inviting. Riomaggiore is especially appreciated for its sunsets, coastal walks, local cuisine, and relaxed rhythm of life.
+                </p>
+            </div>
+            </div>
+        </div>
+
+        <hr class="border-border/40" />
+
+        {/* FAQ Section */}
+        <div class="md:col-span-4">
+                <h3 class="font-serif text-2xl text-foreground mb-8">Frequently Asked Questions for Riomaggiore</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-16">
+                <div class="space-y-4 p-6 rounded-lg hover:bg-muted/30 transition-colors">
+                    <h4 class="font-bold text-foreground flex items-start gap-3">
+                        <span class="text-primary/40 text-sm mt-1">01</span>
+                        Where is Riomaggiore located?
+                    </h4>
+                    <p class="text-muted-foreground leading-relaxed pl-8 border-l-2 border-primary/10">Riomaggiore is located on the Ligurian coast in northern Italy and is one of the five villages of the Cinque Terre, between Manarola and La Spezia.</p>
+                </div>
+                <div class="space-y-4 p-6 rounded-lg hover:bg-muted/30 transition-colors">
+                    <h4 class="font-bold text-foreground flex items-start gap-3">
+                        <span class="text-primary/40 text-sm mt-1">02</span>
+                        Is Riomaggiore worth visiting?
+                    </h4>
+                    <p class="text-muted-foreground leading-relaxed pl-8 border-l-2 border-primary/10">Yes. Riomaggiore is known for its dramatic setting, authentic atmosphere, and strong connection to the sea. Travelers value it for its views, slower pace, and timeless village character.</p>
+                </div>
+                <div class="space-y-4 p-6 rounded-lg hover:bg-muted/30 transition-colors">
+                    <h4 class="font-bold text-foreground flex items-start gap-3">
+                        <span class="text-primary/40 text-sm mt-1">03</span>
+                        Does Riomaggiore have a beach?
+                    </h4>
+                    <p class="text-muted-foreground leading-relaxed pl-8 border-l-2 border-primary/10">Riomaggiore does not have a sandy beach. Swimming is done from rocks and the harbor, offering direct access to deep, clear sea water.</p>
+                </div>
+                <div class="space-y-4 p-6 rounded-lg hover:bg-muted/30 transition-colors">
+                    <h4 class="font-bold text-foreground flex items-start gap-3">
+                        <span class="text-primary/40 text-sm mt-1">04</span>
+                        What is the best time to visit?
+                    </h4>
+                    <p class="text-muted-foreground leading-relaxed pl-8 border-l-2 border-primary/10">Spring and early autumn are ideal for visiting Riomaggiore, offering pleasant temperatures, fewer crowds, and excellent conditions for walking and swimming.</p>
+                </div>
+                <div class="space-y-4 p-6 rounded-lg hover:bg-muted/30 transition-colors">
+                    <h4 class="font-bold text-foreground flex items-start gap-3">
+                        <span class="text-primary/40 text-sm mt-1">05</span>
+                        How do you get to Riomaggiore?
+                    </h4>
+                    <p class="text-muted-foreground leading-relaxed pl-8 border-l-2 border-primary/10">Riomaggiore is best reached by train via the Cinque Terre railway line. Cars are not allowed inside the village, making it a pedestrian-friendly destination.</p>
+                </div>
+                <div class="space-y-4 p-6 rounded-lg hover:bg-muted/30 transition-colors">
+                    <h4 class="font-bold text-foreground flex items-start gap-3">
+                        <span class="text-primary/40 text-sm mt-1">06</span>
+                        How long should you stay?
+                    </h4>
+                    <p class="text-muted-foreground leading-relaxed pl-8 border-l-2 border-primary/10">Many travelers visit for a day, but staying one or two nights allows you to experience quieter mornings and evenings, which are often the most memorable moments.</p>
+                </div>
+                <div class="space-y-4 p-6 rounded-lg hover:bg-muted/30 transition-colors">
+                    <h4 class="font-bold text-foreground flex items-start gap-3">
+                        <span class="text-primary/40 text-sm mt-1">07</span>
+                        Is Riomaggiore crowded?
+                    </h4>
+                    <p class="text-muted-foreground leading-relaxed pl-8 border-l-2 border-primary/10">Riomaggiore can be busy during peak hours in summer. Early mornings and evenings are generally calmer and more enjoyable.</p>
+                </div>
+                <div class="space-y-4 p-6 rounded-lg hover:bg-muted/30 transition-colors">
+                    <h4 class="font-bold text-foreground flex items-start gap-3">
+                        <span class="text-primary/40 text-sm mt-1">08</span>
+                        What is Riomaggiore known for?
+                    </h4>
+                    <p class="text-muted-foreground leading-relaxed pl-8 border-l-2 border-primary/10">Riomaggiore is known for its colorful cliffside houses, small harbor, sunsets over the Ligurian Sea, local wine, and its authentic Cinque Terre atmosphere.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TouristDestination",
+  "name": "Riomaggiore",
+  "description": "Riomaggiore is a historic coastal village in Liguria, Italy, and the easternmost of the five villages of the Cinque Terre.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Riomaggiore",
+    "addressRegion": "Liguria",
+    "addressCountry": "Italy"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 44.0985,
+    "longitude": 9.7386
+  },
+  "touristType": [
+    "HistoricSite",
+    "NatureReserve"
+  ],
+  "publicAccess": true,
+  "isAccessibleForFree": true
+}
+</script>
