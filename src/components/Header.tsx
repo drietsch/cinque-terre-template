@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
-import { Menu, Search, ChevronDown, MapPin, Utensils, Newspaper } from 'lucide-react';
+import { Menu, Search, ChevronDown, MapPin, Utensils, Newspaper, Compass } from 'lucide-react';
 
 const destinations = [
+    { name: 'The Salt & Stone Path', href: '/itinerary', description: 'A curated 4-day journey through the coast' },
     { name: 'Riomaggiore', href: '#', description: 'The easternmost village with colorful cliffside houses' },
     { name: 'Manarola', href: '#', description: 'Famous for its wine and stunning harbor views' },
     { name: 'Corniglia', href: '#', description: 'The only village not directly on the sea' },
@@ -19,16 +20,18 @@ const foodDrink = [
 ];
 
 const newsAdvice = [
-    { name: 'Travel Tips', href: '#', description: 'Essential advice for your visit' },
-    { name: 'Latest News', href: '#', description: 'Updates from the Cinque Terre' },
-    { name: 'Seasonal Guides', href: '#', description: 'Best times to visit each village' },
-    { name: 'Local Insights', href: '#', description: 'Stories from residents' },
+    { name: 'The Dispatch (Blog)', href: '/blog', description: 'Stories and insights from the coast' },
+    { name: 'Travel Tips', href: '/blog', description: 'Essential advice for your visit' },
+    { name: 'Latest News', href: '/blog', description: 'Updates from the Cinque Terre' },
+    { name: 'Weather & Conditions', href: '/weather', description: 'Live atmosphere and forecasts' },
 ];
 
 const navItems = [
-    { name: 'Destinations', href: '#', flyout: destinations, icon: MapPin },
+    { name: 'Destinations', href: '/village', flyout: destinations, icon: MapPin },
+    { name: 'Itinerary', href: '/itinerary', icon: Compass },
+    { name: 'Sights', href: '/sights', icon: MapPin },
     { name: 'Food & Drink', href: '#', flyout: foodDrink, icon: Utensils },
-    { name: 'News & Advice', href: '#', flyout: newsAdvice, icon: Newspaper },
+    { name: 'News & Advice', href: '/blog', flyout: newsAdvice, icon: Newspaper },
 ];
 
 export default function Header() {

@@ -1,0 +1,411 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer';
+import { Clock, MapPin, Wind, Sun, Compass, Navigation, Coffee, Heart, Info, ArrowRight, Anchor, Train, Footprints } from 'lucide-react';
+
+const itinerary = {
+    name: "The Salt & Stone Path",
+    subtitle: "A four-day journey through the rhythm of the coast, designed for those who wish to see less, but feel everything.",
+    duration: "4 Days",
+    pace: "Slow & Observant",
+    effort: "Moderate",
+    bestSeason: "April – June or September – October",
+    image: "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=2574&auto=format&fit=crop"
+};
+
+const days = [
+    {
+        number: 1,
+        title: "The Gravity of Arrival",
+        village: "Riomaggiore",
+        rhythm: "Settling in",
+        perspective: "The first day is not for doing. It is for arriving. Let the verticality of Riomaggiore sink in. Don't rush to the harbor; instead, find the quiet upper streets where the laundry hangs like flags of welcome. The sea is there, always, but today we just listen to it.",
+        movement: "Arrival by train, followed by a slow ascent to the upper village.",
+        moments: [
+            "A quiet coffee at a corner bar where the locals stand.",
+            "Watching the sunset from the rocks, not the bar.",
+            "The sound of the last train echoing through the valley."
+        ]
+    },
+    {
+        number: 2,
+        title: "The High Silence",
+        village: "Manarola to Corniglia",
+        rhythm: "Elevation & Observation",
+        perspective: "We move between villages today, but not by the shore. We take the high path to Volastra. Here, the vineyards are ancient and the air is cooler. Corniglia awaits at the end—the village that doesn't touch the sea, but watches it from a throne of stone.",
+        movement: "The stone steps to Volastra, then the winding vineyard paths to Corniglia.",
+        moments: [
+            "The scent of wild thyme on the ridge.",
+            "A simple lunch of focaccia overlooking the terraces.",
+            "The 382 steps of the Lardarina—taken slowly, one breath at a time."
+        ]
+    },
+    {
+        number: 3,
+        title: "The Vertical Heart",
+        village: "Vernazza",
+        rhythm: "Presence & Light",
+        perspective: "Vernazza is the most famous, and for a reason. But we find its heart in the morning light, before the first boat arrives. We sit by the church of Santa Margherita, watching the water lap against the stone. It's a day for being still in a place that everyone else is rushing through.",
+        movement: "A morning boat ride from Corniglia to see the cliffs from the water.",
+        moments: [
+            "The cool interior of the Doria Castle at noon.",
+            "Gelato eaten on the harbor wall as the fishing boats return.",
+            "Finding the 'secret' beach through the rock tunnel."
+        ]
+    },
+    {
+        number: 4,
+        title: "The Soft Horizon",
+        village: "Monterosso",
+        rhythm: "Reflection & Release",
+        perspective: "Our journey ends where the sand begins. Monterosso is wide, open, and generous. It's a place to wash the dust of the trails off in the surf. We look back at the four villages we've traversed and realize that the coast hasn't changed us—it has simply reminded us of who we are when we slow down.",
+        movement: "The coastal path from Vernazza—the most iconic stretch of the Blue Trail.",
+        moments: [
+            "The first sight of the orange umbrellas from the trail.",
+            "A long, final swim in the crystal waters of Fegina.",
+            "The quiet realization that you don't need to see everything to have seen it all."
+        ]
+    }
+];
+---
+
+<Layout title={`${itinerary.name} | A Curated Journey | Cinque Terre Dispatch`}>
+    <!-- Hero Section -->
+    <section class="relative h-[90vh] flex items-center overflow-hidden bg-black">
+        <div class="absolute inset-0">
+            <img 
+                src={itinerary.image} 
+                alt={itinerary.name} 
+                class="w-full h-full object-cover opacity-60 transition-transform duration-[20s] scale-110 hover:scale-100"
+            />
+            <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-4xl">
+                <div class="inline-flex items-center gap-3 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold uppercase tracking-[0.4em] mb-8">
+                    Signature Itinerary
+                </div>
+                <h1 class="font-serif text-6xl md:text-9xl font-bold text-white mb-8 leading-[0.85] tracking-tighter">
+                    {itinerary.name}
+                </h1>
+                <p class="text-white/90 text-xl md:text-3xl font-light leading-relaxed max-w-2xl font-serif italic mb-16">
+                    "{itinerary.subtitle}"
+                </p>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 pt-12 border-t border-white/10">
+                    <div class="space-y-2">
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-white/40">Duration</p>
+                        <p class="text-white font-serif text-xl">{itinerary.duration}</p>
+                    </div>
+                    <div class="space-y-2">
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-white/40">Pace</p>
+                        <p class="text-white font-serif text-xl">{itinerary.pace}</p>
+                    </div>
+                    <div class="space-y-2">
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-white/40">Effort</p>
+                        <p class="text-white font-serif text-xl">{itinerary.effort}</p>
+                    </div>
+                    <div class="space-y-2">
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-white/40">Best Season</p>
+                        <p class="text-white font-serif text-xl">{itinerary.bestSeason}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce hidden md:block">
+            <div class="w-px h-12 bg-gradient-to-b from-white/0 to-white/60"></div>
+        </div>
+    </section>
+
+    <!-- Why This Exists (Giulia's Voice) -->
+    <section class="py-32 bg-white relative overflow-hidden">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                <div class="lg:col-span-7 space-y-12">
+                    <div class="inline-flex items-center gap-4">
+                        <div class="h-px w-12 bg-primary/30"></div>
+                        <span class="text-[10px] font-bold uppercase tracking-[0.5em] text-primary">The Intention</span>
+                    </div>
+                    
+                    <h2 class="font-serif text-4xl md:text-6xl font-bold text-foreground leading-tight">
+                        Why I created <br/>this journey.
+                    </h2>
+                    
+                    <div class="prose prose-2xl max-w-none font-serif italic text-muted-foreground leading-relaxed space-y-8">
+                        <p>
+                            "Most people come to the Cinque Terre with a list. They want to see five villages in one day, take five photos, and catch the last train out. But the coast doesn't reveal itself to the hurried."
+                        </p>
+                        <p>
+                            "I built <strong>The Salt & Stone Path</strong> for the traveler who wants to feel the weight of the history here. It's for the person who would rather spend three hours watching the light change on a single cliffside than three minutes at every viewpoint."
+                        </p>
+                        <p>
+                            "This is not a checklist. It is a slow, rhythmic movement through a landscape that has spent centuries resisting the rush of the modern world. If you are looking for a marathon, this is not for you. But if you are looking for a conversation with the sea, stay a while."
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-5">
+                    <div class="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
+                        <img 
+                            src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=2000" 
+                            alt="Giulia in Riomaggiore" 
+                            class="w-full h-full object-cover"
+                        />
+                        <div class="absolute inset-0 bg-primary/10 mix-blend-overlay"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- At-a-Glance Overview -->
+    <section class="py-24 bg-secondary/30 border-y border-border/40">
+        <div class="container mx-auto px-4">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-16 space-y-4">
+                    <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-primary">Orientation</p>
+                    <h3 class="font-serif text-4xl font-bold text-foreground">The Rhythm of the Days</h3>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    {days.map((day) => (
+                        <div class="bg-white p-8 rounded-2xl shadow-sm border border-border/40 space-y-6 group hover:border-primary/20 transition-all">
+                            <div class="flex items-center justify-between">
+                                <span class="text-4xl font-serif font-bold text-primary/10 group-hover:text-primary/20 transition-colors">0{day.number}</span>
+                                <div class="w-8 h-8 rounded-full bg-secondary flex items-center justify-center">
+                                    <MapPin className="w-4 h-4 text-primary" />
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-foreground mb-1">{day.village}</h4>
+                                <p class="text-xs text-muted-foreground uppercase tracking-widest font-bold">{day.rhythm}</p>
+                            </div>
+                            <p class="text-sm text-muted-foreground leading-relaxed italic font-serif">
+                                {day.title}
+                            </p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="py-32 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                    <div class="lg:col-span-4 space-y-8">
+                        <div class="inline-flex items-center gap-4">
+                            <div class="h-px w-8 bg-primary/30"></div>
+                            <span class="text-[10px] font-bold uppercase tracking-[0.4em] text-primary">Spatial Clarity</span>
+                        </div>
+                        <h3 class="font-serif text-4xl font-bold text-foreground">The Coastal Arc</h3>
+                        <p class="text-lg text-muted-foreground leading-relaxed font-serif italic">
+                            "The journey follows the natural curve of the coast, starting in the east and moving toward the setting sun. It's a path of increasing light and openness."
+                        </p>
+                        <div class="space-y-4 pt-8">
+                            <div class="flex items-center gap-4 text-sm font-medium text-foreground">
+                                <div class="w-2 h-2 rounded-full bg-primary"></div>
+                                <span>Day 1: Riomaggiore</span>
+                            </div>
+                            <div class="flex items-center gap-4 text-sm font-medium text-foreground">
+                                <div class="w-2 h-2 rounded-full bg-primary/60"></div>
+                                <span>Day 2: The High Ridge</span>
+                            </div>
+                            <div class="flex items-center gap-4 text-sm font-medium text-foreground">
+                                <div class="w-2 h-2 rounded-full bg-primary/40"></div>
+                                <span>Day 3: The Harbor Heart</span>
+                            </div>
+                            <div class="flex items-center gap-4 text-sm font-medium text-foreground">
+                                <div class="w-2 h-2 rounded-full bg-primary/20"></div>
+                                <span>Day 4: The Open Horizon</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="lg:col-span-8">
+                        <div class="relative aspect-[16/9] rounded-3xl overflow-hidden border border-border/40 shadow-2xl group">
+                            <img 
+                                src="https://api.mapbox.com/styles/v1/mapbox/light-v11/static/9.7386,44.1194,11.5,0/1200x675@2x?access_token=pk.eyJ1IjoiZHJpZXRzY2giLCJhIjoiY21qYjAzMWxtMGJpZDNlc2RqMWN3NHdjbSJ9.k9Xvn4saiEtYhrJE8bKk7Q" 
+                                alt="Itinerary Map" 
+                                class="w-full h-full object-cover transition-transform duration-[10s] group-hover:scale-105"
+                            />
+                            <div class="absolute inset-0 bg-primary/5 pointer-events-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Journey (Day by Day) -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-5xl mx-auto space-y-48">
+                {days.map((day, index) => (
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+                        <!-- Day Number & Title -->
+                        <div class="lg:col-span-4 lg:sticky lg:top-32 space-y-8">
+                            <div class="space-y-4">
+                                <p class="text-[10px] font-bold uppercase tracking-[0.5em] text-primary">Day 0{day.number}</p>
+                                <h3 class="font-serif text-5xl font-bold text-foreground leading-tight">{day.title}</h3>
+                            </div>
+                            
+                            <div class="p-6 rounded-2xl bg-secondary/50 border border-border/40 space-y-4">
+                                <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-foreground">
+                                    <MapPin className="w-4 h-4 text-primary" /> {day.village}
+                                </div>
+                                <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-foreground">
+                                    <Navigation className="w-4 h-4 text-primary" /> {day.movement}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Day Narrative -->
+                        <div class="lg:col-span-8 space-y-16">
+                            <div class="prose prose-2xl max-w-none font-serif italic text-foreground/80 leading-relaxed">
+                                "{day.perspective}"
+                            </div>
+                            
+                            <div class="space-y-8">
+                                <p class="text-[10px] font-bold uppercase tracking-[0.4em] text-primary">The Moments That Matter</p>
+                                <div class="grid grid-cols-1 md:grid-cols-1 gap-6">
+                                    {day.moments.map((moment) => (
+                                        <div class="flex items-start gap-6 group">
+                                            <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center flex-shrink-0 group-hover:bg-primary/10 transition-colors">
+                                                <Heart className="w-5 h-5 text-primary" />
+                                            </div>
+                                            <p class="text-xl font-serif italic text-muted-foreground pt-2 leading-relaxed">
+                                                {moment}
+                                            </p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div class="aspect-[16/9] rounded-3xl overflow-hidden shadow-xl">
+                                <img 
+                                    src={`https://images.unsplash.com/photo-${index === 0 ? '1534447677768-be436bb09401' : index === 1 ? '1499678329028-101435549a4e' : index === 2 ? '1516483638261-f4dbaf036963' : '1596394516093-501ba68a0ba6'}?auto=format&fit=crop&q=80&w=2000`} 
+                                    alt={day.title} 
+                                    class="w-full h-full object-cover"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- Flexibility & Practical Guidance -->
+    <section class="py-32 bg-secondary/30 border-y border-border/40">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <div class="space-y-8">
+                        <div class="inline-flex items-center gap-4">
+                            <div class="h-px w-8 bg-primary/30"></div>
+                            <span class="text-[10px] font-bold uppercase tracking-[0.4em] text-primary">The Living Path</span>
+                        </div>
+                        <h3 class="font-serif text-3xl font-bold text-foreground">Flexibility & Flow</h3>
+                        <p class="text-lg text-muted-foreground leading-relaxed font-serif italic">
+                            "The coast is alive. In November, the trails are quieter but the sea is louder. If your energy is low, skip the high path and take the ferry—the view from the water is a different kind of medicine."
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-8">
+                        <div class="inline-flex items-center gap-4">
+                            <div class="h-px w-8 bg-primary/30"></div>
+                            <span class="text-[10px] font-bold uppercase tracking-[0.4em] text-primary">Quiet Guidance</span>
+                        </div>
+                        <h3 class="font-serif text-3xl font-bold text-foreground">Practical Truths</h3>
+                        <div class="space-y-6">
+                            <div class="flex gap-4">
+                                <Info className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
+                                <p class="text-sm text-muted-foreground leading-relaxed">The trains are efficient, but the boats are emotional. Use both.</p>
+                            </div>
+                            <div class="flex gap-4">
+                                <Info className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
+                                <p class="text-sm text-muted-foreground leading-relaxed">Water is your best friend on the trails. Fill your bottle at the village fountains.</p>
+                            </div>
+                            <div class="flex gap-4">
+                                <Info className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
+                                <p class="text-sm text-muted-foreground leading-relaxed">The last boat usually leaves before sunset. Plan your return accordingly.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reflective Ending -->
+    <section class="py-48 bg-white relative overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full opacity-[0.03] pointer-events-none">
+            <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M0 100 C 20 0, 50 0, 100 100" stroke="currentColor" fill="transparent" stroke-width="0.5" />
+            </svg>
+        </div>
+        
+        <div class="container mx-auto px-4 text-center max-w-4xl relative">
+            <div class="space-y-12">
+                <div class="inline-flex items-center gap-4">
+                    <div class="h-px w-12 bg-primary/30"></div>
+                    <span class="text-[10px] font-bold uppercase tracking-[0.5em] text-primary">The Resolution</span>
+                    <div class="h-px w-12 bg-primary/30"></div>
+                </div>
+                
+                <h2 class="font-serif text-5xl md:text-7xl font-bold text-foreground leading-tight italic">
+                    "What lingers is not the view, <br/>but the feeling of the salt on your skin."
+                </h2>
+                
+                <p class="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-2xl mx-auto font-serif italic">
+                    "When you leave the Cinque Terre, I hope you carry more than just photos. I hope you carry the rhythm of the sea and the quiet confidence of the stone. You didn't see everything, but you saw what mattered."
+                </p>
+                
+                <div class="flex flex-col items-center gap-8 pt-12">
+                    <div class="w-16 h-px bg-primary/30"></div>
+                    <p class="text-[10px] font-bold uppercase tracking-[0.5em] text-primary">— Giulia Rossi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gentle CTA -->
+    <section class="py-24 bg-secondary/10 border-t border-border/40">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center space-y-12">
+                <h3 class="font-serif text-3xl font-bold text-foreground">Deeper Explorations</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <a href="/sights" class="group p-8 rounded-3xl bg-white border border-border/40 hover:border-primary/20 transition-all text-left space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-primary">Curated Guide</span>
+                            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                        </div>
+                        <h4 class="font-serif text-2xl font-bold text-foreground">Sights Worth Your Attention</h4>
+                        <p class="text-sm text-muted-foreground leading-relaxed italic font-serif">A quiet invitation to the places that define Riomaggiore.</p>
+                    </a>
+                    <a href="/blog" class="group p-8 rounded-3xl bg-white border border-border/40 hover:border-primary/20 transition-all text-left space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-primary">The Dispatch</span>
+                            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                        </div>
+                        <h4 class="font-serif text-2xl font-bold text-foreground">Stories & Local Insights</h4>
+                        <p class="text-sm text-muted-foreground leading-relaxed italic font-serif">Slow journalism for a fast-moving coastline.</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <Footer />
+</Layout>
+
+<style>
+    .font-serif {
+        letter-spacing: -0.02em;
+    }
+</style>

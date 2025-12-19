@@ -1,0 +1,579 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer';
+import { Star, MapPin, Clock, Users, Sunrise, Info, Compass } from 'lucide-react';
+
+const sights = [
+    {
+        id: 1,
+        name: "The Harbor at Dusk",
+        category: "Harbor",
+        village: "Riomaggiore",
+        image: "/riomaggiore_harbor_1765960456019.png",
+        description: "The harbor is where Riomaggiore reveals its soul. Small boats rest in water so clear you can see the stones beneath, while the village rises in tiers of ochre, terracotta, and faded pink. As the day softens, the light turns golden, and the place feels less like a destination and more like a memory.",
+        editorComment: "Visit in the late afternoon when the sun moves behind the village and the harbor falls into soft shadow. The water becomes impossibly still, and the colors deepen. Most visitors arrive midday and miss this entirely.",
+        signature: "Where the village meets the sea in perfect stillness",
+        bestTime: "Late afternoon to early evening",
+        crowdLevel: "Moderate during day, quiet at dusk",
+        duration: "30–45 minutes",
+        googleRating: 4.7,
+        tripadvisorRating: 4.5,
+        orientation: "At sea level, 5 minutes from the station",
+        access: "Steep steps down from the main street",
+        seasonalNote: "Winter light is softer and more dramatic; summer brings warmth but also crowds."
+    },
+    {
+        id: 2,
+        name: "Santuario di Montenero",
+        category: "Viewpoint",
+        village: "Riomaggiore",
+        image: "/scenic_viewpoint_1765960559207.png",
+        description: "High above the village, this sanctuary offers a view that feels earned. The climb is steady but never punishing, and the reward is a panorama that stretches from the terraced vineyards to the open sea. The village below looks small and timeless, a cluster of color against the endless blue.",
+        editorComment: "Go early in the morning when the air is cool and the light is clean. By midday, the heat can be intense, and the view loses its clarity. Bring water and take your time—this is not a place to rush.",
+        signature: "The village seen from above, framed by sky and sea",
+        bestTime: "Early morning or late afternoon",
+        crowdLevel: "Quiet, rarely crowded",
+        duration: "1.5–2 hours including the walk",
+        googleRating: 4.8,
+        tripadvisorRating: 4.7,
+        orientation: "Above the village, 30-minute uphill walk from Piazza Vignaioli",
+        access: "Well-maintained mule track, some steep sections",
+        seasonalNote: "Spring and autumn offer the best light and temperature for the climb."
+    },
+    {
+        id: 3,
+        name: "Castello di Riomaggiore",
+        category: "Cultural Site",
+        village: "Riomaggiore",
+        image: "/historic_church_1765960706254.png",
+        description: "Built in 1260, the castle sits at the highest point of the village, a stone sentinel that has watched over Riomaggiore for centuries. Its walls are thick and weathered, and from its terraces, the view extends in every direction—sea, village, hills. It is a place that speaks of defense and endurance.",
+        editorComment: "Visit in the late afternoon when the sun is low and the stone glows warm. The interior now serves as a cultural center, but the terraces are the real draw. Bring a camera, but also take time to simply stand and look.",
+        signature: "A fortress with a view that commands the coast",
+        bestTime: "Late afternoon for golden light",
+        crowdLevel: "Moderate",
+        duration: "30–40 minutes",
+        googleRating: 4.5,
+        tripadvisorRating: 4.4,
+        orientation: "At the highest point of town, 10-minute uphill walk",
+        access: "Stone steps, moderately steep",
+        seasonalNote: "Open seasonally; check hours before visiting."
+    },
+    {
+        id: 4,
+        name: "San Giovanni Battista",
+        category: "Cultural Site",
+        village: "Riomaggiore",
+        image: "/historic_church_1765960706254.png",
+        description: "Founded in 1340, this Gothic church stands at the heart of the village, its neo-Gothic facade and striking rose window weathered by centuries of salt air. Inside, the space is cool and quiet, a refuge from the heat and noise of the streets. The light filters through stained glass, and time seems to slow.",
+        editorComment: "Step inside during the midday heat when the village is at its busiest. The contrast is immediate—outside, everything is bright and loud; inside, everything is still. It's a moment of pause that feels necessary.",
+        signature: "A place of quiet in the center of everything",
+        bestTime: "Midday for the interior light",
+        crowdLevel: "Quiet, rarely crowded",
+        duration: "15–20 minutes",
+        googleRating: 4.6,
+        tripadvisorRating: 4.5,
+        orientation: "Central village, near the main piazza",
+        access: "Easy access from main street",
+        seasonalNote: "Open year-round; most atmospheric in winter when the village is quiet."
+    },
+    {
+        id: 5,
+        name: "Via dell'Amore Trailhead",
+        category: "Trail",
+        village: "Riomaggiore",
+        image: "/scenic_viewpoint_1765960559207.png",
+        description: "Though the famous Love Path to Manarola has been closed for repairs, the trailhead remains a place of pilgrimage. Visitors come to see where the legendary coastal walk once began, to imagine the path carved into the cliffs, and to hope for its eventual reopening. Even in its absence, the romance of it lingers.",
+        editorComment: "The view from the trailhead is still worth the visit. Look south along the coast and you'll see the path suspended between land and sea. It's a reminder of what once was and what may be again. Check for reopening updates before your visit.",
+        signature: "A trail remembered, a view that remains",
+        bestTime: "Late afternoon for the best coastal light",
+        crowdLevel: "Moderate, popular photo spot",
+        duration: "10–15 minutes",
+        googleRating: 4.3,
+        tripadvisorRating: 4.2,
+        orientation: "South of the village, near the marina",
+        access: "Easy walk from the station",
+        seasonalNote: "Check official Cinque Terre website for reopening updates."
+    },
+    {
+        id: 6,
+        name: "Spiaggia di Riomaggiore",
+        category: "Beach",
+        village: "Riomaggiore",
+        image: "/beach_cove_1765960653545.png",
+        description: "This small, pebbly beach near the marina is not a place for sunbathing crowds. It is a sheltered cove where the water is startlingly clear and the atmosphere is unhurried. Locals come here to swim in the early morning or late afternoon, and there is a quiet understanding that this place is for those who know.",
+        editorComment: "The water is cold even in summer, but refreshing in the best way. Arrive before 9 AM or after 5 PM to have it mostly to yourself. The cove is sheltered from wind, making it ideal even on breezy days.",
+        signature: "A hidden cove where the village comes to swim",
+        bestTime: "Early morning or late afternoon",
+        crowdLevel: "Very quiet, mostly locals",
+        duration: "1–2 hours",
+        googleRating: 4.4,
+        tripadvisorRating: 4.3,
+        orientation: "Near the marina, 3 minutes from the harbor",
+        access: "Rocky beach, water shoes recommended",
+        seasonalNote: "Best from May to September when the water is swimmable."
+    },
+    {
+        id: 7,
+        name: "Via Colombo",
+        category: "Street",
+        village: "Riomaggiore",
+        image: "/riomaggiore_harbor_1765960456019.png",
+        description: "Riomaggiore's main street is the village's beating heart. Lined with restaurants, wine bars, and small shops, it pulses with life from morning until late evening. The street follows the natural contour of the valley, connecting the station to the harbor, and offers glimpses of daily life that feel authentic and unperformed.",
+        editorComment: "Walk it slowly in the early evening when locals emerge for their passeggiata. The energy shifts from tourist-focused to genuinely local, and you'll see the village as it sees itself. Stop for an aperitivo at one of the wine bars.",
+        signature: "The artery of village life, morning to night",
+        bestTime: "Early evening for the passeggiata",
+        crowdLevel: "Busy throughout the day",
+        duration: "20–30 minutes to walk, longer to linger",
+        googleRating: 4.6,
+        tripadvisorRating: 4.5,
+        orientation: "Main street from station to harbor",
+        access: "Paved, some steps, wheelchair accessible in sections",
+        seasonalNote: "Liveliest in summer evenings; quieter but charming in winter."
+    },
+    {
+        id: 8,
+        name: "Oratorio di Santa Maria Assunta",
+        category: "Cultural Site",
+        village: "Riomaggiore",
+        image: "/historic_church_1765960706254.png",
+        description: "Also known as the Chiesa della Compagnia, this simple stone oratory holds a treasure: a unique 14th-century wooden statue called the Madonna delle Catene. The building itself is modest, but there is a quiet dignity to its plainness, and the interior feels like a secret kept by the village.",
+        editorComment: "This is not a sight that announces itself. You have to seek it out, and that's part of its appeal. The wooden Madonna is remarkable—delicate and expressive in a way that feels personal rather than monumental.",
+        signature: "A humble space holding centuries of devotion",
+        bestTime: "Morning or late afternoon",
+        crowdLevel: "Very quiet, often empty",
+        duration: "10–15 minutes",
+        googleRating: 4.5,
+        tripadvisorRating: 4.4,
+        orientation: "In the village center, near Via Colombo",
+        access: "Easy access, small entrance",
+        seasonalNote: "Open year-round; hours may vary, check locally."
+    },
+    {
+        id: 9,
+        name: "Harbor Rocks Viewpoint",
+        category: "Viewpoint",
+        village: "Riomaggiore",
+        image: "/scenic_viewpoint_1765960559207.png",
+        description: "Standing on the rocks that ring the harbor, you see the postcard view of Riomaggiore: the tower houses stacked in impossible colors, the boats bobbing below, the sea stretching to the horizon. It is the view that defines the village, and it never loses its power, no matter how many times you've seen it in photographs.",
+        editorComment: "This is the sunset spot. Arrive 30 minutes before golden hour and claim your rock. The light transforms the buildings from pastel to luminous, and the whole scene glows. It's crowded, yes, but for good reason.",
+        signature: "The iconic view, earned by standing on stone",
+        bestTime: "Sunset, without question",
+        crowdLevel: "Very busy at sunset, quieter other times",
+        duration: "20–40 minutes",
+        googleRating: 4.8,
+        tripadvisorRating: 4.7,
+        orientation: "At the harbor, on the seawall rocks",
+        access: "Requires careful footing on rocks, not suitable for all mobility levels",
+        seasonalNote: "Stunning year-round; summer sunsets are latest and most crowded."
+    },
+    {
+        id: 10,
+        name: "Via Telemaco Signorini",
+        category: "Viewpoint",
+        village: "Riomaggiore",
+        image: "/scenic_viewpoint_1765960559207.png",
+        description: "This scenic road winds above the village, offering broad, open views over Riomaggiore and the sea. Unlike the harbor viewpoint, this one gives you distance and perspective. You see the village in its entirety, nestled into the landscape, and understand how small and improbable it is.",
+        editorComment: "Come here for a different kind of sunset—one where you see the light change across the entire coastline, not just the village. It's quieter than the harbor rocks and feels more contemplative.",
+        signature: "The village from a distance, small against the sea",
+        bestTime: "Sunset or late afternoon",
+        crowdLevel: "Quiet, few visitors",
+        duration: "15–30 minutes",
+        googleRating: 4.6,
+        tripadvisorRating: 4.5,
+        orientation: "Above the village, accessible by road or trail",
+        access: "Paved road, some uphill walking",
+        seasonalNote: "Beautiful in all seasons; spring wildflowers add color."
+    },
+    {
+        id: 11,
+        name: "Via San Giacomo Viewpoint",
+        category: "Viewpoint",
+        village: "Riomaggiore",
+        image: "/scenic_viewpoint_1765960559207.png",
+        description: "Close to the seawall, this viewpoint offers a unique perspective of the village center from the sea side. It's a photographer's favorite for good reason—the angle captures the density and verticality of Riomaggiore in a way that feels both intimate and dramatic.",
+        editorComment: "This is a morning spot. The light comes from the east and illuminates the building facades beautifully. By afternoon, they're in shadow. Arrive early, take your shots, then head to breakfast.",
+        signature: "The village from the sea, vertical and vivid",
+        bestTime: "Morning for the best light",
+        crowdLevel: "Moderate, popular with photographers",
+        duration: "15–20 minutes",
+        googleRating: 4.7,
+        tripadvisorRating: 4.6,
+        orientation: "Near the seawall, south of the harbor",
+        access: "Easy walk, some uneven surfaces",
+        seasonalNote: "Morning light is best in spring and summer."
+    },
+    {
+        id: 12,
+        name: "Piazza Vignaioli",
+        category: "Square",
+        village: "Riomaggiore",
+        image: "/riomaggiore_harbor_1765960456019.png",
+        description: "This village square serves as a gathering point and the starting place for the trail to Santuario di Montenero. It's not grand or monumental—just a small open space where locals meet, children play, and hikers prepare for the climb. It has the unpretentious charm of a place that exists for the village, not for visitors.",
+        editorComment: "Stop here before or after the hike to Montenero. There's usually a small café nearby where you can get water or an espresso. Watch the locals for a few minutes—it's a window into daily life.",
+        signature: "A quiet square where village life unfolds",
+        bestTime: "Morning or early evening",
+        crowdLevel: "Quiet, mostly locals",
+        duration: "10–15 minutes",
+        googleRating: 4.4,
+        tripadvisorRating: 4.3,
+        orientation: "Upper village, starting point for Montenero trail",
+        access: "Easy access, flat square",
+        seasonalNote: "Pleasant year-round; busiest when hikers are active."
+    }
+];
+---
+
+<Layout title="Sights of Riomaggiore | Cinque Terre Dispatch">
+    <!-- Hero Section -->
+    <section class="relative h-[60vh] min-h-[500px] overflow-hidden">
+        <div class="absolute inset-0">
+            <img 
+                src="/scenic_viewpoint_1765960559207.png" 
+                alt="Riomaggiore landscape" 
+                class="w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60"></div>
+        </div>
+        
+        <div class="relative h-full container mx-auto px-4 flex flex-col justify-end pb-16">
+            <div class="max-w-3xl">
+                <div class="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white text-xs font-bold uppercase tracking-widest mb-4">
+                    Editorial Guide
+                </div>
+                <h1 class="font-serif text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                    Sights Worth<br/>Your Attention
+                </h1>
+                <p class="text-white/90 text-xl md:text-2xl font-light leading-relaxed max-w-2xl">
+                    Not a catalog, but a quiet invitation to the places that define Riomaggiore—and why they matter.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="py-24 bg-white border-y border-border/40 overflow-hidden relative">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full opacity-[0.02] pointer-events-none">
+            <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M0 100 C 20 0, 50 0, 100 100" stroke="currentColor" fill="transparent" />
+            </svg>
+        </div>
+        <div class="container mx-auto px-4 relative">
+            <div class="max-w-4xl mx-auto text-center space-y-10">
+                <div class="inline-flex items-center gap-4">
+                    <div class="h-px w-8 bg-primary/30"></div>
+                    <span class="text-[10px] font-bold uppercase tracking-[0.4em] text-primary">Curated Selection</span>
+                    <div class="h-px w-8 bg-primary/30"></div>
+                </div>
+                
+                <p class="font-serif text-2xl md:text-4xl text-foreground leading-[1.4] italic font-light">
+                    Each sight here has been chosen not for completeness, but for character. These are the places that reveal something essential about Riomaggiore—its rhythm, its light, its relationship with the sea.
+                </p>
+                
+                <div class="space-y-4">
+                    <p class="text-muted-foreground text-lg font-serif">
+                        They are presented as they deserve to be: with care, context, and a human voice.
+                    </p>
+                    <div class="flex justify-center pt-4">
+                        <div class="w-12 h-px bg-border"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sights Grid -->
+    <section class="py-16 container mx-auto px-4">
+        <div class="space-y-16">
+            {sights.map((sight, index) => (
+                <article class="group cursor-pointer">
+                    <!-- Image -->
+                    <div class="relative aspect-[21/9] overflow-hidden rounded-xl mb-8">
+                        <img 
+                            src={sight.image} 
+                            alt={sight.name}
+                            class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                        />
+                        <span class="absolute top-6 left-6 bg-white/90 text-black px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wide shadow-sm">
+                            {sight.category}
+                        </span>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                        
+                        <!-- Main Content (2/3) -->
+                        <div class="lg:col-span-2 space-y-8">
+                            <!-- Header -->
+                            <div>
+                                <div class="flex items-center gap-2 mb-3">
+                                    <MapPin className="w-4 h-4 text-primary" />
+                                    <span class="text-sm font-medium text-muted-foreground">{sight.village}</span>
+                                </div>
+                                <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4 group-hover:text-primary transition-colors leading-tight">
+                                    {sight.name}
+                                </h2>
+                            </div>
+
+                            <!-- Signature Quote -->
+                            <div class="pl-6 border-l-2 border-primary/30">
+                                <p class="font-serif text-xl italic text-foreground/70 leading-relaxed">
+                                    "{sight.signature}"
+                                </p>
+                            </div>
+
+                            <!-- Description -->
+                            <div class="prose prose-lg max-w-none">
+                                <p class="text-foreground/80 text-lg leading-relaxed mb-4">
+                                    {sight.description}
+                                </p>
+                                <p class="text-muted-foreground leading-relaxed flex items-center gap-2">
+                                    <Compass className="w-4 h-4 text-primary/60" />
+                                    {sight.orientation}
+                                </p>
+                            </div>
+
+                            <!-- Editor's Note -->
+                            <div class="relative py-8 group/note">
+                                <div class="absolute top-0 right-0 p-4 opacity-[0.05] group-hover/note:opacity-[0.1] transition-opacity">
+                                    <svg class="w-24 h-24 text-primary fill-current" viewBox="0 0 24 24">
+                                        <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H16.017C15.4647 8 15.017 8.44772 15.017 9V12C15.017 12.5523 14.5693 13 14.017 13H13.017C12.4647 13 12.017 12.5523 12.017 12V9C12.017 6.79086 13.8079 5 16.017 5H19.017C21.2261 5 23.017 6.79086 23.017 9V15C23.017 18.866 19.883 22 16.017 22H14.017V21ZM2.01698 21L2.01698 18C2.01698 16.8954 2.91241 16 4.01698 16H7.01698C7.56927 16 8.01698 15.5523 8.01698 15V9C8.01698 8.44772 7.56927 8 7.01698 8H4.01698C3.4647 8 3.01698 8.44772 3.01698 9V12C3.01698 12.5523 2.56927 13 2.01698 13H1.01698C0.4647 13 0.0169824 12.5523 0.0169824 12V9C0.0169824 6.79086 1.80784 5 4.01698 5H7.01698C9.22612 5 11.017 6.79086 11.017 9V15C11.017 18.866 7.88298 22 4.01698 22H2.01698V21Z" />
+                                    </svg>
+                                </div>
+                                <div class="relative flex flex-col md:flex-row items-start gap-6">
+                                    <div class="relative flex-shrink-0">
+                                        <div class="w-16 h-16 rounded-full bg-primary/10 p-1 ring-2 ring-primary/20">
+                                            <div class="w-full h-full rounded-full overflow-hidden bg-secondary">
+                                                <img 
+                                                    src="https://api.dicebear.com/7.x/avataaars/svg?seed=Giulia" 
+                                                    alt="Giulia Rossi"
+                                                    class="w-full h-full object-cover"
+                                                />
+                                            </div>
+                                        </div>
+                                        <div class="absolute -bottom-1 -right-1 bg-primary text-white p-1 rounded-full shadow-lg">
+                                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="flex-1 space-y-4">
+                                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-[0.2em]">
+                                            Local Perspective
+                                        </div>
+                                        <blockquote class="font-serif text-xl text-foreground/90 leading-relaxed italic">
+                                            "{sight.editorComment}"
+                                        </blockquote>
+                                        <div class="flex items-center gap-3 pt-2">
+                                            <div class="h-px w-8 bg-primary/30"></div>
+                                            <p class="text-sm font-medium text-foreground">
+                                                Giulia Rossi <span class="text-muted-foreground font-normal ml-1">— Riomaggiore Expert</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Facts Sidebar (1/3) -->
+                        <div class="lg:col-span-1">
+                            <div class="sticky top-24 space-y-10">
+                                <!-- Header -->
+                                <div>
+                                    <h3 class="font-serif text-2xl font-bold text-foreground mb-6 pb-4 border-b border-border">
+                                        Essential Information
+                                    </h3>
+                                    
+                                    <!-- Map Integration -->
+                                    <div class="relative aspect-video rounded-xl overflow-hidden border border-border/50 mb-8 group/map">
+                                        <img 
+                                            src="https://api.mapbox.com/styles/v1/mapbox/light-v11/static/pin-l+bf2b2b(9.7376,44.099)/9.7386,44.0994,15.39,0/640x360@2x?before_layer=admin-1-boundary&access_token=pk.eyJ1IjoiZHJpZXRzY2giLCJhIjoiY21qYjAzMWxtMGJpZDNlc2RqMWN3NHdjbSJ9.k9Xvn4saiEtYhrJE8bKk7Q" 
+                                            alt="Location Map"
+                                            class="object-cover w-full h-full transition-transform duration-700 group-hover/map:scale-110"
+                                        />
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover/map:opacity-100 transition-opacity"></div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Reviews Section -->
+                                <div class="space-y-6">
+                                    <div class="flex items-center justify-between">
+                                        <h4 class="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">Traveler Reviews</h4>
+                                        <div class="h-px flex-1 bg-primary/10 ml-4"></div>
+                                    </div>
+                                    
+                                    <div class="space-y-4">
+                                        <!-- Google -->
+                                        <div class="flex items-center justify-between group/review">
+                                            <div class="flex items-center gap-3">
+                                                <img 
+                                                    src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" 
+                                                    alt="Google" 
+                                                    class="h-4 opacity-60 group-hover/review:opacity-100 transition-opacity grayscale brightness-0 dark:invert"
+                                                />
+                                            </div>
+                                            <div class="flex items-center gap-2">
+                                                <div class="flex items-center gap-0.5">
+                                                    {[...Array(5)].map((_, i) => (
+                                                        <Star className={`w-3 h-3 ${i < Math.floor(sight.googleRating) ? 'fill-amber-400 text-amber-400' : 'fill-gray-200 text-gray-200'}`} />
+                                                    ))}
+                                                </div>
+                                                <span class="text-lg font-serif font-bold text-foreground">{sight.googleRating}</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- TripAdvisor -->
+                                        <div class="flex items-center justify-between group/review">
+                                            <div class="flex items-center gap-3">
+                                                <img 
+                                                    src="https://static.tacdn.com/img2/brand_refresh_2025/logos/wordmark.svg" 
+                                                    alt="TripAdvisor" 
+                                                    class="h-4 opacity-60 group-hover/review:opacity-100 transition-opacity grayscale brightness-0 dark:invert"
+                                                />
+                                            </div>
+                                            <div class="flex items-center gap-2">
+                                                <div class="flex items-center gap-0.5">
+                                                    {[...Array(5)].map((_, i) => (
+                                                        <svg className={`w-3 h-3 ${i < Math.floor(sight.tripadvisorRating) ? 'fill-[#34e0a1]' : 'fill-gray-200'}`} viewBox="0 0 24 24">
+                                                            <circle cx="12" cy="12" r="10" fill="currentColor"/>
+                                                        </svg>
+                                                    ))}
+                                                </div>
+                                                <span class="text-lg font-serif font-bold text-foreground">{sight.tripadvisorRating}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Info Items -->
+                                <div class="space-y-8">
+                                    <div class="flex items-center justify-between">
+                                        <h4 class="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">Practical Details</h4>
+                                        <div class="h-px flex-1 bg-primary/10 ml-4"></div>
+                                    </div>
+
+                                    <div class="space-y-6">
+                                        <!-- Best Time -->
+                                        <div class="flex gap-4 group/info">
+                                            <div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center flex-shrink-0 group-hover/info:bg-primary/10 transition-colors">
+                                                <Sunrise className="w-5 h-5 text-primary" />
+                                            </div>
+                                            <div class="flex-1 min-w-0">
+                                                <div class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-1">Best Time</div>
+                                                <div class="text-sm font-medium text-foreground leading-relaxed">{sight.bestTime}</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Duration -->
+                                        <div class="flex gap-4 group/info">
+                                            <div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center flex-shrink-0 group-hover/info:bg-primary/10 transition-colors">
+                                                <Clock className="w-5 h-5 text-primary" />
+                                            </div>
+                                            <div class="flex-1 min-w-0">
+                                                <div class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-1">Duration</div>
+                                                <div class="text-sm font-medium text-foreground leading-relaxed">{sight.duration}</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Crowd Level -->
+                                        <div class="flex gap-4 group/info">
+                                            <div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center flex-shrink-0 group-hover/info:bg-primary/10 transition-colors">
+                                                <Users className="w-5 h-5 text-primary" />
+                                            </div>
+                                            <div class="flex-1 min-w-0">
+                                                <div class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-1">Crowd Level</div>
+                                                <div class="text-sm font-medium text-foreground leading-relaxed">{sight.crowdLevel}</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Access -->
+                                        <div class="flex gap-4 group/info">
+                                            <div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center flex-shrink-0 group-hover/info:bg-primary/10 transition-colors">
+                                                <Info className="w-5 h-5 text-primary" />
+                                            </div>
+                                            <div class="flex-1 min-w-0">
+                                                <div class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-1">Access</div>
+                                                <div class="text-sm font-medium text-foreground leading-relaxed">{sight.access}</div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Seasonal Note -->
+                                        {sight.seasonalNote && (
+                                            <div class="flex gap-4 group/info">
+                                                <div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center flex-shrink-0 group-hover/info:bg-primary/10 transition-colors">
+                                                    <Sunrise className="w-5 h-5 text-primary" />
+                                                </div>
+                                                <div class="flex-1 min-w-0">
+                                                    <div class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-1">Seasonal Note</div>
+                                                    <div class="text-sm font-medium text-foreground leading-relaxed">{sight.seasonalNote}</div>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            ))}
+        </div>
+    </section>
+
+    <!-- Closing Note -->
+    <section class="py-20 bg-secondary/30">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center space-y-6">
+                <h3 class="font-serif text-3xl md:text-4xl font-bold text-foreground">
+                    A Note on Exploration
+                </h3>
+                <p class="text-lg text-muted-foreground leading-relaxed font-light">
+                    These sights are not meant to be checked off a list. They are invitations to slow down, to notice, to feel. Visit them in the order that makes sense for your day, or skip the ones that don't speak to you. The best experiences in Riomaggiore are often the ones you didn't plan.
+                </p>
+                <p class="text-base text-muted-foreground italic">
+                    — The Editors
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <Footer />
+</Layout>
+
+<style>
+    /* Smooth scroll behavior */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Custom hover effects */
+    article:hover .group-hover\:scale-105 {
+        transform: scale(1.05);
+    }
+
+    /* Typography refinements */
+    .font-serif {
+        letter-spacing: -0.02em;
+    }
+
+    /* Subtle animations */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    article {
+        animation: fadeInUp 0.6s ease-out;
+        animation-fill-mode: both;
+    }
+
+    article:nth-child(1) { animation-delay: 0.1s; }
+    article:nth-child(2) { animation-delay: 0.2s; }
+    article:nth-child(3) { animation-delay: 0.3s; }
+    article:nth-child(4) { animation-delay: 0.4s; }
+    article:nth-child(5) { animation-delay: 0.5s; }
+    article:nth-child(6) { animation-delay: 0.6s; }
+</style>
