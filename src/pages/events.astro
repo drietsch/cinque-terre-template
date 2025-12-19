@@ -1,0 +1,521 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer';
+import { Star, MapPin, Clock, Calendar, Users, Info, Compass, Waves, Sun, Heart, Music, Anchor } from 'lucide-react';
+
+const events = [
+    {
+        id: 1,
+        name: "Festa di San Giovanni Battista",
+        category: "Patron Saint Festival",
+        village: "Riomaggiore",
+        image: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=2670&auto=format&fit=crop",
+        intro: "The day the village honors its protector, turning the streets into a canvas of devotion and color.",
+        description: "June 24th is the heartbeat of Riomaggiore's year. The celebration of San Giovanni Battista is not a show for visitors, but a deep-seated tradition. The village is decorated with 'infiorate'—intricate patterns made of flower petals and colored chalk on the pavement. A solemn procession winds through the narrow streets, carrying the statue of the saint down to the harbor, where the sea is blessed. It is a day of shared identity, ending with fireworks that reflect off the dark water of the marina.",
+        giuliaComment: "I love the morning of the 24th. The air smells of crushed petals and salt. I always watch the 'Madonnari' artists working on the pavement; there's a beautiful humility in creating something so complex that will be walked over by the end of the day. If you are here, find a spot on a staircase and just watch the procession pass. Don't try to follow it; let it move around you.",
+        signature: "A day when the village's history and faith become visible on the stone",
+        date: "June 24th",
+        timeOfDay: "All day, procession in late afternoon",
+        duration: "Full day",
+        location: "Throughout the village and harbor",
+        practicalInfo: "The village is extremely crowded. Trains are frequent but packed. Arrive early if you want to see the flower art before the procession begins.",
+        googleRating: 4.8,
+        tripadvisorRating: 4.7
+    },
+    {
+        id: 2,
+        name: "Madonna di Montenero Procession",
+        category: "Religious Pilgrimage",
+        village: "Riomaggiore",
+        image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=2670&auto=format&fit=crop",
+        intro: "A vertical journey of faith, connecting the village to its sanctuary in the sky.",
+        description: "Twice a year—on Pentecost and September 8th—the village climbs. The pilgrimage to the Sanctuary of Montenero is a quiet, rhythmic event. Locals carry the image of the Madonna up the ancient mule tracks, past the vineyards that she is said to protect. At the top, high above the sea, a mass is held in the small piazza of the sanctuary. It is an event defined by breath, effort, and the wide silence of the hills.",
+        giuliaComment: "This is the 'real' Riomaggiore. It's not about the spectacle; it's about the climb. I notice how the older generation moves with a steady pace that puts younger hikers to shame. When you reach the sanctuary, the view of the coastline feels like a reward for the devotion. It's a very contemplative day.",
+        signature: "A pilgrimage that measures faith in footsteps and altitude",
+        date: "Pentecost (May/June) and September 8th",
+        timeOfDay: "Morning",
+        duration: "3–4 hours",
+        location: "Trail from Piazza Vignaioli to the Sanctuary",
+        practicalInfo: "Requires a steady uphill walk. Wear comfortable shoes and bring water. The atmosphere is respectful and quiet; it is more of a shared walk than a festival.",
+        googleRating: 4.9,
+        tripadvisorRating: 4.8
+    },
+    {
+        id: 3,
+        name: "The Grape Harvest (La Vendemmia)",
+        category: "Agricultural Tradition",
+        village: "Riomaggiore",
+        image: "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=2670&auto=format&fit=crop",
+        intro: "Not a festival, but a season of collective labor that defines the village's soul.",
+        description: "In September, the rhythm of Riomaggiore shifts to the terraces. The 'Vendemmia' is the most important event of the year, though it has no fixed schedule. It begins when the sun and the grapes decide. You will see the monorails (trenini) buzzing up and down the cliffs, laden with crates of Bosco, Albarola, and Vermentino grapes. The air in the upper village smells of fermenting must, and every conversation turns to the quality of the sugar and the timing of the rain.",
+        giuliaComment: "The Vendemmia is a time of high tension and great joy. I love the sound of the monorails—it's the soundtrack of our survival. You might find some paths closed or see farmers moving quickly with heavy loads; give them space. This is the work that keeps the village alive. If you're lucky, a local might offer you a taste of the fresh juice.",
+        signature: "The season when the hills yield their liquid gold",
+        date: "September (variable)",
+        timeOfDay: "Dawn until dusk",
+        duration: "2–3 weeks",
+        location: "Terraced vineyards and village cellars",
+        practicalInfo: "This is a working period. Be mindful of farmers on narrow paths. Some hiking trails may have increased activity or temporary restrictions.",
+        googleRating: 4.7,
+        tripadvisorRating: 4.6
+    },
+    {
+        id: 4,
+        name: "Rimazû Folk Festival",
+        category: "Cultural Celebration",
+        village: "Riomaggiore",
+        image: "https://images.unsplash.com/photo-1514525253361-bee8a4874093?q=80&w=2574&auto=format&fit=crop",
+        intro: "A celebration of the local tongue, where the dialect of the rocks finds its voice in song.",
+        description: "The Rimazû Folk Festival is a rare moment where the specific culture of Riomaggiore takes center stage. Dedicated to the local dialect and traditional music, it brings together singers and storytellers in the village squares. It is an exploration of memory, preserving the words and melodies that have echoed through these valleys for centuries. It feels intimate, like a family gathering that the whole village is invited to.",
+        giuliaComment: "Even if you don't understand a word of the dialect, you can feel the emotion. It's a rough, salt-hewn language, and hearing it sung is very moving. I always notice the younger kids listening to the elders; it's how we keep our soul from being washed away by the tide of tourism.",
+        signature: "The voice of the village, preserved in melody and dialect",
+        date: "Late August",
+        timeOfDay: "Evening",
+        duration: "3 nights",
+        location: "Piazza del Vignaiolo or the Castle",
+        practicalInfo: "A very local event. Seating is limited and usually fills up with residents. Standing at the edges is perfectly fine and often offers a better perspective.",
+        googleRating: 4.6,
+        tripadvisorRating: 4.5
+    },
+    {
+        id: 5,
+        name: "Festa dell'Assunta",
+        category: "Religious Feast",
+        village: "Riomaggiore",
+        image: "https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=2574&auto=format&fit=crop",
+        intro: "The peak of summer, marked by a quiet devotion in the heart of the village.",
+        description: "August 15th, Ferragosto, is celebrated with particular intensity at the Oratory of Santa Maria Assunta. While the rest of Italy is at the beach, the Confraternity of the Assumption gathers for a solemn mass and a small procession. The simple stone oratory is filled with incense and the sound of ancient hymns. It is a moment of stillness in the busiest month of the year, a reminder of the village's spiritual foundations.",
+        giuliaComment: "I find this day very grounding. The heat outside is intense, but inside the oratory, it is cool and dark. I love the contrast between the holiday crowds on Via Colombo and the absolute focus of the people inside the church. It's a good day to practice 'scarpetta'—the art of moving slowly and noticing the small things.",
+        signature: "A cool refuge of faith in the heat of the summer",
+        date: "August 15th",
+        timeOfDay: "Morning mass and midday procession",
+        duration: "2–3 hours",
+        location: "Oratorio di Santa Maria Assunta",
+        practicalInfo: "The oratory is small; if you wish to attend mass, arrive early and dress respectfully (shoulders covered). The procession is short and stays within the central carruggi.",
+        googleRating: 4.5,
+        tripadvisorRating: 4.4
+    },
+    {
+        id: 6,
+        name: "The Underwater Nativity",
+        category: "Christmas Tradition",
+        village: "Riomaggiore",
+        image: "https://images.unsplash.com/photo-1514890547357-a9ee2887ad8e?q=80&w=2670&auto=format&fit=crop",
+        intro: "A silent, luminous tribute to the sea that sustains and defines us.",
+        description: "On Christmas Eve, the harbor of Riomaggiore becomes a place of quiet wonder. Divers descend into the dark, cold water of the marina to place a nativity scene on the seabed. Torches illuminate the water from below, creating a ghostly, beautiful glow. On the shore, the village gathers with candles, singing carols that are carried away by the winter wind. It is a stark, beautiful event that connects the birth of Christ to the life of the fisherman.",
+        giuliaComment: "Winter in Riomaggiore is a secret that few visitors know. This event is my favorite. There is no noise, no fireworks—just the light in the water and the sound of the waves. It's incredibly moving. Wear your warmest coat and bring a thermos of tea. It's a night for standing close to others.",
+        signature: "A light in the winter dark, where the sea and the sacred meet",
+        date: "December 24th",
+        timeOfDay: "Late evening (around 11:00 PM)",
+        duration: "1 hour",
+        location: "Riomaggiore Harbor (Marina)",
+        practicalInfo: "It can be very cold and windy at the harbor. The rocks can be slippery in the dark; stay on the paved areas. Most restaurants are closed, so plan your dinner in advance.",
+        googleRating: 4.9,
+        tripadvisorRating: 4.8
+    }
+];
+---
+
+<Layout title="Events & Rhythms of Riomaggiore | Cinque Terre Dispatch">
+    <!-- Hero Section -->
+    <section class="relative h-[70vh] min-h-[600px] overflow-hidden">
+        <div class="absolute inset-0">
+            <img 
+                src="https://images.unsplash.com/photo-1498503182468-3b51cbb6cb24?q=80&w=2670&auto=format&fit=crop" 
+                alt="Riomaggiore harbor at night" 
+                class="w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60"></div>
+        </div>
+        
+        <div class="relative h-full container mx-auto px-4 flex flex-col justify-end pb-24">
+            <div class="max-w-3xl">
+                <div class="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white text-xs font-bold uppercase tracking-widest mb-4">
+                    The Living Calendar
+                </div>
+                <h1 class="font-serif text-5xl md:text-8xl font-bold text-white mb-6 leading-tight">
+                    Moments of<br/>Shared Attention
+                </h1>
+                <p class="text-white/90 text-xl md:text-2xl font-light leading-relaxed max-w-2xl">
+                    Events in Riomaggiore are not spectacles. They are the brief surfacing of a deep, local rhythm—moments when the village remembers who it is.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Narrative Introduction -->
+    <section class="py-24 bg-white overflow-hidden relative">
+        <div class="container mx-auto px-4 relative">
+            <div class="max-w-4xl mx-auto">
+                <div class="space-y-12">
+                    <div class="inline-flex items-center gap-4">
+                        <div class="h-px w-8 bg-primary/30"></div>
+                        <span class="text-[10px] font-bold uppercase tracking-[0.4em] text-primary">The Meaning of Gathering</span>
+                        <div class="h-px w-8 bg-primary/30"></div>
+                    </div>
+
+                    <div class="prose prose-xl prose-serif max-w-none">
+                        <p class="font-serif text-3xl md:text-4xl text-foreground leading-[1.4] italic font-light mb-12">
+                            To understand an event in Riomaggiore, you must first understand that it is not for you. It is for the village, for the ancestors, and for the sea.
+                        </p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-lg text-muted-foreground leading-relaxed font-light">
+                            <div class="space-y-6">
+                                <p>
+                                    Most of our gatherings are <strong>rooted in the soil and the sea</strong>. They follow the religious calendar, the cycles of the vineyards, or the ancient traditions of the fishing boats. They are repetitive, familiar, and deeply personal. We do not celebrate to entertain, but to participate in a continuity that stretches back centuries.
+                                </p>
+                                <p>
+                                    You will find that <strong>spectacle is rare</strong>. The beauty of a procession or a harvest is found in its lack of polish—in the way a neighbor carries a heavy statue, or the way the smell of fermenting grapes fills the streets. These are moments of shared attention, where the village briefly reorganizes itself around a common purpose.
+                                </p>
+                            </div>
+                            <div class="space-y-6">
+                                <p>
+                                    The meaning of these events lies in <strong>observation and respect</strong>. We invite you to watch, to listen, and to feel the shift in the village's energy. But we ask that you do so from the edge, with the understanding that you are witnessing a private moment of community. There is no need for applause; your presence is enough.
+                                </p>
+                                <p>
+                                    In Riomaggiore, <strong>timing is everything</strong>. Some events last all day, others only a few luminous minutes. Some are loud and colorful, others are silent and dark. To be present for these moments is to see the village reveal itself differently, showing a face that is usually kept hidden from the midday sun.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center pt-12">
+                        <div class="w-24 h-px bg-border"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transition Section -->
+    <section class="py-20 bg-secondary/20 border-y border-border/40">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="font-serif text-4xl md:text-5xl font-bold text-foreground mb-6">
+                When the village gathers
+            </h2>
+            <p class="text-xl text-muted-foreground max-w-2xl mx-auto font-light leading-relaxed">
+                The following portraits follow the natural flow of the year. They are not a schedule to be chased, but a story to be understood.
+            </p>
+        </div>
+    </section>
+
+    <!-- Events Collection -->
+    <section class="py-24 container mx-auto px-4">
+        <div class="space-y-32">
+            {events.map((event, index) => (
+                <div class="space-y-16">
+                    {/* Editorial Interludes */}
+                    {index === 2 && (
+                        <div class="bg-primary/5 rounded-3xl p-12 md:p-20 my-24 relative overflow-hidden group">
+                            <div class="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 opacity-[0.03] group-hover:opacity-[0.05] transition-opacity duration-700">
+                                <Anchor className="w-96 h-96" />
+                            </div>
+                            <div class="max-w-3xl relative">
+                                <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-primary mb-6 block">Editorial Interlude</span>
+                                <h3 class="font-serif text-3xl md:text-4xl font-bold mb-6">The Art of the Edge</h3>
+                                <p class="text-xl text-muted-foreground leading-relaxed font-light italic">
+                                    "The best way to experience a village event is from the edge. Don't try to be at the front of the procession or the center of the square. Find a high step, a quiet corner, or a window. From the periphery, you see the whole—the way the light hits the faces of the elders, the way the children mimic the movements of their parents. You are a witness, not a participant, and there is great beauty in that distance."
+                                </p>
+                            </div>
+                        </div>
+                    )}
+
+                    {index === 4 && (
+                        <div class="bg-secondary/40 rounded-3xl p-12 md:p-20 my-24 relative overflow-hidden group">
+                            <div class="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 opacity-[0.03] group-hover:opacity-[0.05] transition-opacity duration-700">
+                                <Music className="w-96 h-96" />
+                            </div>
+                            <div class="max-w-3xl ml-auto text-right relative">
+                                <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-primary mb-6 block">Editorial Interlude</span>
+                                <h3 class="font-serif text-3xl md:text-4xl font-bold mb-6">Silence and Noise</h3>
+                                <p class="text-xl text-muted-foreground leading-relaxed font-light italic">
+                                    "Riomaggiore lives in the alternation of silence and noise. Our events are often loud—bells, singing, fireworks—but they are always followed by a deeper silence. This contrast is what gives the celebration its weight. After the fireworks of San Giovanni, the harbor feels more still than it does on any other night. The noise is a necessary release, but the silence is where the meaning settles."
+                                </p>
+                            </div>
+                        </div>
+                    )}
+
+                    <article class="group cursor-pointer">
+                        <!-- Image -->
+                        <div class="relative aspect-[21/9] overflow-hidden rounded-xl mb-8">
+                            <img 
+                                src={event.image} 
+                                alt={event.name}
+                                class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                            />
+                            <span class="absolute top-6 left-6 bg-white/90 text-black px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wide shadow-sm">
+                                {event.category}
+                            </span>
+                        </div>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                            
+                            {/* Main Content (2/3) */}
+                            <div class="lg:col-span-2 space-y-8">
+                                <!-- Header -->
+                                <div>
+                                    <div class="flex items-center gap-2 mb-3">
+                                        <Calendar className="w-4 h-4 text-primary" />
+                                        <span class="text-sm font-medium text-muted-foreground">{event.date}</span>
+                                    </div>
+                                    <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4 group-hover:text-primary transition-colors leading-tight">
+                                        {event.name}
+                                    </h2>
+                                </div>
+
+                                {/* Signature Quote (Intro) */}
+                                <div class="pl-6 border-l-2 border-primary/30">
+                                    <p class="font-serif text-xl italic text-foreground/70 leading-relaxed">
+                                        "{event.intro}"
+                                    </p>
+                                </div>
+
+                                {/* Description */}
+                                <div class="prose prose-lg max-w-none">
+                                    <p class="text-foreground/80 text-lg leading-relaxed mb-4">
+                                        {event.description}
+                                    </p>
+                                    <p class="text-muted-foreground leading-relaxed flex items-center gap-2">
+                                        <Heart className="w-4 h-4 text-primary/60" />
+                                        {event.signature}
+                                    </p>
+                                </div>
+
+                                {/* Editor's Note (Giulia) */}
+                                <div class="relative py-8 group/note">
+                                    <div class="absolute top-0 right-0 p-4 opacity-[0.05] group-hover/note:opacity-[0.1] transition-opacity">
+                                        <svg class="w-24 h-24 text-primary fill-current" viewBox="0 0 24 24">
+                                            <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H16.017C15.4647 8 15.017 8.44772 15.017 9V12C15.017 12.5523 14.5693 13 14.017 13H13.017C12.4647 13 12.017 12.5523 12.017 12V9C12.017 6.79086 13.8079 5 16.017 5H19.017C21.2261 5 23.017 6.79086 23.017 9V15C23.017 18.866 19.883 22 16.017 22H14.017V21ZM2.01698 21L2.01698 18C2.01698 16.8954 2.91241 16 4.01698 16H7.01698C7.56927 16 8.01698 15.5523 8.01698 15V9C8.01698 8.44772 7.56927 8 7.01698 8H4.01698C3.4647 8 3.01698 8.44772 3.01698 9V12C3.01698 12.5523 2.56927 13 2.01698 13H1.01698C0.4647 13 0.0169824 12.5523 0.0169824 12V9C0.0169824 6.79086 1.80784 5 4.01698 5H7.01698C9.22612 5 11.017 6.79086 11.017 9V15C11.017 18.866 7.88298 22 4.01698 22H2.01698V21Z" />
+                                        </svg>
+                                    </div>
+                                    <div class="relative flex flex-col md:flex-row items-start gap-6">
+                                        <div class="relative flex-shrink-0">
+                                            <div class="w-16 h-16 rounded-full bg-primary/10 p-1 ring-2 ring-primary/20">
+                                                <div class="w-full h-full rounded-full overflow-hidden bg-secondary">
+                                                    <img 
+                                                        src="/giulia_rossi.png" 
+                                                        alt="Giulia Rossi"
+                                                        class="w-full h-full object-cover"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div class="absolute -bottom-1 -right-1 bg-primary text-white p-1 rounded-full shadow-lg">
+                                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div class="flex-1 space-y-4">
+                                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-[0.2em]">
+                                                Local Perspective
+                                            </div>
+                                            <blockquote class="font-serif text-xl text-foreground/90 leading-relaxed italic">
+                                                "{event.giuliaComment}"
+                                            </blockquote>
+                                            <div class="flex items-center gap-3 pt-2">
+                                                <div class="h-px w-8 bg-primary/30"></div>
+                                                <p class="text-sm font-medium text-foreground">
+                                                    Giulia Rossi <span class="text-muted-foreground font-normal ml-1">— Riomaggiore Expert</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Facts Sidebar (1/3) */}
+                            <div class="lg:col-span-1">
+                                <div class="sticky top-24 space-y-10">
+                                    <!-- Header -->
+                                    <div>
+                                        <h3 class="font-serif text-2xl font-bold text-foreground mb-6 pb-4 border-b border-border">
+                                            Essential Information
+                                        </h3>
+                                        
+                                        <!-- Map Integration -->
+                                        <div class="relative aspect-video rounded-xl overflow-hidden border border-border/50 mb-8 group/map">
+                                            <img 
+                                                src="https://api.mapbox.com/styles/v1/mapbox/light-v11/static/pin-l+bf2b2b(9.7376,44.099)/9.7386,44.0994,15.39,0/640x360@2x?before_layer=admin-1-boundary&access_token=pk.eyJ1IjoiZHJpZXRzY2giLCJhIjoiY21qYjAzMWxtMGJpZDNlc2RqMWN3NHdjbSJ9.k9Xvn4saiEtYhrJE8bKk7Q" 
+                                                alt="Location Map"
+                                                class="object-cover w-full h-full transition-transform duration-700 group-hover/map:scale-110"
+                                            />
+                                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover/map:opacity-100 transition-opacity"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Reviews Section -->
+                                    <div class="space-y-6">
+                                        <div class="flex items-center justify-between">
+                                            <h4 class="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">Community Interest</h4>
+                                            <div class="h-px flex-1 bg-primary/10 ml-4"></div>
+                                        </div>
+                                        
+                                        <div class="space-y-4">
+                                            <!-- Google -->
+                                            <div class="flex items-center justify-between group/review">
+                                                <div class="flex items-center gap-3">
+                                                    <img 
+                                                        src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" 
+                                                        alt="Google" 
+                                                        class="h-4 opacity-60 group-hover/review:opacity-100 transition-opacity grayscale brightness-0 dark:invert"
+                                                    />
+                                                </div>
+                                                <div class="flex items-center gap-2">
+                                                    <div class="flex items-center gap-0.5">
+                                                        {[...Array(5)].map((_, i) => (
+                                                            <Star className={`w-3 h-3 ${i < Math.floor(event.googleRating) ? 'fill-amber-400 text-amber-400' : 'fill-gray-200 text-gray-200'}`} />
+                                                        ))}
+                                                    </div>
+                                                    <span class="text-lg font-serif font-bold text-foreground">{event.googleRating}</span>
+                                                </div>
+                                            </div>
+
+                                            <!-- TripAdvisor -->
+                                            <div class="flex items-center justify-between group/review">
+                                                <div class="flex items-center gap-3">
+                                                    <img 
+                                                        src="https://static.tacdn.com/img2/brand_refresh_2025/logos/wordmark.svg" 
+                                                        alt="TripAdvisor" 
+                                                        class="h-4 opacity-60 group-hover/review:opacity-100 transition-opacity grayscale brightness-0 dark:invert"
+                                                    />
+                                                </div>
+                                                <div class="flex items-center gap-2">
+                                                    <div class="flex items-center gap-0.5">
+                                                        {[...Array(5)].map((_, i) => (
+                                                            <svg className={`w-3 h-3 ${i < Math.floor(event.tripadvisorRating) ? 'fill-[#34e0a1]' : 'fill-gray-200'}`} viewBox="0 0 24 24">
+                                                                <circle cx="12" cy="12" r="10" fill="currentColor"/>
+                                                            </svg>
+                                                        ))}
+                                                    </div>
+                                                    <span class="text-lg font-serif font-bold text-foreground">{event.tripadvisorRating}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Info Items -->
+                                    <div class="space-y-8">
+                                        <div class="flex items-center justify-between">
+                                            <h4 class="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">Practical Details</h4>
+                                            <div class="h-px flex-1 bg-primary/10 ml-4"></div>
+                                        </div>
+
+                                        <div class="space-y-6">
+                                            <!-- Time -->
+                                            <div class="flex gap-4 group/info">
+                                                <div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center flex-shrink-0 group-hover/info:bg-primary/10 transition-colors">
+                                                    <Clock className="w-5 h-5 text-primary" />
+                                                </div>
+                                                <div class="flex-1 min-w-0">
+                                                    <div class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-1">Time of Day</div>
+                                                    <div class="text-sm font-medium text-foreground leading-relaxed">{event.timeOfDay}</div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Location -->
+                                            <div class="flex gap-4 group/info">
+                                                <div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center flex-shrink-0 group-hover/info:bg-primary/10 transition-colors">
+                                                    <MapPin className="w-5 h-5 text-primary" />
+                                                </div>
+                                                <div class="flex-1 min-w-0">
+                                                    <div class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-1">Location</div>
+                                                    <div class="text-sm font-medium text-foreground leading-relaxed">{event.location}</div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Notes -->
+                                            <div class="flex gap-4 group/info">
+                                                <div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center flex-shrink-0 group-hover/info:bg-primary/10 transition-colors">
+                                                    <Info className="w-5 h-5 text-primary" />
+                                                </div>
+                                                <div class="flex-1 min-w-0">
+                                                    <div class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-1">Notes</div>
+                                                    <div class="text-sm font-medium text-foreground leading-relaxed">{event.practicalInfo}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            ))}
+        </div>
+    </section>
+
+    {/* Soft Closing Section */}
+    <section class="py-32 bg-foreground text-background overflow-hidden relative">
+        <div class="absolute top-0 right-0 w-1/2 h-full opacity-[0.05] pointer-events-none">
+            <Waves className="w-full h-full scale-150" />
+        </div>
+        <div class="container mx-auto px-4 relative">
+            <div class="max-w-3xl mx-auto text-center space-y-10">
+                <div class="inline-flex items-center gap-4">
+                    <div class="h-px w-8 bg-background/30"></div>
+                    <span class="text-[10px] font-bold uppercase tracking-[0.4em] text-primary">A Final Reflection</span>
+                    <div class="h-px w-8 bg-background/30"></div>
+                </div>
+                
+                <h2 class="font-serif text-4xl md:text-6xl font-bold leading-tight">
+                    The Power of Chance
+                </h2>
+                
+                <div class="space-y-6 text-xl text-background/70 font-light leading-relaxed">
+                    <p>
+                        In the end, the most powerful moments in Riomaggiore are often the ones you didn't plan for. 
+                    </p>
+                    <p>
+                        It is the sound of a distant bell that leads you to a small chapel, or the sight of a monorail carrying a crate of grapes that reminds you of the season. To encounter an event by coincidence is to feel the village's rhythm in its most honest form.
+                    </p>
+                    <p>
+                        Don't chase the calendar. Let the village reveal itself to you in its own time. The most memorable moments happen slightly off schedule.
+                    </p>
+                </div>
+
+                <div class="pt-12 flex flex-wrap justify-center gap-6">
+                    <a href="/village" class="px-8 py-4 rounded-full bg-primary text-white font-bold text-sm uppercase tracking-widest hover:bg-primary/90 transition-colors">
+                        Explore the Village
+                    </a>
+                    <a href="/accommodations" class="px-8 py-4 rounded-full bg-white/10 backdrop-blur-sm text-white font-bold text-sm uppercase tracking-widest hover:bg-white/20 transition-colors">
+                        Where to Rest
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <Footer />
+</Layout>
+
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+
+    .font-serif {
+        letter-spacing: -0.02em;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    article {
+        animation: fadeInUp 0.8s ease-out;
+        animation-fill-mode: both;
+    }
+
+    /* Custom prose styles for the narrative */
+    .prose-serif {
+        --tw-prose-body: var(--foreground);
+        --tw-prose-headings: var(--foreground);
+        --tw-prose-italic: var(--primary);
+    }
+</style>

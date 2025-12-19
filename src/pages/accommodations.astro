@@ -1,0 +1,563 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer';
+import { Star, MapPin, Clock, Home, Bed, Info, Compass, Waves, Sun, Heart, ArrowUpCircle, Moon } from 'lucide-react';
+
+const accommodations = [
+    {
+        id: 1,
+        name: "Scorci Di Mare",
+        category: "Historic Guesthouse",
+        village: "Riomaggiore",
+        image: "https://images.unsplash.com/photo-1515444744559-7be63e1600de?q=80&w=2670&auto=format&fit=crop",
+        intro: "A 14th-century building that sits so close to the harbor you can hear the boats breathing.",
+        description: "Scorci Di Mare is for those who want to be at the center of the village's maritime heart. The rooms are carved into the ancient stone, offering a cool, quiet refuge from the sun. The windows frame the iconic view of the stacked houses and the marina, making the village feel like an extension of your own room.",
+        giuliaComment: "I always tell people that if you stay here, you should wake up early. Watch the fishermen prepare their boats before the first train arrives. It's the only time the harbor truly belongs to itself, and you have a front-row seat.",
+        signature: "The pulse of the marina, felt through ancient stone walls",
+        priceRange: "$$$",
+        practicalInfo: "Located right at the harbor. Expect some noise during the day, but it's remarkably quiet at night. Minimal stairs compared to upper village spots.",
+        googleRating: 4.7,
+        tripadvisorRating: 4.6
+    },
+    {
+        id: 2,
+        name: "The Sunset Line",
+        category: "Luxury Guesthouse",
+        village: "Riomaggiore",
+        image: "https://images.unsplash.com/photo-1534445867742-43195f401b6c?q=80&w=2670&auto=format&fit=crop",
+        intro: "High above the village, where the horizon is the only neighbor.",
+        description: "The Sunset Line is defined by perspective. It trades the bustle of the main street for a panoramic view that stretches across the Ligurian Sea. The design is modern and minimalist, allowing the natural drama of the coastline to take center stage. It's a place for those who value silence and the slow shift of light across the water.",
+        giuliaComment: "This is where I would stay if I wanted to disappear for a few days. The terraces are incredible—you feel like you're floating between the sky and the sea. It's a bit of a walk from the center, but that's exactly why it works.",
+        signature: "A quiet sanctuary where the sea meets the sky",
+        priceRange: "$$$$",
+        practicalInfo: "Upper village location. Accessible via the public lift or a steep walk. Perfect for couples seeking privacy and modern amenities.",
+        googleRating: 4.9,
+        tripadvisorRating: 4.8
+    },
+    {
+        id: 3,
+        name: "Locanda Ca Da Iride",
+        category: "Charming Guesthouse",
+        village: "Riomaggiore",
+        image: "https://images.unsplash.com/photo-1551882547-ff43c63e1c24?q=80&w=2670&auto=format&fit=crop",
+        intro: "A garden retreat that feels like a private home tucked into the hillside.",
+        description: "Ca Da Iride offers a different kind of Riomaggiore experience—one centered around greenery and quiet. Situated slightly away from the main thoroughfare, it features a beautiful garden where the scent of lemons and jasmine lingers. The rooms are traditional and warm, reflecting the unpretentious hospitality of a local family.",
+        giuliaComment: "I love the garden here. In a village made of stone, having a patch of green is a luxury. It's the perfect spot for a slow breakfast before you start your hike. It feels grounded and very 'real'.",
+        signature: "A hidden garden where the village's verticality softens",
+        priceRange: "$$",
+        practicalInfo: "10-minute walk from the harbor. Some uphill sections, but manageable for most. Very quiet at night.",
+        googleRating: 4.8,
+        tripadvisorRating: 4.7
+    },
+    {
+        id: 4,
+        name: "Alla Marina",
+        category: "Boutique Guesthouse",
+        village: "Riomaggiore",
+        image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2670&auto=format&fit=crop",
+        intro: "Modern comfort inside a 13th-century shell, right where the sea meets the street.",
+        description: "Alla Marina manages to be both historic and contemporary. The building is one of the oldest in the village, but the interiors are bright, clean, and thoughtfully designed. It's located at the very end of the main street, making it the perfect base for those who want to be steps away from both the water and the best restaurants.",
+        giuliaComment: "The staff here are what make the difference. They treat you like a guest in their own home. I always notice the light in these rooms—it reflects off the harbor water and dances on the ceilings in the afternoon.",
+        signature: "Where history and modern hospitality meet at the water's edge",
+        priceRange: "$$$",
+        practicalInfo: "Harbor-side location. Very close to the boat landing and train station. Excellent soundproofing despite the central location.",
+        googleRating: 4.6,
+        tripadvisorRating: 4.5
+    },
+    {
+        id: 5,
+        name: "Cinque Terre Residence",
+        category: "Hotel & Apartments",
+        village: "Riomaggiore",
+        image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2670&auto=format&fit=crop",
+        intro: "A collection of terraces and views that capture the agricultural soul of the village.",
+        description: "This residence is unique for its connection to the vineyards. While many places focus on the sea, here you are surrounded by the terraced hills that define the region's history. The private terraces offer a quiet space to watch the sun set over the vines, and the shared jacuzzi is a welcome relief after a day of hiking.",
+        giuliaComment: "I recommend this for families or groups who want a bit more space. The vineyard views are so peaceful—it reminds you that Riomaggiore was a farming village long before it was a tourist destination.",
+        signature: "A peaceful retreat framed by the green of the vineyards",
+        priceRange: "$$$",
+        practicalInfo: "Located in a quiet part of the upper village. Offers both rooms and apartments with kitchens. Great for longer stays.",
+        googleRating: 4.5,
+        tripadvisorRating: 4.4
+    },
+    {
+        id: 6,
+        name: "Hotel Villa Argentina",
+        category: "Traditional Hotel",
+        village: "Riomaggiore",
+        image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2670&auto=format&fit=crop",
+        intro: "A classic village institution with views that have defined generations of travelers.",
+        description: "Villa Argentina is one of the few traditional hotels in Riomaggiore. It offers a level of service and amenity that is rare in the village, including a dedicated breakfast room and private parking. Its position at the top of the village ensures that every room has a perspective that captures the entire sweep of the coastline.",
+        giuliaComment: "There's a reason this place is a classic. It's reliable, comfortable, and the view from the breakfast terrace is the best way to start a day. It's for the traveler who wants the village experience without the unpredictability of a private rental.",
+        signature: "The village's grand dame, offering comfort and a commanding view",
+        priceRange: "$$$",
+        practicalInfo: "Top of the village. One of the few places with private parking (must be booked). Accessible via shuttle or a long walk.",
+        googleRating: 4.4,
+        tripadvisorRating: 4.3
+    },
+    {
+        id: 7,
+        name: "EC Luxury Rooms",
+        category: "Luxury Guesthouse",
+        village: "Riomaggiore",
+        image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=2650&auto=format&fit=crop",
+        intro: "Refined, modern elegance in a prime harbor-front position.",
+        description: "EC Luxury Rooms is for the traveler who wants the grit and beauty of the harbor paired with high-end interior design. The rooms are spacious and filled with light, featuring large windows that act as living frames for the marina below. It's a sophisticated take on the traditional guesthouse.",
+        giuliaComment: "I love the contrast here—the ancient, salt-worn harbor outside and the perfectly polished room inside. It feels very indulgent. It's the kind of place where you want to spend time just looking out the window.",
+        signature: "A sophisticated lens on the village's most iconic view",
+        priceRange: "$$$$",
+        practicalInfo: "Front-row harbor location. Very close to the beach and station. High-end finishes and excellent air conditioning.",
+        googleRating: 4.8,
+        tripadvisorRating: 4.7
+    },
+    {
+        id: 8,
+        name: "Hotel del Sole",
+        category: "Eco-friendly Hotel",
+        village: "Riomaggiore",
+        image: "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?q=80&w=2674&auto=format&fit=crop",
+        intro: "A modern, sustainable approach to staying in an ancient landscape.",
+        description: "Hotel del Sole was built with the environment in mind, using sustainable materials and energy-efficient systems. It sits high on the hillside, offering clean, simple rooms that focus on the essentials: comfort, light, and a connection to the outdoors. The private terraces are perfect for a quiet evening under the stars.",
+        giuliaComment: "I appreciate the honesty of this place. It doesn't try to be a palace; it just tries to be a good, clean place to rest. The walk up is good for the heart, and the reward is a view that feels very open and free.",
+        signature: "A bright, sustainable stay with a wide-angle view of the sea",
+        priceRange: "$$",
+        practicalInfo: "Upper village location. Modern construction means better accessibility (lifts) than many older buildings. Great value for the quality.",
+        googleRating: 4.5,
+        tripadvisorRating: 4.4
+    },
+    {
+        id: 9,
+        name: "The First",
+        category: "Luxury Suites",
+        village: "Riomaggiore",
+        image: "https://images.unsplash.com/photo-1495365200479-c4ed1d35e1aa?q=80&w=2670&auto=format&fit=crop",
+        intro: "The ultimate harbor-front suite for a truly immersive experience.",
+        description: "The First is less of a hotel and more of a private residence for the discerning traveler. It occupies a prime position overlooking the harbor, offering a level of privacy and luxury that is rare in the center of the village. The balcony is arguably the most coveted spot in Riomaggiore for a private sunset dinner.",
+        giuliaComment: "If you are celebrating something special, this is the place. You are right in the middle of the 'postcard', but you have your own private sanctuary. It's very romantic, especially when the village lights start to twinkle.",
+        signature: "A private balcony over the heart of the Cinque Terre",
+        priceRange: "$$$$$",
+        practicalInfo: "Central harbor location. Very high demand; book months in advance. Includes a full kitchen for those who want to cook with local ingredients.",
+        googleRating: 4.9,
+        tripadvisorRating: 4.8
+    },
+    {
+        id: 10,
+        name: "Affittacamere Le Giare",
+        category: "Traditional Guesthouse",
+        village: "Riomaggiore",
+        image: "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?q=80&w=2670&auto=format&fit=crop",
+        intro: "A warm, family-run guesthouse that captures the true spirit of local hospitality.",
+        description: "Le Giare is the kind of place that makes you feel like you've lived in Riomaggiore for years. The host is known for her incredible knowledge of the area and her genuine care for her guests. The rooms are simple but immaculate, and the sunny terrace offers a place to connect with other travelers over a glass of local wine.",
+        giuliaComment: "This is for the traveler who wants to hear the stories of the village. The host will tell you which trail is best today and where the locals are eating. It's a place of connection, not just a place to sleep.",
+        signature: "A home away from home in the heart of the village",
+        priceRange: "$$",
+        practicalInfo: "Uphill location, about 10 minutes from the station. The host often helps with luggage. Very personal service.",
+        googleRating: 4.7,
+        tripadvisorRating: 4.6
+    }
+];
+---
+
+<Layout title="Where to Wake Up: Accommodations in Riomaggiore | Cinque Terre Dispatch">
+    <!-- Hero Section -->
+    <section class="relative h-[70vh] min-h-[600px] overflow-hidden">
+        <div class="absolute inset-0">
+            <img 
+                src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2670&auto=format&fit=crop" 
+                alt="Riomaggiore village at dawn" 
+                class="w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60"></div>
+        </div>
+        
+        <div class="relative h-full container mx-auto px-4 flex flex-col justify-end pb-24">
+            <div class="max-w-3xl">
+                <div class="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white text-xs font-bold uppercase tracking-widest mb-4">
+                    The Art of Staying
+                </div>
+                <h1 class="font-serif text-5xl md:text-8xl font-bold text-white mb-6 leading-tight">
+                    Where to<br/>Wake Up
+                </h1>
+                <p class="text-white/90 text-xl md:text-2xl font-light leading-relaxed max-w-2xl">
+                    In a vertical village, your choice of bed is a choice of perspective. It is the difference between the salt-spray of the harbor and the silence of the vineyards.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Narrative Introduction -->
+    <section class="py-24 bg-white overflow-hidden relative">
+        <div class="container mx-auto px-4 relative">
+            <div class="max-w-4xl mx-auto">
+                <div class="space-y-12">
+                    <div class="inline-flex items-center gap-4">
+                        <div class="h-px w-8 bg-primary/30"></div>
+                        <span class="text-[10px] font-bold uppercase tracking-[0.4em] text-primary">The Logic of the Stay</span>
+                        <div class="h-px w-8 bg-primary/30"></div>
+                    </div>
+
+                    <div class="prose prose-xl prose-serif max-w-none">
+                        <p class="font-serif text-3xl md:text-4xl text-foreground leading-[1.4] italic font-light mb-12">
+                            Riomaggiore does not have hotels in the way the world usually understands them. There are no grand lobbies, no sprawling resorts, and very few elevators.
+                        </p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-lg text-muted-foreground leading-relaxed font-light">
+                            <div class="space-y-6">
+                                <p>
+                                    Instead, the village offers <strong>layered living</strong>. Houses are stacked one upon another, carved into the very rock of the cliff. To stay here is to enter a family's history—most accommodations are small guesthouses ('affittacamere') or private apartments that have been in the same hands for generations.
+                                </p>
+                                <p>
+                                    You must understand that <strong>views come with a price</strong>, and that price is usually measured in stairs. The higher you climb, the more dramatic the panorama and the deeper the silence. The closer you stay to the water, the more you feel the village's energy, but you trade quiet for the rhythm of the harbor.
+                                </p>
+                            </div>
+                            <div class="space-y-6">
+                                <p>
+                                    Comfort here is <strong>shaped by location</strong>. In the summer, the harbor is a theater of light and sound that never truly sleeps. In the winter, the upper village feels like a monastery, wrapped in mist and the sound of distant waves. There are no 'star ratings' that can capture the feeling of opening a window to the first light hitting the terracotta walls.
+                                </p>
+                                <p>
+                                    To choose well is to <strong>match your spirit to the terrain</strong>. Are you here for the morning coffee on a balcony overlooking the boats? Or for the cool, quiet walk back to a hillside retreat after a long dinner? In Riomaggiore, where you sleep is simply an extension of how you move through the day.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center pt-12">
+                        <div class="w-24 h-px bg-border"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transition Section -->
+    <section class="py-20 bg-secondary/20 border-y border-border/40">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="font-serif text-4xl md:text-5xl font-bold text-foreground mb-6">
+                Places to rest within the village’s rhythm
+            </h2>
+            <p class="text-xl text-muted-foreground max-w-2xl mx-auto font-light leading-relaxed">
+                These selections represent different ways of inhabiting Riomaggiore. They are chosen for their character, their location, and the specific kind of morning they offer.
+            </p>
+        </div>
+    </section>
+
+    <!-- Accommodations Collection -->
+    <section class="py-24 container mx-auto px-4">
+        <div class="space-y-32">
+            {accommodations.map((place, index) => (
+                <div class="space-y-16">
+                    {/* Editorial Interludes */}
+                    {index === 3 && (
+                        <div class="bg-primary/5 rounded-3xl p-12 md:p-20 my-24 relative overflow-hidden group">
+                            <div class="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 opacity-[0.03] group-hover:opacity-[0.05] transition-opacity duration-700">
+                                <ArrowUpCircle className="w-96 h-96" />
+                            </div>
+                            <div class="max-w-3xl relative">
+                                <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-primary mb-6 block">Editorial Interlude</span>
+                                <h3 class="font-serif text-3xl md:text-4xl font-bold mb-6">The Vertical Trade-off</h3>
+                                <p class="text-xl text-muted-foreground leading-relaxed font-light italic">
+                                    "In Riomaggiore, every ten steps upward buys you another hour of silence. The harbor is the village's heart, but the upper streets are its soul. If you are sensitive to noise, look for places above the church of San Giovanni Battista. Your legs will work harder, but your mind will rest deeper."
+                                </p>
+                            </div>
+                        </div>
+                    )}
+
+                    {index === 6 && (
+                        <div class="bg-secondary/40 rounded-3xl p-12 md:p-20 my-24 relative overflow-hidden group">
+                            <div class="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 opacity-[0.03] group-hover:opacity-[0.05] transition-opacity duration-700">
+                                <Moon className="w-96 h-96" />
+                            </div>
+                            <div class="max-w-3xl ml-auto text-right relative">
+                                <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-primary mb-6 block">Editorial Interlude</span>
+                                <h3 class="font-serif text-3xl md:text-4xl font-bold mb-6">The Harbor at Dawn</h3>
+                                <p class="text-xl text-muted-foreground leading-relaxed font-light italic">
+                                    "Staying at the harbor means living in a postcard, but the real magic happens at 6:00 AM. Before the first ferry, before the crowds, the harbor belongs to the water and the stone. If you stay here, don't sleep through this hour. It is the only time you will truly see the village as it was a century ago."
+                                </p>
+                            </div>
+                        </div>
+                    )}
+
+                    <article class="group cursor-pointer">
+                        <!-- Image -->
+                        <div class="relative aspect-[21/9] overflow-hidden rounded-xl mb-8">
+                            <img 
+                                src={place.image} 
+                                alt={place.name}
+                                class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                            />
+                            <span class="absolute top-6 left-6 bg-white/90 text-black px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wide shadow-sm">
+                                {place.category}
+                            </span>
+                        </div>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                            
+                            {/* Main Content (2/3) */}
+                            <div class="lg:col-span-2 space-y-8">
+                                <!-- Header -->
+                                <div>
+                                    <div class="flex items-center gap-2 mb-3">
+                                        <MapPin className="w-4 h-4 text-primary" />
+                                        <span class="text-sm font-medium text-muted-foreground">{place.village}</span>
+                                    </div>
+                                    <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4 group-hover:text-primary transition-colors leading-tight">
+                                        {place.name}
+                                    </h2>
+                                </div>
+
+                                {/* Signature Quote (Intro) */}
+                                <div class="pl-6 border-l-2 border-primary/30">
+                                    <p class="font-serif text-xl italic text-foreground/70 leading-relaxed">
+                                        "{place.intro}"
+                                    </p>
+                                </div>
+
+                                {/* Description */}
+                                <div class="prose prose-lg max-w-none">
+                                    <p class="text-foreground/80 text-lg leading-relaxed mb-4">
+                                        {place.description}
+                                    </p>
+                                    <p class="text-muted-foreground leading-relaxed flex items-center gap-2">
+                                        <Heart className="w-4 h-4 text-primary/60" />
+                                        {place.signature}
+                                    </p>
+                                </div>
+
+                                {/* Editor's Note (Giulia) */}
+                                <div class="relative py-8 group/note">
+                                    <div class="absolute top-0 right-0 p-4 opacity-[0.05] group-hover/note:opacity-[0.1] transition-opacity">
+                                        <svg class="w-24 h-24 text-primary fill-current" viewBox="0 0 24 24">
+                                            <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H16.017C15.4647 8 15.017 8.44772 15.017 9V12C15.017 12.5523 14.5693 13 14.017 13H13.017C12.4647 13 12.017 12.5523 12.017 12V9C12.017 6.79086 13.8079 5 16.017 5H19.017C21.2261 5 23.017 6.79086 23.017 9V15C23.017 18.866 19.883 22 16.017 22H14.017V21ZM2.01698 21L2.01698 18C2.01698 16.8954 2.91241 16 4.01698 16H7.01698C7.56927 16 8.01698 15.5523 8.01698 15V9C8.01698 8.44772 7.56927 8 7.01698 8H4.01698C3.4647 8 3.01698 8.44772 3.01698 9V12C3.01698 12.5523 2.56927 13 2.01698 13H1.01698C0.4647 13 0.0169824 12.5523 0.0169824 12V9C0.0169824 6.79086 1.80784 5 4.01698 5H7.01698C9.22612 5 11.017 6.79086 11.017 9V15C11.017 18.866 7.88298 22 4.01698 22H2.01698V21Z" />
+                                        </svg>
+                                    </div>
+                                    <div class="relative flex flex-col md:flex-row items-start gap-6">
+                                        <div class="relative flex-shrink-0">
+                                            <div class="w-16 h-16 rounded-full bg-primary/10 p-1 ring-2 ring-primary/20">
+                                                <div class="w-full h-full rounded-full overflow-hidden bg-secondary">
+                                                    <img 
+                                                        src="/giulia_rossi.png" 
+                                                        alt="Giulia Rossi"
+                                                        class="w-full h-full object-cover"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div class="absolute -bottom-1 -right-1 bg-primary text-white p-1 rounded-full shadow-lg">
+                                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div class="flex-1 space-y-4">
+                                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-[0.2em]">
+                                                Local Perspective
+                                            </div>
+                                            <blockquote class="font-serif text-xl text-foreground/90 leading-relaxed italic">
+                                                "{place.giuliaComment}"
+                                            </blockquote>
+                                            <div class="flex items-center gap-3 pt-2">
+                                                <div class="h-px w-8 bg-primary/30"></div>
+                                                <p class="text-sm font-medium text-foreground">
+                                                    Giulia Rossi <span class="text-muted-foreground font-normal ml-1">— Riomaggiore Expert</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Facts Sidebar (1/3) */}
+                            <div class="lg:col-span-1">
+                                <div class="sticky top-24 space-y-10">
+                                    <!-- Header -->
+                                    <div>
+                                        <h3 class="font-serif text-2xl font-bold text-foreground mb-6 pb-4 border-b border-border">
+                                            Essential Information
+                                        </h3>
+                                        
+                                        <!-- Map Integration -->
+                                        <div class="relative aspect-video rounded-xl overflow-hidden border border-border/50 mb-8 group/map">
+                                            <img 
+                                                src="https://api.mapbox.com/styles/v1/mapbox/light-v11/static/pin-l+bf2b2b(9.7376,44.099)/9.7386,44.0994,15.39,0/640x360@2x?before_layer=admin-1-boundary&access_token=pk.eyJ1IjoiZHJpZXRzY2giLCJhIjoiY21qYjAzMWxtMGJpZDNlc2RqMWN3NHdjbSJ9.k9Xvn4saiEtYhrJE8bKk7Q" 
+                                                alt="Location Map"
+                                                class="object-cover w-full h-full transition-transform duration-700 group-hover/map:scale-110"
+                                            />
+                                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover/map:opacity-100 transition-opacity"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Reviews Section -->
+                                    <div class="space-y-6">
+                                        <div class="flex items-center justify-between">
+                                            <h4 class="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">Traveler Reviews</h4>
+                                            <div class="h-px flex-1 bg-primary/10 ml-4"></div>
+                                        </div>
+                                        
+                                        <div class="space-y-4">
+                                            <!-- Google -->
+                                            <div class="flex items-center justify-between group/review">
+                                                <div class="flex items-center gap-3">
+                                                    <img 
+                                                        src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" 
+                                                        alt="Google" 
+                                                        class="h-4 opacity-60 group-hover/review:opacity-100 transition-opacity grayscale brightness-0 dark:invert"
+                                                    />
+                                                </div>
+                                                <div class="flex items-center gap-2">
+                                                    <div class="flex items-center gap-0.5">
+                                                        {[...Array(5)].map((_, i) => (
+                                                            <Star className={`w-3 h-3 ${i < Math.floor(place.googleRating) ? 'fill-amber-400 text-amber-400' : 'fill-gray-200 text-gray-200'}`} />
+                                                        ))}
+                                                    </div>
+                                                    <span class="text-lg font-serif font-bold text-foreground">{place.googleRating}</span>
+                                                </div>
+                                            </div>
+
+                                            <!-- TripAdvisor -->
+                                            <div class="flex items-center justify-between group/review">
+                                                <div class="flex items-center gap-3">
+                                                    <img 
+                                                        src="https://static.tacdn.com/img2/brand_refresh_2025/logos/wordmark.svg" 
+                                                        alt="TripAdvisor" 
+                                                        class="h-4 opacity-60 group-hover/review:opacity-100 transition-opacity grayscale brightness-0 dark:invert"
+                                                    />
+                                                </div>
+                                                <div class="flex items-center gap-2">
+                                                    <div class="flex items-center gap-0.5">
+                                                        {[...Array(5)].map((_, i) => (
+                                                            <svg className={`w-3 h-3 ${i < Math.floor(place.tripadvisorRating) ? 'fill-[#34e0a1]' : 'fill-gray-200'}`} viewBox="0 0 24 24">
+                                                                <circle cx="12" cy="12" r="10" fill="currentColor"/>
+                                                            </svg>
+                                                        ))}
+                                                    </div>
+                                                    <span class="text-lg font-serif font-bold text-foreground">{place.tripadvisorRating}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Info Items -->
+                                    <div class="space-y-8">
+                                        <div class="flex items-center justify-between">
+                                            <h4 class="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">Practical Details</h4>
+                                            <div class="h-px flex-1 bg-primary/10 ml-4"></div>
+                                        </div>
+
+                                        <div class="space-y-6">
+                                            <!-- Cost -->
+                                            <div class="flex gap-4 group/info">
+                                                <div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center flex-shrink-0 group-hover/info:bg-primary/10 transition-colors">
+                                                    <span class="text-primary font-bold text-lg">{place.priceRange}</span>
+                                                </div>
+                                                <div class="flex-1 min-w-0">
+                                                    <div class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-1">Price Range</div>
+                                                    <div class="text-sm font-medium text-foreground leading-relaxed">{place.category}</div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Type -->
+                                            <div class="flex gap-4 group/info">
+                                                <div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center flex-shrink-0 group-hover/info:bg-primary/10 transition-colors">
+                                                    <Home className="w-5 h-5 text-primary" />
+                                                </div>
+                                                <div class="flex-1 min-w-0">
+                                                    <div class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-1">Stay Type</div>
+                                                    <div class="text-sm font-medium text-foreground leading-relaxed">{place.category}</div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Notes -->
+                                            <div class="flex gap-4 group/info">
+                                                <div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center flex-shrink-0 group-hover/info:bg-primary/10 transition-colors">
+                                                    <Info className="w-5 h-5 text-primary" />
+                                                </div>
+                                                <div class="flex-1 min-w-0">
+                                                    <div class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-1">Notes</div>
+                                                    <div class="text-sm font-medium text-foreground leading-relaxed">{place.practicalInfo}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            ))}
+        </div>
+    </section>
+
+    {/* Soft Closing Section */}
+    <section class="py-32 bg-foreground text-background overflow-hidden relative">
+        <div class="absolute top-0 right-0 w-1/2 h-full opacity-[0.05] pointer-events-none">
+            <Waves className="w-full h-full scale-150" />
+        </div>
+        <div class="container mx-auto px-4 relative">
+            <div class="max-w-3xl mx-auto text-center space-y-10">
+                <div class="inline-flex items-center gap-4">
+                    <div class="h-px w-8 bg-background/30"></div>
+                    <span class="text-[10px] font-bold uppercase tracking-[0.4em] text-primary">A Final Reflection</span>
+                    <div class="h-px w-8 bg-background/30"></div>
+                </div>
+                
+                <h2 class="font-serif text-4xl md:text-6xl font-bold leading-tight">
+                    The Memory of the Morning
+                </h2>
+                
+                <div class="space-y-6 text-xl text-background/70 font-light leading-relaxed">
+                    <p>
+                        In the end, what you remember of Riomaggiore is not the square footage of your room or the thread count of your sheets. 
+                    </p>
+                    <p>
+                        It is the way the light first touches the church tower across the valley. It is the sound of a neighbor's shutters opening. It is the feeling of stepping out of your door and immediately belonging to the vertical rhythm of the street.
+                    </p>
+                    <p>
+                        Choose the place that matches the morning you want to have. The rest of the village will wait for you.
+                    </p>
+                </div>
+
+                <div class="pt-12 flex flex-wrap justify-center gap-6">
+                    <a href="/itinerary" class="px-8 py-4 rounded-full bg-primary text-white font-bold text-sm uppercase tracking-widest hover:bg-primary/90 transition-colors">
+                        Plan Your Journey
+                    </a>
+                    <a href="/culinary" class="px-8 py-4 rounded-full bg-white/10 backdrop-blur-sm text-white font-bold text-sm uppercase tracking-widest hover:bg-white/20 transition-colors">
+                        Discover the Table
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <Footer />
+</Layout>
+
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+
+    .font-serif {
+        letter-spacing: -0.02em;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    article {
+        animation: fadeInUp 0.8s ease-out;
+        animation-fill-mode: both;
+    }
+
+    /* Custom prose styles for the narrative */
+    .prose-serif {
+        --tw-prose-body: var(--foreground);
+        --tw-prose-headings: var(--foreground);
+        --tw-prose-italic: var(--primary);
+    }
+</style>

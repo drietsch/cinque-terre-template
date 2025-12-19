@@ -5,7 +5,9 @@ import { Menu, Search, ChevronDown, MapPin, Utensils, Newspaper, Compass } from 
 
 const destinations = [
     { name: 'The Salt & Stone Path', href: '/itinerary', description: 'A curated 4-day journey through the coast' },
-    { name: 'Riomaggiore', href: '#', description: 'The easternmost village with colorful cliffside houses' },
+    { name: 'The Art of Presence', href: '/things-to-do', description: 'Ways of engaging with the village rhythm' },
+    { name: 'Where to Wake Up', href: '/accommodations', description: 'Curated accommodations in Riomaggiore' },
+    { name: 'Riomaggiore', href: '/village', description: 'The easternmost village with colorful cliffside houses' },
     { name: 'Manarola', href: '#', description: 'Famous for its wine and stunning harbor views' },
     { name: 'Corniglia', href: '#', description: 'The only village not directly on the sea' },
     { name: 'Vernazza', href: '#', description: 'One of Italy\'s most beautiful villages' },
@@ -13,14 +15,17 @@ const destinations = [
 ];
 
 const foodDrink = [
-    { name: 'Restaurants', href: '#', description: 'Authentic Ligurian dining experiences' },
+    { name: 'The Culinary Story', href: '/culinary', description: 'Riomaggiore\'s relationship with food and place' },
+    { name: 'Village Rhythms', href: '/events', description: 'Traditional events and seasonal celebrations' },
+    { name: 'Restaurants', href: '/culinary', description: 'A curated collection of local dining' },
     { name: 'Wine Bars', href: '#', description: 'Local wines and aperitivo culture' },
     { name: 'Cafés & Bakeries', href: '#', description: 'Morning coffee and fresh focaccia' },
-    { name: 'Food Markets', href: '#', description: 'Fresh local produce and specialties' },
 ];
 
 const newsAdvice = [
+    { name: 'Arrival & Orientation', href: '/transportation', description: 'How to reach the village with calm and clarity' },
     { name: 'The Dispatch (Blog)', href: '/blog', description: 'Stories and insights from the coast' },
+    { name: 'The Team', href: '/team', description: 'Meet the voices behind the perspective' },
     { name: 'Travel Tips', href: '/blog', description: 'Essential advice for your visit' },
     { name: 'Latest News', href: '/blog', description: 'Updates from the Cinque Terre' },
     { name: 'Weather & Conditions', href: '/weather', description: 'Live atmosphere and forecasts' },
