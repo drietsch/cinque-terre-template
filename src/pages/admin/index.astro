@@ -1,0 +1,324 @@
+---
+// Admin Dashboard - Main entry point for the content agent console
+import AdminLayout from '../../components/admin/AdminLayout.astro';
+import { AgentCard } from '../../components/admin/AgentCard';
+import { TaskQueue } from '../../components/admin/TaskQueue';
+import { TranslationMatrix } from '../../components/admin/TranslationMatrix';
+import { getAllAgents } from '../../lib/agents/config';
+
+export const prerender = false;
+
+const agents = getAllAgents();
+---
+
+<AdminLayout title="Dashboard" activeSection="dashboard">
+  <div class="space-y-8">
+    <!-- Agents Section -->
+    <section>
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <h3 class="text-lg font-semibold">Content Agents</h3>
+          <p class="text-sm text-muted-foreground">
+            Select an agent and capability to start a task
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6" id="agents-grid">
+        {agents.map((agent) => (
+          <div data-agent={agent.persona}>
+            <AgentCard
+              client:load
+              agent={agent}
+              onAction={(capability, contentType) => {
+                // This will be handled by the client-side script
+                window.dispatchEvent(new CustomEvent('start-task', {
+                  detail: { persona: agent.persona, capability, contentType }
+                }));
+              }}
+            />
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Task Queue Section -->
+    <section>
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <h3 class="text-lg font-semibold">Recent Tasks</h3>
+          <p class="text-sm text-muted-foreground">
+            Monitor and manage agent tasks
+          </p>
+        </div>
+      </div>
+
+      <TaskQueue
+        client:load
+        onViewTask={(taskId) => {
+          window.location.href = `/admin/tasks/${taskId}`;
+        }}
+        onApplyTask={async (taskId) => {
+          if (confirm('Apply these changes to the content files?')) {
+            try {
+              const response = await fetch(`/admin/api/tasks/${taskId}/apply`, {
+                method: 'POST',
+              });
+              const result = await response.json();
+              if (result.success) {
+                alert(`Successfully applied ${result.appliedCount} changes!`);
+                window.location.reload();
+              } else {
+                alert(`Failed to apply changes: ${result.errors?.join(', ')}`);
+              }
+            } catch (error) {
+              alert('Failed to apply changes');
+            }
+          }
+        }}
+      />
+    </section>
+
+    <!-- Translation Matrix Section -->
+    <section>
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <h3 class="text-lg font-semibold">Translation Status</h3>
+          <p class="text-sm text-muted-foreground">
+            Content availability across languages
+          </p>
+        </div>
+      </div>
+
+      <TranslationMatrix
+        client:load
+        onTranslate={(contentType, targetLanguage) => {
+          window.dispatchEvent(new CustomEvent('start-translate', {
+            detail: { contentType, targetLanguage }
+          }));
+        }}
+      />
+    </section>
+  </div>
+
+  <!-- Task Creation Modal -->
+  <div id="task-modal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+    <div class="bg-card rounded-xl border border-border shadow-xl max-w-md w-full mx-4 p-6">
+      <h3 class="text-lg font-semibold mb-4" id="modal-title">Create Task</h3>
+      <form id="task-form" class="space-y-4">
+        <input type="hidden" id="task-persona" name="persona" />
+        <input type="hidden" id="task-capability" name="capability" />
+        <input type="hidden" id="task-contentType" name="contentType" />
+
+        <!-- Dynamic form fields based on capability -->
+        <div id="translate-fields" class="hidden space-y-4">
+          <div>
+            <label class="block text-sm font-medium mb-1">Source Language</label>
+            <select name="sourceLanguage" class="w-full px-3 py-2 rounded-lg border border-border bg-background">
+              <option value="en">English</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-1">Target Languages</label>
+            <div class="space-y-2">
+              <label class="flex items-center gap-2">
+                <input type="checkbox" name="targetLanguages" value="it" class="rounded" />
+                <span class="text-sm">Italian</span>
+              </label>
+              <label class="flex items-center gap-2">
+                <input type="checkbox" name="targetLanguages" value="fr" class="rounded" />
+                <span class="text-sm">French</span>
+              </label>
+              <label class="flex items-center gap-2">
+                <input type="checkbox" name="targetLanguages" value="de" class="rounded" />
+                <span class="text-sm">German</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div id="create-fields" class="hidden space-y-4">
+          <div>
+            <label class="block text-sm font-medium mb-1">Language</label>
+            <select name="language" class="w-full px-3 py-2 rounded-lg border border-border bg-background">
+              <option value="en">English</option>
+              <option value="it">Italian</option>
+              <option value="fr">French</option>
+              <option value="de">German</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-1">Requirements</label>
+            <textarea name="requirements" rows="4" placeholder="Describe what content to create..." class="w-full px-3 py-2 rounded-lg border border-border bg-background resize-none"></textarea>
+          </div>
+        </div>
+
+        <div id="optimize-fields" class="hidden space-y-4">
+          <div>
+            <label class="block text-sm font-medium mb-1">Optimization Type</label>
+            <select name="optimizationType" class="w-full px-3 py-2 rounded-lg border border-border bg-background">
+              <option value="all">All (SEO + Clarity + Engagement)</option>
+              <option value="seo">SEO Only</option>
+              <option value="clarity">Clarity Only</option>
+              <option value="engagement">Engagement Only</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="research-fields" class="hidden space-y-4">
+          <div>
+            <label class="block text-sm font-medium mb-1">Research Query</label>
+            <textarea name="query" rows="2" placeholder="What do you want to research?" class="w-full px-3 py-2 rounded-lg border border-border bg-background resize-none"></textarea>
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-1">Research Scope</label>
+            <select name="researchScope" class="w-full px-3 py-2 rounded-lg border border-border bg-background">
+              <option value="general">General</option>
+              <option value="events">Events & Dates</option>
+              <option value="weather">Weather & Seasons</option>
+              <option value="prices">Prices & Costs</option>
+              <option value="hours">Hours & Availability</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="flex gap-3 pt-4">
+          <button type="button" id="cancel-modal" class="flex-1 px-4 py-2 rounded-lg border border-border hover:bg-secondary">
+            Cancel
+          </button>
+          <button type="submit" class="flex-1 px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90">
+            Start Task
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</AdminLayout>
+
+<script>
+  const modal = document.getElementById('task-modal')!;
+  const form = document.getElementById('task-form') as HTMLFormElement;
+  const modalTitle = document.getElementById('modal-title')!;
+  const cancelBtn = document.getElementById('cancel-modal')!;
+
+  // Form field containers
+  const translateFields = document.getElementById('translate-fields')!;
+  const createFields = document.getElementById('create-fields')!;
+  const optimizeFields = document.getElementById('optimize-fields')!;
+  const researchFields = document.getElementById('research-fields')!;
+
+  // Hidden inputs
+  const personaInput = document.getElementById('task-persona') as HTMLInputElement;
+  const capabilityInput = document.getElementById('task-capability') as HTMLInputElement;
+  const contentTypeInput = document.getElementById('task-contentType') as HTMLInputElement;
+
+  function showModal(persona: string, capability: string, contentType: string) {
+    // Set hidden values
+    personaInput.value = persona;
+    capabilityInput.value = capability;
+    contentTypeInput.value = contentType;
+
+    // Set title
+    modalTitle.textContent = `${capability.charAt(0).toUpperCase() + capability.slice(1)} ${contentType}`;
+
+    // Show relevant fields
+    translateFields.classList.toggle('hidden', capability !== 'translate');
+    createFields.classList.toggle('hidden', capability !== 'create');
+    optimizeFields.classList.toggle('hidden', capability !== 'optimize');
+    researchFields.classList.toggle('hidden', capability !== 'research');
+
+    // Show modal
+    modal.classList.remove('hidden');
+  }
+
+  function hideModal() {
+    modal.classList.add('hidden');
+    form.reset();
+  }
+
+  // Event listeners
+  window.addEventListener('start-task', ((e: CustomEvent) => {
+    const { persona, capability, contentType } = e.detail;
+    showModal(persona, capability, contentType);
+  }) as EventListener);
+
+  window.addEventListener('start-translate', ((e: CustomEvent) => {
+    const { contentType, targetLanguage } = e.detail;
+    showModal('giulia', 'translate', contentType);
+    // Pre-select the target language
+    const checkbox = form.querySelector(`input[name="targetLanguages"][value="${targetLanguage}"]`) as HTMLInputElement;
+    if (checkbox) checkbox.checked = true;
+  }) as EventListener);
+
+  cancelBtn.addEventListener('click', hideModal);
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) hideModal();
+  });
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const persona = formData.get('persona') as string;
+    const capability = formData.get('capability') as string;
+    const contentType = formData.get('contentType') as string;
+
+    let endpoint = `/admin/api/agents/${capability}`;
+    let body: Record<string, unknown> = { persona, contentType };
+
+    switch (capability) {
+      case 'translate':
+        const targetLanguages = formData.getAll('targetLanguages') as string[];
+        if (targetLanguages.length === 0) {
+          alert('Please select at least one target language');
+          return;
+        }
+        body.sourceLanguage = formData.get('sourceLanguage');
+        body.targetLanguages = targetLanguages;
+        break;
+
+      case 'create':
+        const requirements = formData.get('requirements') as string;
+        if (!requirements?.trim()) {
+          alert('Please enter requirements');
+          return;
+        }
+        body.language = formData.get('language');
+        body.requirements = requirements;
+        break;
+
+      case 'optimize':
+        body.optimizationType = formData.get('optimizationType');
+        break;
+
+      case 'research':
+        const query = formData.get('query') as string;
+        if (!query?.trim()) {
+          alert('Please enter a research query');
+          return;
+        }
+        body.query = query;
+        body.researchScope = formData.get('researchScope');
+        break;
+    }
+
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        hideModal();
+        window.location.reload();
+      } else {
+        alert(result.error || 'Failed to create task');
+      }
+    } catch (error) {
+      alert('Failed to create task');
+    }
+  });
+</script>

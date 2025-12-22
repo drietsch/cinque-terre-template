@@ -1,0 +1,57 @@
+{
+  "en": {
+    "meta": {
+      "title": "Where to Wake Up: Accommodations in Riomaggiore | Cinque Terre Dispatch"
+    },
+    "hero": {
+      "badge": "The Art of Staying",
+      "title": "Where to<br/>Wake Up",
+      "subtitle": "In a vertical village, your choice of bed is a choice of perspective. It is the difference between the salt-spray of the harbor and the silence of the vineyards.",
+      "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2670&auto=format&fit=crop",
+      "imageAlt": "Riomaggiore village at dawn"
+    },
+    "intro": {
+      "badge": "The Logic of the Stay",
+      "leadQuote": "Riomaggiore does not have hotels in the way the world usually understands them. There are no grand lobbies, no sprawling resorts, and very few elevators.",
+      "paragraphs": [
+        "Instead, the village offers <strong>layered living</strong>. Houses are stacked one upon another, carved into the very rock of the cliff. To stay here is to enter a family's history--most accommodations are small guesthouses ('affittacamere') or private apartments that have been in the same hands for generations.",
+        "You must understand that <strong>views come with a price</strong>, and that price is usually measured in stairs. The higher you climb, the more dramatic the panorama and the deeper the silence. The closer you stay to the water, the more you feel the village's energy, but you trade quiet for the rhythm of the harbor.",
+        "Comfort here is <strong>shaped by location</strong>. In the summer, the harbor is a theater of light and sound that never truly sleeps. In the winter, the upper village feels like a monastery, wrapped in mist and the sound of distant waves. There are no 'star ratings' that can capture the feeling of opening a window to the first light hitting the terracotta walls.",
+        "To choose well is to <strong>match your spirit to the terrain</strong>. Are you here for the morning coffee on a balcony overlooking the boats? Or for the cool, quiet walk back to a hillside retreat after a long dinner? In Riomaggiore, where you sleep is simply an extension of how you move through the day."
+      ]
+    },
+    "transition": {
+      "title": "Places to rest within the village's rhythm",
+      "subtitle": "These selections represent different ways of inhabiting Riomaggiore. They are chosen for their character, their location, and the specific kind of morning they offer."
+    },
+    "editorialInterludes": [
+      {
+        "afterIndex": 3,
+        "type": "primary",
+        "badge": "Editorial Interlude",
+        "title": "The Vertical Trade-off",
+        "quote": "In Riomaggiore, every ten steps upward buys you another hour of silence. The harbor is the village's heart, but the upper streets are its soul. If you are sensitive to noise, look for places above the church of San Giovanni Battista. Your legs will work harder, but your mind will rest deeper."
+      },
+      {
+        "afterIndex": 6,
+        "type": "secondary",
+        "badge": "Editorial Interlude",
+        "title": "The Harbor at Dawn",
+        "quote": "Staying at the harbor means living in a postcard, but the real magic happens at 6:00 AM. Before the first ferry, before the crowds, the harbor belongs to the water and the stone. If you stay here, don't sleep through this hour. It is the only time you will truly see the village as it was a century ago."
+      }
+    ],
+    "closing": {
+      "badge": "A Final Reflection",
+      "title": "The Memory of the Morning",
+      "paragraphs": [
+        "In the end, what you remember of Riomaggiore is not the square footage of your room or the thread count of your sheets.",
+        "It is the way the light first touches the church tower across the valley. It is the sound of a neighbor's shutters opening. It is the feeling of stepping out of your door and immediately belonging to the vertical rhythm of the street.",
+        "Choose the place that matches the morning you want to have. The rest of the village will wait for you."
+      ],
+      "primaryCta": "Plan Your Journey",
+      "primaryCtaHref": "/itinerary",
+      "secondaryCta": "Discover the Table",
+      "secondaryCtaHref": "/culinary"
+    }
+  }
+}

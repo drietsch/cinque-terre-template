@@ -1,0 +1,77 @@
+{
+  "en": {
+    "meta": {
+      "title": "The Salt & Stone Path | A Curated Journey | Cinque Terre Dispatch"
+    },
+    "hero": {
+      "badge": "Signature Itinerary"
+    },
+    "intention": {
+      "badge": "The Intention",
+      "title": "Why I created this journey.",
+      "paragraphs": [
+        "Most people come to the Cinque Terre with a list. They want to see five villages in one day, take five photos, and catch the last train out. But the coast doesn't reveal itself to the hurried.",
+        "I built <strong>The Salt & Stone Path</strong> for the traveler who wants to feel the weight of the history here. It's for the person who would rather spend three hours watching the light change on a single cliffside than three minutes at every viewpoint.",
+        "This is not a checklist. It is a slow, rhythmic movement through a landscape that has spent centuries resisting the rush of the modern world. If you are looking for a marathon, this is not for you. But if you are looking for a conversation with the sea, stay a while."
+      ],
+      "image": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=2000",
+      "imageAlt": "Giulia in Riomaggiore"
+    },
+    "overview": {
+      "badge": "Orientation",
+      "title": "The Rhythm of the Days"
+    },
+    "map": {
+      "badge": "Spatial Clarity",
+      "title": "The Coastal Arc",
+      "description": "The journey follows the natural curve of the coast, starting in the east and moving toward the setting sun. It's a path of increasing light and openness.",
+      "dayLabels": [
+        "Day 1: Riomaggiore",
+        "Day 2: The High Ridge",
+        "Day 3: The Harbor Heart",
+        "Day 4: The Open Horizon"
+      ],
+      "mapImage": "https://api.mapbox.com/styles/v1/mapbox/light-v11/static/9.7386,44.1194,11.5,0/1200x675@2x?access_token=pk.eyJ1IjoiZHJpZXRzY2giLCJhIjoiY21qYjAzMWxtMGJpZDNlc2RqMWN3NHdjbSJ9.k9Xvn4saiEtYhrJE8bKk7Q"
+    },
+    "dayDetails": {
+      "momentLabel": "The Moments That Matter"
+    },
+    "flexibility": {
+      "badge": "The Living Path",
+      "title": "Flexibility & Flow",
+      "description": "The coast is alive. In November, the trails are quieter but the sea is louder. If your energy is low, skip the high path and take the ferry—the view from the water is a different kind of medicine."
+    },
+    "practical": {
+      "badge": "Quiet Guidance",
+      "title": "Practical Truths",
+      "tips": [
+        "The trains are efficient, but the boats are emotional. Use both.",
+        "Water is your best friend on the trails. Fill your bottle at the village fountains.",
+        "The last boat usually leaves before sunset. Plan your return accordingly."
+      ]
+    },
+    "closing": {
+      "badge": "The Resolution",
+      "quote": "What lingers is not the view, but the feeling of the salt on your skin.",
+      "reflection": "When you leave the Cinque Terre, I hope you carry more than just photos. I hope you carry the rhythm of the sea and the quiet confidence of the stone. You didn't see everything, but you saw what mattered.",
+      "author": "— Giulia Rossi"
+    },
+    "cta": {
+      "title": "Deeper Explorations",
+      "links": [
+        {
+          "badge": "Curated Guide",
+          "title": "Sights Worth Your Attention",
+          "description": "A quiet invitation to the places that define Riomaggiore.",
+          "href": "/sights"
+        },
+        {
+          "badge": "The Dispatch",
+          "title": "Stories & Local Insights",
+          "description": "Slow journalism for a fast-moving coastline.",
+          "href": "/blog"
+        }
+      ]
+    }
+  }
+}

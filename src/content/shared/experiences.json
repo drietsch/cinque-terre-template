@@ -1,0 +1,381 @@
+{
+  "en": {
+    "experiences": [
+      {
+        "id": 1,
+        "name": "Wandering the Carruggi",
+        "category": "The Fundamental Path",
+        "village": "Riomaggiore",
+        "image": "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?q=80&w=2666&auto=format&fit=crop",
+        "intro": "A path without a destination is the only way to truly see the village.",
+        "description": "Walking in Riomaggiore is not about getting from A to B; it is about the verticality of the experience. The 'carruggi'—our narrow, winding alleys—are designed to confuse the wind and the pirate alike. To wander them is to see the village's domestic soul: the laundry drying between windows, the sound of a television behind a green shutter, the sudden smell of frying garlic. It is an exercise in following your curiosity rather than a map.",
+        "giuliaComment": "I never use a map when I walk here. I just follow the light. If the sun is hitting a particular terracotta wall, I turn that way. Getting slightly lost is the point—it's how you find the quiet corners where the only sound is the distant sea.",
+        "signature": "An invitation to lose your way and find the village's soul",
+        "mode": "Walking",
+        "intensity": "Moderate (Stairs)",
+        "bestTime": "Early morning or late afternoon",
+        "practicalInfo": "Wear shoes with good grip. The stones can be slippery even when dry. Respect private entrances; if a path looks like someone's front porch, it probably is.",
+        "googleRating": 4.9,
+        "tripadvisorRating": 4.8
+      },
+      {
+        "id": 2,
+        "name": "The Rocks and the Sea",
+        "category": "Maritime Presence",
+        "village": "Riomaggiore Harbor",
+        "image": "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?q=80&w=2670&auto=format&fit=crop",
+        "intro": "The sea is not a backdrop; it is the village's constant, breathing companion.",
+        "description": "In Riomaggiore, the water is accessed from the rocks. There are no sandy beaches here, only the hard, salt-worn stone of the marina. Sitting on these rocks as the sun sets, or diving into the deep blue water of the harbor, is a way of aligning yourself with the village's maritime history. It is about watching the ferry dock with precision, observing the changing color of the water, and feeling the spray on your skin.",
+        "giuliaComment": "The rocks at the harbor are my favorite 'living room'. I come here to watch the boats return in the evening. There is a specific rhythm to it—the way the ropes are thrown, the way the engines cut out. It's a theater of daily survival that has played out for centuries.",
+        "signature": "A front-row seat to the dialogue between stone and salt",
+        "mode": "Observation & Water",
+        "intensity": "Low to Moderate",
+        "bestTime": "Mid-day for swimming, sunset for sitting",
+        "practicalInfo": "The rocks can be sharp and slippery. Use the metal ladders for easier entry into the water. Only swim when the sea is calm; the currents here are stronger than they look.",
+        "googleRating": 4.8,
+        "tripadvisorRating": 4.7
+      },
+      {
+        "id": 3,
+        "name": "The High Paths",
+        "category": "Gaining Perspective",
+        "village": "Upper Ridges",
+        "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2670&auto=format&fit=crop",
+        "intro": "Distance creates the silence that the village streets sometimes hide.",
+        "description": "To walk above Riomaggiore is to understand its scale. The paths that lead to the Sanctuary of Montenero or towards the neighboring villages are not just hikes; they are journeys through an agricultural landscape. You walk through vineyards that require hero's labor to maintain, smelling wild thyme and rosemary. From up here, the village looks like a handful of colorful jewels dropped into a cleft in the rock.",
+        "giuliaComment": "I go up when the village feels too small. The silence on the high paths is different—it's filled with the sound of the wind in the pines and the occasional buzz of a monorail. It reminds me that we are just a small part of a very large, very old landscape.",
+        "signature": "A vertical escape into silence and wide horizons",
+        "mode": "Hiking / Perspective",
+        "intensity": "High",
+        "bestTime": "Morning (to avoid the heat)",
+        "practicalInfo": "The path to the Sanctuary is steep but well-paved. For longer hikes, you'll need a Cinque Terre Card. Always check the trail status at the park office before starting.",
+        "googleRating": 4.7,
+        "tripadvisorRating": 4.6
+      },
+      {
+        "id": 4,
+        "name": "The Ritual of the Table",
+        "category": "Daily Alignment",
+        "village": "Via Colombo",
+        "image": "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2670&auto=format&fit=crop",
+        "intro": "Eating here is an act of participation, not just consumption.",
+        "description": "Doing 'nothing' over a glass of local wine is one of the most important activities in Riomaggiore. It is about choosing a small bar, sitting outside, and watching the village move. It is about buying a piece of warm focaccia and eating it while leaning against a stone wall. These simple acts align your internal clock with the village's own timing—the morning coffee rush, the afternoon lull, and the evening aperitivo.",
+        "giuliaComment": "My advice? Go to the same bar two days in a row. Sit in the same chair. Notice how the greeting from the barista changes from a polite 'Buongiorno' to a knowing nod. That's when you've stopped being a tourist and started being a guest.",
+        "signature": "The slow art of becoming part of the street's scenery",
+        "mode": "Food & Wine",
+        "intensity": "Low",
+        "bestTime": "11:00 AM or 6:00 PM",
+        "practicalInfo": "Look for places where the locals are standing at the counter. Don't rush your order; the pace of service is a reflection of the village's own rhythm.",
+        "googleRating": 4.6,
+        "tripadvisorRating": 4.5
+      },
+      {
+        "id": 5,
+        "name": "The Practice of Stillness",
+        "category": "Intentional Presence",
+        "village": "Church Piazza",
+        "image": "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=2670&auto=format&fit=crop",
+        "intro": "The most productive thing you can do in Riomaggiore is nothing at all.",
+        "description": "We are so used to 'doing' that 'being' feels like a challenge. Riomaggiore rewards those who can sit still. Whether it's on a bench in front of the Church of San Giovanni Battista or on a wall overlooking the sea, intentional stillness allows you to notice the details: the way the swallows dive at dusk, the specific shade of orange as the sun hits the plaster, the sound of a distant church bell. It is the highest form of engagement.",
+        "giuliaComment": "I see people rushing with checklists, and I want to tell them: 'Stop. Sit. Look.' The village reveals its secrets to those who wait. The best moments I've ever had here were the ones I didn't plan—they just happened because I was there to see them.",
+        "signature": "A quiet rebellion against the urge to accomplish",
+        "mode": "Observation",
+        "intensity": "None",
+        "bestTime": "Dawn or Dusk",
+        "practicalInfo": "This activity is free and available everywhere. The best spots are often the simplest ones—a stone step, a public bench, or the harbor wall.",
+        "googleRating": 5,
+        "tripadvisorRating": 4.9
+      },
+      {
+        "id": 6,
+        "name": "The Human Rhythm",
+        "category": "Cultural Encounter",
+        "village": "The Main Street",
+        "image": "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=2572&auto=format&fit=crop",
+        "intro": "A village is made of people, not just stone and views.",
+        "description": "Engaging with the people of Riomaggiore requires a delicate balance of curiosity and respect. It is about a simple 'Buongiorno' to the shopkeeper, observing the delivery men navigate the stairs with impossible grace, or watching a local funeral procession from a respectful distance. It is about understanding that you are a guest in a living community, and that your most meaningful contribution is your own humility and attention.",
+        "giuliaComment": "Respect is our primary currency. If you approach the village with a quiet heart and a genuine smile, it will open up to you. Don't treat us like a museum exhibit; treat us like neighbors you haven't met yet.",
+        "signature": "The subtle art of being a guest in a living history",
+        "mode": "Human Connection",
+        "intensity": "Low",
+        "bestTime": "Anytime",
+        "practicalInfo": "Learn a few basic Italian phrases. Keep your voice low in the residential carruggi. Always ask before taking a close-up photo of a person.",
+        "googleRating": 4.7,
+        "tripadvisorRating": 4.6
+      }
+    ],
+    "sights": [
+      {
+        "id": 1,
+        "name": "The Harbor at Dusk",
+        "category": "Harbor",
+        "village": "Riomaggiore",
+        "image": "/riomaggiore_harbor_1765960456019.png",
+        "description": "The harbor is where Riomaggiore reveals its soul. Small boats rest in water so clear you can see the stones beneath, while the village rises in tiers of ochre, terracotta, and faded pink. As the day softens, the light turns golden, and the place feels less like a destination and more like a memory.",
+        "editorComment": "Visit in the late afternoon when the sun moves behind the village and the harbor falls into soft shadow. The water becomes impossibly still, and the colors deepen. Most visitors arrive midday and miss this entirely.",
+        "signature": "Where the village meets the sea in perfect stillness",
+        "bestTime": "Late afternoon to early evening",
+        "crowdLevel": "Moderate during day, quiet at dusk",
+        "duration": "30–45 minutes",
+        "googleRating": 4.7,
+        "tripadvisorRating": 4.5,
+        "orientation": "At sea level, 5 minutes from the station",
+        "access": "Steep steps down from the main street",
+        "seasonalNote": "Winter light is softer and more dramatic; summer brings warmth but also crowds."
+      },
+      {
+        "id": 2,
+        "name": "Santuario di Montenero",
+        "category": "Viewpoint",
+        "village": "Riomaggiore",
+        "image": "/scenic_viewpoint_1765960559207.png",
+        "description": "High above the village, this sanctuary offers a view that feels earned. The climb is steady but never punishing, and the reward is a panorama that stretches from the terraced vineyards to the open sea. The village below looks small and timeless, a cluster of color against the endless blue.",
+        "editorComment": "Go early in the morning when the air is cool and the light is clean. By midday, the heat can be intense, and the view loses its clarity. Bring water and take your time—this is not a place to rush.",
+        "signature": "The village seen from above, framed by sky and sea",
+        "bestTime": "Early morning or late afternoon",
+        "crowdLevel": "Quiet, rarely crowded",
+        "duration": "1.5–2 hours including the walk",
+        "googleRating": 4.8,
+        "tripadvisorRating": 4.7,
+        "orientation": "Above the village, 30-minute uphill walk from Piazza Vignaioli",
+        "access": "Well-maintained mule track, some steep sections",
+        "seasonalNote": "Spring and autumn offer the best light and temperature for the climb."
+      },
+      {
+        "id": 3,
+        "name": "Castello di Riomaggiore",
+        "category": "Cultural Site",
+        "village": "Riomaggiore",
+        "image": "/historic_church_1765960706254.png",
+        "description": "Built in 1260, the castle sits at the highest point of the village, a stone sentinel that has watched over Riomaggiore for centuries. Its walls are thick and weathered, and from its terraces, the view extends in every direction—sea, village, hills. It is a place that speaks of defense and endurance.",
+        "editorComment": "Visit in the late afternoon when the sun is low and the stone glows warm. The interior now serves as a cultural center, but the terraces are the real draw. Bring a camera, but also take time to simply stand and look.",
+        "signature": "A fortress with a view that commands the coast",
+        "bestTime": "Late afternoon for golden light",
+        "crowdLevel": "Moderate",
+        "duration": "30–40 minutes",
+        "googleRating": 4.5,
+        "tripadvisorRating": 4.4,
+        "orientation": "At the highest point of town, 10-minute uphill walk",
+        "access": "Stone steps, moderately steep",
+        "seasonalNote": "Open seasonally; check hours before visiting."
+      },
+      {
+        "id": 4,
+        "name": "San Giovanni Battista",
+        "category": "Cultural Site",
+        "village": "Riomaggiore",
+        "image": "/historic_church_1765960706254.png",
+        "description": "Founded in 1340, this Gothic church stands at the heart of the village, its neo-Gothic facade and striking rose window weathered by centuries of salt air. Inside, the space is cool and quiet, a refuge from the heat and noise of the streets. The light filters through stained glass, and time seems to slow.",
+        "editorComment": "Step inside during the midday heat when the village is at its busiest. The contrast is immediate—outside, everything is bright and loud; inside, everything is still. It's a moment of pause that feels necessary.",
+        "signature": "A place of quiet in the center of everything",
+        "bestTime": "Midday for the interior light",
+        "crowdLevel": "Quiet, rarely crowded",
+        "duration": "15–20 minutes",
+        "googleRating": 4.6,
+        "tripadvisorRating": 4.5,
+        "orientation": "Central village, near the main piazza",
+        "access": "Easy access from main street",
+        "seasonalNote": "Open year-round; most atmospheric in winter when the village is quiet."
+      },
+      {
+        "id": 5,
+        "name": "Via dell'Amore Trailhead",
+        "category": "Trail",
+        "village": "Riomaggiore",
+        "image": "/scenic_viewpoint_1765960559207.png",
+        "description": "Though the famous Love Path to Manarola has been closed for repairs, the trailhead remains a place of pilgrimage. Visitors come to see where the legendary coastal walk once began, to imagine the path carved into the cliffs, and to hope for its eventual reopening. Even in its absence, the romance of it lingers.",
+        "editorComment": "The view from the trailhead is still worth the visit. Look south along the coast and you'll see the path suspended between land and sea. It's a reminder of what once was and what may be again. Check for reopening updates before your visit.",
+        "signature": "A trail remembered, a view that remains",
+        "bestTime": "Late afternoon for the best coastal light",
+        "crowdLevel": "Moderate, popular photo spot",
+        "duration": "10–15 minutes",
+        "googleRating": 4.3,
+        "tripadvisorRating": 4.2,
+        "orientation": "South of the village, near the marina",
+        "access": "Easy walk from the station",
+        "seasonalNote": "Check official Cinque Terre website for reopening updates."
+      },
+      {
+        "id": 6,
+        "name": "Spiaggia di Riomaggiore",
+        "category": "Beach",
+        "village": "Riomaggiore",
+        "image": "/beach_cove_1765960653545.png",
+        "description": "This small, pebbly beach near the marina is not a place for sunbathing crowds. It is a sheltered cove where the water is startlingly clear and the atmosphere is unhurried. Locals come here to swim in the early morning or late afternoon, and there is a quiet understanding that this place is for those who know.",
+        "editorComment": "The water is cold even in summer, but refreshing in the best way. Arrive before 9 AM or after 5 PM to have it mostly to yourself. The cove is sheltered from wind, making it ideal even on breezy days.",
+        "signature": "A hidden cove where the village comes to swim",
+        "bestTime": "Early morning or late afternoon",
+        "crowdLevel": "Very quiet, mostly locals",
+        "duration": "1–2 hours",
+        "googleRating": 4.4,
+        "tripadvisorRating": 4.3,
+        "orientation": "Near the marina, 3 minutes from the harbor",
+        "access": "Rocky beach, water shoes recommended",
+        "seasonalNote": "Best from May to September when the water is swimmable."
+      },
+      {
+        "id": 7,
+        "name": "Via Colombo",
+        "category": "Street",
+        "village": "Riomaggiore",
+        "image": "/riomaggiore_harbor_1765960456019.png",
+        "description": "Riomaggiore's main street is the village's beating heart. Lined with restaurants, wine bars, and small shops, it pulses with life from morning until late evening. The street follows the natural contour of the valley, connecting the station to the harbor, and offers glimpses of daily life that feel authentic and unperformed.",
+        "editorComment": "Walk it slowly in the early evening when locals emerge for their passeggiata. The energy shifts from tourist-focused to genuinely local, and you'll see the village as it sees itself. Stop for an aperitivo at one of the wine bars.",
+        "signature": "The artery of village life, morning to night",
+        "bestTime": "Early evening for the passeggiata",
+        "crowdLevel": "Busy throughout the day",
+        "duration": "20–30 minutes to walk, longer to linger",
+        "googleRating": 4.6,
+        "tripadvisorRating": 4.5,
+        "orientation": "Main street from station to harbor",
+        "access": "Paved, some steps, wheelchair accessible in sections",
+        "seasonalNote": "Liveliest in summer evenings; quieter but charming in winter."
+      },
+      {
+        "id": 8,
+        "name": "Oratorio di Santa Maria Assunta",
+        "category": "Cultural Site",
+        "village": "Riomaggiore",
+        "image": "/historic_church_1765960706254.png",
+        "description": "Also known as the Chiesa della Compagnia, this simple stone oratory holds a treasure: a unique 14th-century wooden statue called the Madonna delle Catene. The building itself is modest, but there is a quiet dignity to its plainness, and the interior feels like a secret kept by the village.",
+        "editorComment": "This is not a sight that announces itself. You have to seek it out, and that's part of its appeal. The wooden Madonna is remarkable—delicate and expressive in a way that feels personal rather than monumental.",
+        "signature": "A humble space holding centuries of devotion",
+        "bestTime": "Morning or late afternoon",
+        "crowdLevel": "Very quiet, often empty",
+        "duration": "10–15 minutes",
+        "googleRating": 4.5,
+        "tripadvisorRating": 4.4,
+        "orientation": "In the village center, near Via Colombo",
+        "access": "Easy access, small entrance",
+        "seasonalNote": "Open year-round; hours may vary, check locally."
+      }
+    ],
+    "highlights": [
+      {
+        "id": "coastal-hikes",
+        "name": "Coastal Hikes",
+        "icon": "Mountain",
+        "desc": "Walk the famous Blue Trail."
+      },
+      {
+        "id": "boat-tours",
+        "name": "Boat Tours",
+        "icon": "Ship",
+        "desc": "See the villages from the sea."
+      },
+      {
+        "id": "beaches",
+        "name": "Beaches",
+        "icon": "Umbrella",
+        "desc": "Relax on Monterosso's sands."
+      },
+      {
+        "id": "photo-spots",
+        "name": "Photo Spots",
+        "icon": "Camera",
+        "desc": "Capture the perfect shot."
+      },
+      {
+        "id": "sunset-aperitivo",
+        "name": "Sunset Aperitivo",
+        "icon": "Sunset",
+        "desc": "Drinks with a view."
+      },
+      {
+        "id": "portovenere",
+        "name": "Day Trip: Portovenere",
+        "icon": "Map",
+        "desc": "The 'sixth village' nearby."
+      },
+      {
+        "id": "festivals",
+        "name": "Local Festivals",
+        "icon": "Calendar",
+        "desc": "Experience local culture."
+      },
+      {
+        "id": "crowd-avoidance",
+        "name": "Crowd Avoidance",
+        "icon": "Users",
+        "desc": "Tips for a quieter trip."
+      }
+    ],
+    "audioGuides": [
+      {
+        "id": "via-amore",
+        "title": "Walking the Via dell'Amore",
+        "description": "A guided audio tour of the famous Lover's Lane.",
+        "duration": "12 min",
+        "image": "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=2574&auto=format&fit=crop"
+      },
+      {
+        "id": "sounds-of-sea",
+        "title": "Sounds of the Sea",
+        "description": "Relaxing ambient sounds from Monterosso beach.",
+        "duration": "30 min",
+        "image": "https://images.unsplash.com/photo-1534445867742-43195f401b6c?q=80&w=2670&auto=format&fit=crop"
+      },
+      {
+        "id": "history-vernazza",
+        "title": "History of Vernazza",
+        "description": "Learn about the pirate attacks and castle defense.",
+        "duration": "18 min",
+        "image": "https://images.unsplash.com/photo-1498503182468-3b51cbb6cb24?q=80&w=2670&auto=format&fit=crop"
+      }
+    ],
+    "escapes": [
+      {
+        "id": "romantic",
+        "name": "The Romantic Escape",
+        "image": "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=2574&auto=format&fit=crop"
+      },
+      {
+        "id": "family",
+        "name": "Family-Friendly Weekend",
+        "image": "https://images.unsplash.com/photo-1534445867742-43195f401b6c?q=80&w=2670&auto=format&fit=crop"
+      },
+      {
+        "id": "hikers",
+        "name": "Hikers' Edition",
+        "image": "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?q=80&w=2670&auto=format&fit=crop"
+      },
+      {
+        "id": "food-wine",
+        "name": "Food & Wine Weekend",
+        "image": "https://images.unsplash.com/photo-1551183053-bf91a1d81141?q=80&w=2632&auto=format&fit=crop"
+      }
+    ],
+    "advice": [
+      {
+        "id": "getting-there",
+        "name": "Getting There",
+        "icon": "Train",
+        "desc": "Trains are your best friend."
+      },
+      {
+        "id": "getting-around",
+        "name": "Getting Around",
+        "icon": "Map",
+        "desc": "Cinque Terre Card explained."
+      },
+      {
+        "id": "crowd-strategy",
+        "name": "Crowd Strategy",
+        "icon": "Users",
+        "desc": "Avoid peak hours."
+      },
+      {
+        "id": "packing",
+        "name": "What to Pack",
+        "icon": "Briefcase",
+        "desc": "Leave the heels at home."
+      },
+      {
+        "id": "weather-safety",
+        "name": "Weather & Safety",
+        "icon": "CloudSun",
+        "desc": "Check trail status."
+      }
+    ]
+  }
+}

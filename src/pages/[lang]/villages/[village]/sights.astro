@@ -1,0 +1,95 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import Footer from '../../../../components/Footer';
+import EditorialHero from '../../../../components/EditorialHero.astro';
+import EditorialIntro from '../../../../components/EditorialIntro.astro';
+import EditorNote from '../../../../components/EditorNote.astro';
+import ClosingNote from '../../../../components/ClosingNote.astro';
+import { MapPin, Camera, Clock } from 'lucide-react';
+import { getLanguages, getVillageSlugs, getVillageBySlug, getSights, getPageContent, getItemsByVillage, type Language } from '../../../../lib/content';
+
+export function getStaticPaths() {
+    const languages = getLanguages();
+    const villageSlugs = getVillageSlugs();
+
+    return languages.flatMap(lang =>
+        villageSlugs.map(village => ({
+            params: { lang, village }
+        }))
+    );
+}
+
+const { lang, village: villageSlug } = Astro.params as { lang: Language; village: string };
+const village = getVillageBySlug(villageSlug, lang);
+const allSights = getSights(lang);
+const sights = getItemsByVillage(allSights, village?.name || '');
+const page = getPageContent('sights', lang);
+
+if (!village) {
+    return Astro.redirect(`/${lang}/villages/`);
+}
+---
+
+<Layout title={`Sights & Attractions in ${village.name} | Cinque Terre Dispatch`} lang={lang} village={villageSlug}>
+    <EditorialHero
+        title={`Sights of<br/>${village.name}`}
+        subtitle={page.hero.subtitle}
+        badge={page.hero.badge}
+        image={village.image}
+    />
+
+    <EditorialIntro
+        badge={page.intro.badge}
+        leadQuote={page.intro.leadQuote}
+        paragraphs={page.intro.paragraphs}
+    />
+
+    <!-- Sights List -->
+    <section class="py-16 container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {sights.length > 0 ? (
+                sights.map((sight) => (
+                    <article class="group">
+                        <div class="relative aspect-[4/3] overflow-hidden rounded-xl mb-6">
+                            <img
+                                src={sight.image}
+                                alt={sight.name}
+                                class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                            />
+                            <span class="absolute top-4 left-4 bg-white/90 text-black px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide shadow-sm">
+                                {sight.category}
+                            </span>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-2">
+                                <MapPin className="w-4 h-4 text-primary" />
+                                <span class="text-sm font-medium text-muted-foreground">{sight.village}</span>
+                            </div>
+                            <h2 class="font-serif text-2xl font-bold group-hover:text-primary transition-colors">
+                                {sight.name}
+                            </h2>
+                            <p class="text-muted-foreground">
+                                {sight.description}
+                            </p>
+                        </div>
+                    </article>
+                ))
+            ) : (
+                <div class="col-span-2 text-center py-16">
+                    <p class="text-xl text-muted-foreground">
+                        No sights found for {village.name}. Check back soon!
+                    </p>
+                </div>
+            )}
+        </div>
+    </section>
+
+    <ClosingNote
+        badge={page.closing.badge}
+        title={page.closing.title}
+        paragraphs={page.closing.paragraphs}
+    />
+
+    <Footer lang={lang} village={villageSlug} />
+</Layout>

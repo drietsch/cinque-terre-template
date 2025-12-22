@@ -1,0 +1,73 @@
+{
+  "en": {
+    "meta": {
+      "title": "Cinque Terre Dispatch | Luxury Travel Guide"
+    },
+    "hero": {
+      "badge": "Travel Guide",
+      "title": "Cinque Terre",
+      "subtitle": "A journey through the five colorful villages suspended between sea and sky. Discover the Italian Riviera's most romantic destination.",
+      "image": "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=2574&auto=format&fit=crop",
+      "imageAlt": "Cinque Terre Coastline",
+      "primaryCta": "Explore the Villages",
+      "primaryCtaHref": "#villages",
+      "secondaryCta": "Plan a 3-Day Trip",
+      "secondaryCtaHref": "#plan"
+    },
+    "villageSelector": {
+      "badge": "Destinations",
+      "title": "The Five Villages",
+      "subtitle": "Each village has its own unique personality. Find the one that speaks to you."
+    },
+    "placesToStay": {
+      "badge": "Where to Sleep",
+      "title": "Places to Stay Spotlight"
+    },
+    "eatDrink": {
+      "badge": "Food & Drink",
+      "title": "Editors' Picks"
+    },
+    "highlights": {
+      "badge": "Experiences",
+      "title": "Cinque Terre Highlights"
+    },
+    "curatedEscapes": {
+      "badge": "Collections",
+      "title": "Curated Escapes"
+    },
+    "audioGuides": {
+      "title": "Listen: Cinque Terre Stories",
+      "viewAllLabel": "View all episodes"
+    },
+    "featuredCarousel": {
+      "title": "Editors' Picks",
+      "viewAllLabel": "View all"
+    },
+    "latestStories": {
+      "title": "Latest Stories",
+      "loadMoreButton": "Load More Stories"
+    },
+    "trendingNow": {
+      "title": "Trending Now"
+    },
+    "about": {
+      "badge": "About Us",
+      "title": "We help you discover the real Cinque Terre.",
+      "description": [
+        "Cinque Terre Dispatch is your premium guide to the Italian Riviera's most iconic coastline. We go beyond the postcards to bring you authentic stories, hidden gems, and practical advice from locals and experts.",
+        "Whether you're planning a romantic getaway, a hiking adventure, or a culinary tour, we're here to ensure your trip is unforgettable."
+      ],
+      "image": "https://images.unsplash.com/photo-1592345279419-959d784e8aad?q=80&w=2670&auto=format&fit=crop",
+      "imageAlt": "Cinque Terre View"
+    },
+    "newsletter": {
+      "title": "Get the Cinque Terre Dispatch",
+      "subtitle": "Weekly tips, hidden gems, and travel inspiration delivered straight to your inbox. No spam, ever.",
+      "placeholder": "Enter your email",
+      "buttonText": "Subscribe",
+      "socialProof": "Join 10,000+ travelers.",
+      "successMessage": "Thanks for subscribing!",
+      "backgroundImage": "https://images.unsplash.com/photo-1555979863-69fb96e63359?q=80&w=2670&auto=format&fit=crop"
+    }
+  }
+}

@@ -1,0 +1,328 @@
+{
+  "en": {
+    "featuredStories": [
+      {
+        "id": 1,
+        "title": "The Perfect First-Timer Itinerary",
+        "category": "Itinerary",
+        "dek": "How to see the best of the five villages in just 3 days.",
+        "image": "https://images.unsplash.com/photo-1498503182468-3b51cbb6cb24?q=80&w=2670&auto=format&fit=crop",
+        "author": "Giulia Rossi"
+      },
+      {
+        "id": 2,
+        "title": "Best Time to Visit (and When to Skip)",
+        "category": "Planning",
+        "dek": "Avoid the crowds and find the perfect weather.",
+        "image": "https://images.unsplash.com/photo-1555979863-69fb96e63359?q=80&w=2670&auto=format&fit=crop",
+        "author": "Marco Bianchi"
+      },
+      {
+        "id": 3,
+        "title": "How to Hike the Sentiero Azzurro",
+        "category": "Hiking",
+        "dek": "Everything you need to know about the Blue Trail.",
+        "image": "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?q=80&w=2670&auto=format&fit=crop",
+        "author": "Luca Verdi"
+      },
+      {
+        "id": 4,
+        "title": "Most Scenic Viewpoints",
+        "category": "Photography",
+        "dek": "Where to capture the iconic postcard shots.",
+        "image": "https://images.unsplash.com/photo-1592345279419-959d784e8aad?q=80&w=2670&auto=format&fit=crop",
+        "author": "Elena Moretti"
+      },
+      {
+        "id": 5,
+        "title": "Beaches Worth the Detour",
+        "category": "Beaches",
+        "dek": "Secret coves and sandy spots away from the main towns.",
+        "image": "https://images.unsplash.com/photo-1534445867742-43195f401b6c?q=80&w=2670&auto=format&fit=crop",
+        "author": "Sofia Neri"
+      },
+      {
+        "id": 6,
+        "title": "Local Train & Ferry Cheatsheet",
+        "category": "Transport",
+        "dek": "Master the logistics of moving between villages.",
+        "image": "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=2574&auto=format&fit=crop",
+        "author": "Giulia Rossi"
+      },
+      {
+        "id": 7,
+        "title": "A Food Lover's Weekend",
+        "category": "Food & Drink",
+        "dek": "From pesto to seafood, here's what to eat.",
+        "image": "https://images.unsplash.com/photo-1551183053-bf91a1d81141?q=80&w=2632&auto=format&fit=crop",
+        "author": "Marco Bianchi"
+      },
+      {
+        "id": 8,
+        "title": "Rainy-Day Plans",
+        "category": "Activities",
+        "dek": "What to do when the weather doesn't cooperate.",
+        "image": "https://images.unsplash.com/photo-1515444744559-7be63e1600de?q=80&w=2670&auto=format&fit=crop",
+        "author": "Elena Moretti"
+      }
+    ],
+    "stories": [
+      {
+        "id": 1,
+        "title": "The Ultimate Guide to Cinque Terre's Best Beaches",
+        "excerpt": "From sandy shores to rocky coves, here's where to swim.",
+        "author": "Giulia Rossi",
+        "date": "Oct 15, 2023",
+        "readTime": "8 min read",
+        "category": "Guides",
+        "image": "https://images.unsplash.com/photo-1534445867742-43195f401b6c?q=80&w=2670&auto=format&fit=crop",
+        "isLead": true
+      },
+      {
+        "id": 2,
+        "title": "5 Hidden Gelaterias You Need to Try",
+        "excerpt": "Skip the tourist traps and find the real deal.",
+        "author": "Marco Bianchi",
+        "date": "Oct 14, 2023",
+        "readTime": "4 min read",
+        "category": "Food",
+        "image": "https://images.unsplash.com/photo-1498503182468-3b51cbb6cb24?q=80&w=2670&auto=format&fit=crop"
+      },
+      {
+        "id": 3,
+        "title": "A Photographer's Guide to Manarola at Sunset",
+        "excerpt": "Best angles and times for that perfect shot.",
+        "author": "Elena Moretti",
+        "date": "Oct 12, 2023",
+        "readTime": "6 min read",
+        "category": "Photography",
+        "image": "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=2574&auto=format&fit=crop"
+      },
+      {
+        "id": 4,
+        "title": "Hiking the Blue Trail: What to Expect",
+        "excerpt": "Difficulty levels, closures, and scenic stops.",
+        "author": "Luca Verdi",
+        "date": "Oct 10, 2023",
+        "readTime": "10 min read",
+        "category": "Guides",
+        "image": "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?q=80&w=2670&auto=format&fit=crop"
+      },
+      {
+        "id": 5,
+        "title": "Where to Stay: Hotel vs. Airbnb",
+        "excerpt": "Pros and cons for every type of traveler.",
+        "author": "Sofia Neri",
+        "date": "Oct 08, 2023",
+        "readTime": "5 min read",
+        "category": "Hotels",
+        "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2670&auto=format&fit=crop"
+      },
+      {
+        "id": 6,
+        "title": "Day Trip to Portovenere",
+        "excerpt": "Why you should visit the 'sixth village'.",
+        "author": "Giulia Rossi",
+        "date": "Oct 05, 2023",
+        "readTime": "7 min read",
+        "category": "Guides",
+        "image": "https://images.unsplash.com/photo-1555979863-69fb96e63359?q=80&w=2670&auto=format&fit=crop"
+      },
+      {
+        "id": 7,
+        "title": "Local Festivals in November",
+        "excerpt": "What's happening in the off-season.",
+        "author": "Marco Bianchi",
+        "date": "Oct 01, 2023",
+        "readTime": "3 min read",
+        "category": "News",
+        "image": "https://images.unsplash.com/photo-1551183053-bf91a1d81141?q=80&w=2632&auto=format&fit=crop"
+      }
+    ],
+    "trendingStories": [
+      {
+        "id": 1,
+        "title": "Why Manarola is the Most Photogenic Village",
+        "category": "Photography",
+        "image": "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=2574&auto=format&fit=crop",
+        "date": "Oct 12",
+        "readTime": "5 min read",
+        "isLead": true,
+        "author": "Elena Moretti"
+      },
+      {
+        "id": 2,
+        "title": "The Ultimate Guide to Cinque Terre Wines",
+        "category": "Food & Drink",
+        "image": "https://images.unsplash.com/photo-1551183053-bf91a1d81141?q=80&w=2632&auto=format&fit=crop",
+        "date": "Oct 10",
+        "readTime": "4 min read",
+        "author": "Marco Bianchi"
+      },
+      {
+        "id": 3,
+        "title": "Hidden Gems: Corniglia's Quiet Streets",
+        "category": "Villages",
+        "image": "https://images.unsplash.com/photo-1498503182468-3b51cbb6cb24?q=80&w=2670&auto=format&fit=crop",
+        "date": "Oct 08",
+        "readTime": "3 min read",
+        "author": "Sofia Neri"
+      },
+      {
+        "id": 4,
+        "title": "Packing List: What to Bring for a Fall Trip",
+        "category": "Tips",
+        "image": "https://images.unsplash.com/photo-1515444744559-7be63e1600de?q=80&w=2670&auto=format&fit=crop",
+        "date": "Oct 05",
+        "readTime": "6 min read",
+        "author": "Giulia Rossi"
+      },
+      {
+        "id": 5,
+        "title": "Ferry Schedules Updated for 2025",
+        "category": "News",
+        "image": "https://images.unsplash.com/photo-1534445867742-43195f401b6c?q=80&w=2670&auto=format&fit=crop",
+        "date": "Oct 01",
+        "readTime": "2 min read",
+        "author": "Luca Verdi"
+      }
+    ],
+    "villageIntroStories": [
+      {
+        "id": 1,
+        "title": "Riomaggiore, Where the Sea Meets the Soul",
+        "excerpt": "Riomaggiore welcomes you like an old friend, instantly familiar and endlessly charming. Colorful, sun-washed streets cling to the cliffs, guiding you down toward the water. Below, the endless blue of the Ligurian Sea unfolds, setting the rhythm for life in this timeless coastal village.",
+        "author": "Giulia Rossi",
+        "date": "Oct 15, 2023",
+        "readTime": "8 min read",
+        "category": "Guides",
+        "image": "https://images.unsplash.com/photo-1534445867742-43195f401b6c?q=80&w=2670&auto=format&fit=crop",
+        "isLead": true
+      },
+      {
+        "id": 2,
+        "title": "5 Hidden Gelaterias You Need to Try",
+        "excerpt": "Skip the tourist traps and find the real deal.",
+        "author": "Marco Bianchi",
+        "date": "Oct 14, 2023",
+        "readTime": "4 min read",
+        "category": "Food",
+        "image": "https://images.unsplash.com/photo-1498503182468-3b51cbb6cb24?q=80&w=2670&auto=format&fit=crop"
+      },
+      {
+        "id": 3,
+        "title": "A Photographer's Guide to Manarola at Sunset",
+        "excerpt": "Best angles and times for that perfect shot.",
+        "author": "Elena Moretti",
+        "date": "Oct 12, 2023",
+        "readTime": "6 min read",
+        "category": "Photography",
+        "image": "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=2574&auto=format&fit=crop"
+      },
+      {
+        "id": 4,
+        "title": "Hiking the Blue Trail: What to Expect",
+        "excerpt": "Difficulty levels, closures, and scenic stops.",
+        "author": "Luca Verdi",
+        "date": "Oct 10, 2023",
+        "readTime": "10 min read",
+        "category": "Guides",
+        "image": "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?q=80&w=2670&auto=format&fit=crop"
+      },
+      {
+        "id": 5,
+        "title": "Where to Stay: Hotel vs. Airbnb",
+        "excerpt": "Pros and cons for every type of traveler.",
+        "author": "Sofia Neri",
+        "date": "Oct 08, 2023",
+        "readTime": "5 min read",
+        "category": "Hotels",
+        "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2670&auto=format&fit=crop"
+      },
+      {
+        "id": 6,
+        "title": "Day Trip to Portovenere",
+        "excerpt": "Why you should visit the 'sixth village'.",
+        "author": "Giulia Rossi",
+        "date": "Oct 05, 2023",
+        "readTime": "7 min read",
+        "category": "Guides",
+        "image": "https://images.unsplash.com/photo-1555979863-69fb96e63359?q=80&w=2670&auto=format&fit=crop"
+      },
+      {
+        "id": 7,
+        "title": "Local Festivals in November",
+        "excerpt": "What's happening in the off-season.",
+        "author": "Marco Bianchi",
+        "date": "Oct 01, 2023",
+        "readTime": "3 min read",
+        "category": "News",
+        "image": "https://images.unsplash.com/photo-1551183053-bf91a1d81141?q=80&w=2632&auto=format&fit=crop"
+      }
+    ],
+    "villageAbout": [
+      {
+        "number": "01",
+        "title": "A Vertical History",
+        "description": "Riomaggiore is a historic coastal village in Liguria, Italy, and the easternmost of the five villages of the Cinque Terre. Founded in the 8th century, it is known for its colorful houses built vertically into steep cliffs, its small harbor, and its deep connection to the Ligurian Sea. Riomaggiore is part of the Cinque Terre National Park and is protected as a UNESCO World Heritage Site."
+      },
+      {
+        "number": "02",
+        "title": "A Pedestrian Rhythm",
+        "description": "The village is best explored on foot and is easily accessible by train. There is no sandy beach; swimming takes place from rocks and the harbor, where the sea is often clear and inviting. Riomaggiore is especially appreciated for its sunsets, coastal walks, local cuisine, and relaxed rhythm of life."
+      }
+    ],
+    "villageInsiderSecrets": [
+      {
+        "number": "01",
+        "title": "This village exists because hands never stopped working",
+        "quote": "People think these cliffs are wild. They're not. Every terrace you see was built by someone's nonno, stone by stone. When I walk here, I don't see landscape — I see centuries of effort holding the village together."
+      },
+      {
+        "number": "02",
+        "title": "Our wine once traveled farther than most of us ever will",
+        "quote": "Sciacchetrà isn't just a sweet wine. My family says it reached Rome, even the Vatican. When I taste it, I feel how something so small and fragile from here could matter so much elsewhere."
+      },
+      {
+        "number": "03",
+        "title": "The houses huddle because they were once afraid",
+        "quote": "Our tall, narrow houses weren't meant to look charming. They were meant to protect us. Pirates came from the sea, and the village learned to close in on itself. That closeness never left — we still live stacked on top of each other, in every sense."
+      },
+      {
+        "number": "04",
+        "title": "We never needed a beach",
+        "quote": "Visitors ask where the beach is. There isn't one — and there never was. The rocks made landing dangerous, and danger kept us safe. I learned to swim from stone, not sand."
+      },
+      {
+        "number": "05",
+        "title": "The train changed everything — and not always gently",
+        "quote": "Before the railway, we belonged more to the sea than to the land. Then the tunnel came, cutting through our mountain. Suddenly, Riomaggiore was no longer hidden. Progress arrived loudly."
+      },
+      {
+        "number": "06",
+        "title": "The most romantic path was never meant to be",
+        "quote": "Via dell'Amore? It was an accident. A service path for railway workers. We used it because it was there — later, outsiders gave it a name. Romance came after practicality, not before."
+      },
+      {
+        "number": "07",
+        "title": "Fishing was never the whole story",
+        "quote": "People imagine fishermen. But most families, including mine, lived from the vineyards. Fishing helped, yes — but the land fed us first. The sea was a partner, not a promise."
+      },
+      {
+        "number": "08",
+        "title": "The colors are for finding home",
+        "quote": "Our houses aren't colorful for postcards. They're painted so you can recognize your own from the water. When fog rolls in, color is memory."
+      },
+      {
+        "number": "09",
+        "title": "We still walk uphill for protection",
+        "quote": "Above the village is Montenero. When things go wrong, people still walk up there — sometimes barefoot, sometimes silently. Faith here isn't loud. It's persistent."
+      },
+      {
+        "number": "10",
+        "title": "Riomaggiore is fuller in summer — emptier in winter",
+        "quote": "Most houses are closed now. Lights go out early. But winter is when I recognize who truly belongs. Silence reveals us."
+      }
+    ]
+  }
+}

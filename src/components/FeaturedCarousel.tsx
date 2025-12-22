@@ -7,82 +7,22 @@ import {
     CarouselPrevious,
 } from '@/components/ui/carousel';
 import { Badge } from '@/components/ui/badge';
+import { getFeaturedStories, getPageContent, type Language } from '@/lib/content';
 
-// Mock data
-const featuredStories = [
-    {
-        id: 1,
-        title: "The Perfect First-Timer Itinerary",
-        category: "Itinerary",
-        dek: "How to see the best of the five villages in just 3 days.",
-        image: "https://images.unsplash.com/photo-1498503182468-3b51cbb6cb24?q=80&w=2670&auto=format&fit=crop",
-        author: "Giulia Rossi"
-    },
-    {
-        id: 2,
-        title: "Best Time to Visit (and When to Skip)",
-        category: "Planning",
-        dek: "Avoid the crowds and find the perfect weather.",
-        image: "https://images.unsplash.com/photo-1555979863-69fb96e63359?q=80&w=2670&auto=format&fit=crop",
-        author: "Marco Bianchi"
-    },
-    {
-        id: 3,
-        title: "How to Hike the Sentiero Azzurro",
-        category: "Hiking",
-        dek: "Everything you need to know about the Blue Trail.",
-        image: "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?q=80&w=2670&auto=format&fit=crop",
-        author: "Luca Verdi"
-    },
-    {
-        id: 4,
-        title: "Most Scenic Viewpoints",
-        category: "Photography",
-        dek: "Where to capture the iconic postcard shots.",
-        image: "https://images.unsplash.com/photo-1592345279419-959d784e8aad?q=80&w=2670&auto=format&fit=crop",
-        author: "Elena Moretti"
-    },
-    {
-        id: 5,
-        title: "Beaches Worth the Detour",
-        category: "Beaches",
-        dek: "Secret coves and sandy spots away from the main towns.",
-        image: "https://images.unsplash.com/photo-1534445867742-43195f401b6c?q=80&w=2670&auto=format&fit=crop",
-        author: "Sofia Neri"
-    },
-    {
-        id: 6,
-        title: "Local Train & Ferry Cheatsheet",
-        category: "Transport",
-        dek: "Master the logistics of moving between villages.",
-        image: "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=2574&auto=format&fit=crop",
-        author: "Giulia Rossi"
-    },
-    {
-        id: 7,
-        title: "A Food Lover’s Weekend",
-        category: "Food & Drink",
-        dek: "From pesto to seafood, here's what to eat.",
-        image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?q=80&w=2632&auto=format&fit=crop",
-        author: "Marco Bianchi"
-    },
-    {
-        id: 8,
-        title: "Rainy-Day Plans",
-        category: "Activities",
-        dek: "What to do when the weather doesn't cooperate.",
-        image: "https://images.unsplash.com/photo-1515444744559-7be63e1600de?q=80&w=2670&auto=format&fit=crop",
-        author: "Elena Moretti"
-    }
-];
+interface FeaturedCarouselProps {
+    lang?: Language;
+}
 
-export default function FeaturedCarousel() {
+export default function FeaturedCarousel({ lang = 'en' }: FeaturedCarouselProps) {
+    const featuredStories = getFeaturedStories(lang);
+    const page = getPageContent('home', lang);
+    const section = page.featuredCarousel;
     return (
         <section className="py-16 bg-secondary/30">
             <div className="container mx-auto px-4">
                 <div className="flex items-center justify-between mb-8">
-                    <h2 className="font-serif text-3xl md:text-4xl font-bold">Editors' Picks</h2>
-                    <a href="#" className="text-sm font-medium hover:underline">View all</a>
+                    <h2 className="font-serif text-3xl md:text-4xl font-bold">{section.title}</h2>
+                    <a href="#" className="text-sm font-medium hover:underline">{section.viewAllLabel}</a>
                 </div>
 
                 <Carousel

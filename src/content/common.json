@@ -1,0 +1,69 @@
+{
+  "en": {
+    "buttons": {
+      "exploreVillage": "Explore Village",
+      "viewAll": "View all",
+      "seeAllStays": "See all stays",
+      "seeAllRestaurants": "See all restaurants",
+      "loadMore": "Load More Stories",
+      "viewCollection": "View Collection",
+      "viewAllEpisodes": "View all episodes",
+      "planYourJourney": "Plan Your Journey",
+      "discoverTheTable": "Discover the Table",
+      "planYourDay": "Plan Your Day",
+      "exploreTheVillage": "Explore the Village",
+      "subscribe": "Subscribe",
+      "readTheStory": "Read the Story"
+    },
+    "labels": {
+      "destinations": "Destinations",
+      "whereToSleep": "Where to Sleep",
+      "foodAndDrink": "Food & Drink",
+      "editorsPicks": "Editors' Picks",
+      "collections": "Collections",
+      "latestStories": "Latest Stories",
+      "trendingNow": "Trending Now",
+      "experiences": "Experiences",
+      "essentialInformation": "Essential Information",
+      "practicalDetails": "Practical Details",
+      "travelerReviews": "Traveler Reviews",
+      "localPerspective": "Local Perspective",
+      "editorialInterlude": "Editorial Interlude",
+      "language": "Language",
+      "aboutUs": "About Us",
+      "priceRange": "Price Range",
+      "stayType": "Stay Type",
+      "notes": "Notes"
+    },
+    "filters": [
+      "All",
+      "Guides",
+      "Food",
+      "Hotels",
+      "News & Advice"
+    ],
+    "weather": {
+      "temperature": "18C",
+      "condition": "Sunny"
+    }
+  },
+  "it": {
+    "buttons": {
+      "exploreVillage": "Esplora il Borgo",
+      "viewAll": "Vedi tutto",
+      "seeAllStays": "Vedi tutti gli alloggi",
+      "seeAllRestaurants": "Vedi tutti i ristoranti",
+      "loadMore": "Carica altre storie",
+      "viewCollection": "Vedi Collezione",
+      "subscribe": "Iscriviti"
+    },
+    "labels": {
+      "destinations": "Destinazioni",
+      "whereToSleep": "Dove Dormire",
+      "foodAndDrink": "Cibo & Bevande",
+      "editorsPicks": "Scelti dalla Redazione",
+      "latestStories": "Ultime Storie",
+      "aboutUs": "Chi Siamo"
+    }
+  }
+}

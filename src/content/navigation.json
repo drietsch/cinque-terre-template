@@ -1,0 +1,299 @@
+{
+  "en": {
+    "languages": [
+      {
+        "name": "English",
+        "code": "en",
+        "flag": "GB"
+      },
+      {
+        "name": "Italiano",
+        "code": "it",
+        "flag": "IT"
+      },
+      {
+        "name": "Francais",
+        "code": "fr",
+        "flag": "FR"
+      },
+      {
+        "name": "Deutsch",
+        "code": "de",
+        "flag": "DE"
+      }
+    ],
+    "destinations": [
+      {
+        "name": "Riomaggiore",
+        "href": "/{lang}/villages/riomaggiore/",
+        "description": "The vertical village of stone and light"
+      },
+      {
+        "name": "Manarola",
+        "href": "/{lang}/villages/manarola/",
+        "description": "A symphony of vineyards and sea"
+      },
+      {
+        "name": "Vernazza",
+        "href": "/{lang}/villages/vernazza/",
+        "description": "The noble harbor of the coast"
+      },
+      {
+        "name": "Corniglia",
+        "href": "/{lang}/villages/corniglia/",
+        "description": "The quiet balcony over the Mediterranean"
+      },
+      {
+        "name": "Monterosso al Mare",
+        "href": "/{lang}/villages/monterosso-al-mare/",
+        "description": "The golden sands and lemon groves"
+      }
+    ],
+    "guides": [
+      {
+        "name": "The Salt & Stone Path",
+        "href": "/{lang}/villages/{village}/itineraries/",
+        "description": "A curated 4-day journey"
+      },
+      {
+        "name": "The Art of Presence",
+        "href": "/{lang}/villages/{village}/things-to-do/",
+        "description": "Engaging with the village rhythm"
+      },
+      {
+        "name": "Where to Wake Up",
+        "href": "/{lang}/villages/{village}/accommodation/",
+        "description": "Curated accommodations"
+      }
+    ],
+    "foodDrink": [
+      {
+        "name": "The Culinary Story",
+        "href": "/{lang}/villages/{village}/culinary/",
+        "description": "The village's relationship with food and place"
+      },
+      {
+        "name": "Village Rhythms",
+        "href": "/{lang}/villages/{village}/events/",
+        "description": "Traditional events and seasonal celebrations"
+      },
+      {
+        "name": "Restaurants",
+        "href": "/{lang}/villages/{village}/culinary/",
+        "description": "A curated collection of local dining"
+      },
+      {
+        "name": "Wine Bars",
+        "href": "/{lang}/villages/{village}/culinary/",
+        "description": "Local wines and aperitivo culture"
+      },
+      {
+        "name": "Cafes & Bakeries",
+        "href": "/{lang}/villages/{village}/culinary/",
+        "description": "Morning coffee and fresh focaccia"
+      }
+    ],
+    "newsAdvice": [
+      {
+        "name": "Arrival & Orientation",
+        "href": "/{lang}/villages/{village}/transportation/",
+        "description": "How to reach the village with calm and clarity"
+      },
+      {
+        "name": "The Dispatch (Blog)",
+        "href": "/{lang}/blog/",
+        "description": "Stories and insights from the coast"
+      },
+      {
+        "name": "The Team",
+        "href": "/{lang}/team/",
+        "description": "Meet the voices behind the perspective"
+      },
+      {
+        "name": "Travel Tips",
+        "href": "/{lang}/blog/",
+        "description": "Essential advice for your visit"
+      },
+      {
+        "name": "Latest News",
+        "href": "/{lang}/blog/",
+        "description": "Updates from the Cinque Terre"
+      },
+      {
+        "name": "Weather & Conditions",
+        "href": "/{lang}/villages/{village}/weather/",
+        "description": "Live atmosphere and forecasts"
+      }
+    ],
+    "navItems": [
+      {
+        "name": "Villages",
+        "href": "/{lang}/villages/",
+        "flyoutKey": "destinations",
+        "icon": "MapPin"
+      },
+      {
+        "name": "Itinerary",
+        "href": "/{lang}/villages/{village}/itineraries/",
+        "flyoutKey": null,
+        "icon": "Compass"
+      },
+      {
+        "name": "Sights",
+        "href": "/{lang}/villages/{village}/sights/",
+        "flyoutKey": null,
+        "icon": "MapPin"
+      },
+      {
+        "name": "Food & Drink",
+        "href": "/{lang}/villages/{village}/culinary/",
+        "flyoutKey": "foodDrink",
+        "icon": "Utensils"
+      },
+      {
+        "name": "News & Advice",
+        "href": "/{lang}/blog/",
+        "flyoutKey": "newsAdvice",
+        "icon": "Newspaper"
+      }
+    ],
+    "flyoutLabels": {
+      "destinations": {
+        "badge": "The Collection",
+        "title": "The Five Villages",
+        "viewLabel": "View Guide"
+      },
+      "foodDrink": {
+        "badge": "Insights",
+        "title": "Local knowledge, shared",
+        "viewLabel": "View Guide"
+      }
+    },
+    "mobileMenu": {
+      "title": "Menu",
+      "languageLabel": "Language"
+    },
+    "footer": {
+      "tagline": "The premium guide to Italy's most colorful coastline.",
+      "links": {
+        "Explore": [
+          { "name": "Villages", "href": "/{lang}/villages/" },
+          { "name": "Itineraries", "href": "/{lang}/villages/{village}/itineraries/" },
+          { "name": "Sights", "href": "/{lang}/villages/{village}/sights/" },
+          { "name": "Things to Do", "href": "/{lang}/villages/{village}/things-to-do/" }
+        ],
+        "Villages": [
+          { "name": "Monterosso al Mare", "href": "/{lang}/villages/monterosso-al-mare/" },
+          { "name": "Vernazza", "href": "/{lang}/villages/vernazza/" },
+          { "name": "Corniglia", "href": "/{lang}/villages/corniglia/" },
+          { "name": "Manarola", "href": "/{lang}/villages/manarola/" },
+          { "name": "Riomaggiore", "href": "/{lang}/villages/riomaggiore/" }
+        ],
+        "Guides": [
+          { "name": "Food & Drink", "href": "/{lang}/villages/{village}/culinary/" },
+          { "name": "Places to Stay", "href": "/{lang}/villages/{village}/accommodation/" },
+          { "name": "Getting Around", "href": "/{lang}/villages/{village}/transportation/" },
+          { "name": "Weather", "href": "/{lang}/villages/{village}/weather/" }
+        ],
+        "About": [
+          { "name": "About Us", "href": "/{lang}/about/" },
+          { "name": "The Team", "href": "/{lang}/team/" },
+          { "name": "The Dispatch", "href": "/{lang}/blog/" }
+        ]
+      },
+      "legal": {
+        "copyright": "Cinque Terre Dispatch. All rights reserved.",
+        "privacyPolicy": "Privacy Policy",
+        "terms": "Terms of Service",
+        "cookies": "Cookie Policy"
+      }
+    }
+  },
+  "it": {
+    "languages": [
+      {
+        "name": "English",
+        "code": "en",
+        "flag": "GB"
+      },
+      {
+        "name": "Italiano",
+        "code": "it",
+        "flag": "IT"
+      },
+      {
+        "name": "Francais",
+        "code": "fr",
+        "flag": "FR"
+      },
+      {
+        "name": "Deutsch",
+        "code": "de",
+        "flag": "DE"
+      }
+    ],
+    "destinations": [
+      {
+        "name": "Riomaggiore",
+        "href": "/{lang}/villages/riomaggiore/",
+        "description": "Il borgo verticale di pietra e luce"
+      },
+      {
+        "name": "Manarola",
+        "href": "/{lang}/villages/manarola/",
+        "description": "Una sinfonia di vigneti e mare"
+      },
+      {
+        "name": "Vernazza",
+        "href": "/{lang}/villages/vernazza/",
+        "description": "Il porto nobile della costa"
+      },
+      {
+        "name": "Corniglia",
+        "href": "/{lang}/villages/corniglia/",
+        "description": "Il balcone silenzioso sul Mediterraneo"
+      },
+      {
+        "name": "Monterosso al Mare",
+        "href": "/{lang}/villages/monterosso-al-mare/",
+        "description": "Le sabbie dorate e i limoneti"
+      }
+    ],
+    "navItems": [
+      {
+        "name": "Villaggi",
+        "href": "/{lang}/villages/",
+        "flyoutKey": "destinations",
+        "icon": "MapPin"
+      },
+      {
+        "name": "Itinerario",
+        "href": "/{lang}/villages/{village}/itineraries/",
+        "flyoutKey": null,
+        "icon": "Compass"
+      },
+      {
+        "name": "Attrazioni",
+        "href": "/{lang}/villages/{village}/sights/",
+        "flyoutKey": null,
+        "icon": "MapPin"
+      },
+      {
+        "name": "Cibo & Bevande",
+        "href": "/{lang}/villages/{village}/culinary/",
+        "flyoutKey": "foodDrink",
+        "icon": "Utensils"
+      },
+      {
+        "name": "Notizie & Consigli",
+        "href": "/{lang}/blog/",
+        "flyoutKey": "newsAdvice",
+        "icon": "Newspaper"
+      }
+    ],
+    "mobileMenu": {
+      "title": "Menu",
+      "languageLabel": "Lingua"
+    }
+  }
+}

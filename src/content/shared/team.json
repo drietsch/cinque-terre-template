@@ -1,0 +1,60 @@
+{
+  "en": {
+    "team": {
+      "editor": {
+        "name": "Giulia Rossi",
+        "title": "Riomaggiore Expert",
+        "image": "/giulia_rossi.png"
+      },
+      "editorInChief": {
+        "name": "Elena Rossi",
+        "title": "Editor-in-Chief",
+        "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Editor"
+      },
+      "editors": [
+        {
+          "name": "Giulia Rossi",
+          "role": "Lead Voice & Local Guide",
+          "image": "/giulia_rossi.png",
+          "bio": "Born in the upper streets of Riomaggiore, Giulia grew up with the sea as a constant companion. Her writing seeks to capture the quiet dignity of a place often reduced to postcards.",
+          "persona": "She walks slowly, always noticing the texture of stone or the way light changes on the water. She prefers to arrive early, before the crowds.",
+          "love": "The hour before sunset when the harbor empties out and the village reclaims itself. The smell of salt and wild thyme on the high paths.",
+          "hobbies": [
+            "Wild foraging",
+            "Photography",
+            "Village cooking"
+          ],
+          "accent": "border-primary/30"
+        },
+        {
+          "name": "Marco Bellini",
+          "role": "Trails & Perspectives Editor",
+          "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2574&auto=format&fit=crop",
+          "bio": "Marco arrived in the Cinque Terre as a hiker ten years ago and never left. He now documents the lesser-known paths and the stories they carry.",
+          "persona": "He believes the best views are earned, not driven to. He carries a worn map and trusts his feet more than GPS.",
+          "love": "The silence of the high sanctuary at dawn. The sound of bells echoing across terraces.",
+          "hobbies": [
+            "Trail mapping",
+            "Stone masonry",
+            "Local wine"
+          ],
+          "accent": "border-amber-200"
+        },
+        {
+          "name": "Sofia Mantovani",
+          "role": "Cultural & Culinary Editor",
+          "image": "https://images.unsplash.com/photo-1494790108755-2616b612b47c?q=80&w=2574&auto=format&fit=crop",
+          "bio": "Sofia divides her time between Florence and the coast, bringing a scholar's eye and a cook's intuition to her writing about local traditions.",
+          "persona": "She speaks with restaurant owners in dialect and knows every market vendor by name. She tastes before she writes.",
+          "love": "The ritual of a long Sunday lunch. The way anchovies taste when they're truly fresh.",
+          "hobbies": [
+            "Recipe preservation",
+            "Oral history",
+            "Wine tasting"
+          ],
+          "accent": "border-rose-200"
+        }
+      ]
+    }
+  }
+}

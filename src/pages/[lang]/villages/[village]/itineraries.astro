@@ -1,0 +1,85 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import Footer from '../../../../components/Footer';
+import EditorialHero from '../../../../components/EditorialHero.astro';
+import EditorialIntro from '../../../../components/EditorialIntro.astro';
+import ClosingNote from '../../../../components/ClosingNote.astro';
+import { Clock, MapPin, Compass } from 'lucide-react';
+import { getLanguages, getVillageSlugs, getVillageBySlug, getDays, getPageContent, type Language } from '../../../../lib/content';
+
+export function getStaticPaths() {
+    const languages = getLanguages();
+    const villageSlugs = getVillageSlugs();
+
+    return languages.flatMap(lang =>
+        villageSlugs.map(village => ({
+            params: { lang, village }
+        }))
+    );
+}
+
+const { lang, village: villageSlug } = Astro.params as { lang: Language; village: string };
+const village = getVillageBySlug(villageSlug, lang);
+const days = getDays(lang);
+const page = getPageContent('itinerary', lang);
+
+if (!village) {
+    return Astro.redirect(`/${lang}/villages/`);
+}
+---
+
+<Layout title={`Itineraries for ${village.name} | Cinque Terre Dispatch`} lang={lang} village={villageSlug}>
+    <EditorialHero
+        title={`Itineraries for<br/>${village.name}`}
+        subtitle={page.intention?.title || "Curated journeys through the village"}
+        badge={page.hero?.badge || "Village Itineraries"}
+        image={village.image}
+    />
+
+    <EditorialIntro
+        badge={page.intention?.badge || "The Journey"}
+        leadQuote={page.intention?.paragraphs?.[0] || ""}
+        paragraphs={page.intention?.paragraphs?.slice(1) || []}
+    />
+
+    <!-- Itinerary Days -->
+    <section class="py-16 container mx-auto px-4">
+        <div class="space-y-12">
+            {days.map((day, index) => (
+                <article class="relative pl-8 border-l-2 border-primary/30">
+                    <div class="absolute -left-3 top-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-sm font-bold">
+                        {index + 1}
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-2 text-sm text-muted-foreground">
+                            <Clock className="w-4 h-4" />
+                            {day.theme}
+                        </div>
+                        <h2 class="font-serif text-2xl font-bold">
+                            {day.title}
+                        </h2>
+                        <p class="text-muted-foreground">
+                            {day.description}
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
+                            {day.highlights?.map((highlight: string) => (
+                                <div class="flex items-start gap-3 p-4 rounded-xl bg-secondary/30">
+                                    <Compass className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                                    <span class="text-sm">{highlight}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </article>
+            ))}
+        </div>
+    </section>
+
+    <ClosingNote
+        badge={page.closing?.badge || "The Resolution"}
+        title={page.closing?.quote || "What lingers is the feeling."}
+        paragraphs={page.closing?.reflection ? [page.closing.reflection, page.closing.author || ""] : []}
+    />
+
+    <Footer lang={lang} village={villageSlug} />
+</Layout>

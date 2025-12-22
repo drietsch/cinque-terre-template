@@ -1,0 +1,62 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Footer from '../../components/Footer';
+import EditorialHero from '../../components/EditorialHero.astro';
+import EditorialIntro from '../../components/EditorialIntro.astro';
+import ClosingNote from '../../components/ClosingNote.astro';
+import { getLanguages, getTeam, getEditors, getPageContent, type Language } from '../../lib/content';
+
+export function getStaticPaths() {
+    return getLanguages().map(lang => ({
+        params: { lang }
+    }));
+}
+
+const { lang } = Astro.params as { lang: Language };
+const team = getTeam(lang);
+const editors = getEditors(lang);
+const page = getPageContent('team', lang);
+---
+
+<Layout title="The Team | Cinque Terre Dispatch" lang={lang}>
+    <EditorialHero
+        title={page.hero.title}
+        subtitle={page.hero.subtitle}
+        badge={page.hero.badge}
+        image={page.hero.image}
+    />
+
+    <EditorialIntro
+        badge={page.intro.badge}
+        leadQuote={page.intro.leadQuote}
+        paragraphs={page.intro.paragraphs}
+    />
+
+    <!-- Team Grid -->
+    <section class="py-16 container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            {editors.map((editor: any) => (
+                <article class="text-center group">
+                    <div class="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden ring-4 ring-primary/10 group-hover:ring-primary/30 transition-all">
+                        <img
+                            src={editor.avatar}
+                            alt={editor.name}
+                            class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
+                        />
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold mb-2">{editor.name}</h3>
+                    <p class="text-primary font-medium mb-4">{editor.title}</p>
+                    <p class="text-muted-foreground">{editor.bio}</p>
+                </article>
+            ))}
+        </div>
+    </section>
+
+    <ClosingNote
+        badge={page.closing.badge}
+        title={page.closing.title}
+        paragraphs={page.closing.paragraphs}
+    />
+
+    <Footer lang={lang} />
+</Layout>

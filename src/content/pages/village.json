@@ -1,0 +1,47 @@
+{
+  "en": {
+    "meta": {
+      "title": "Riomaggiore | Cinque Terre Dispatch | Luxury Travel Guide"
+    },
+    "villageIntro": {
+      "filters": [
+        "All",
+        "Guides",
+        "Food",
+        "Hotels",
+        "News & Advice"
+      ],
+      "loadMoreButton": "Load More Stories",
+      "authorSuffix": "the voice of Riomaggiore"
+    },
+    "villageSEO": {
+      "header": {
+        "badge": "Traveler's Reference",
+        "title": "Riomaggiore at a Glance",
+        "subtitle": "Essential context, common questions, and key data points for the modern explorer."
+      },
+      "aboutSection": {
+        "title": "The Essence of Riomaggiore",
+        "subtitle": "A historic foundation where the mountains meet the Ligurian Sea."
+      },
+      "insiderSecretsSection": {
+        "title": "Do you know Riomaggiore like Giulia does?",
+        "subtitle": "Beyond the postcards, there are stories that only those who live here truly understand."
+      },
+      "faqSection": {
+        "title": "Frequently Asked Questions",
+        "subtitle": "Essential information for planning your journey to Riomaggiore."
+      },
+      "schemaOrg": {
+        "type": "TouristDestination",
+        "name": "Riomaggiore",
+        "description": "Riomaggiore is a historic coastal village in Liguria, Italy, and the easternmost of the five villages of the Cinque Terre.",
+        "addressLocality": "Riomaggiore",
+        "addressRegion": "Liguria",
+        "addressCountry": "Italy",
+        "latitude": 44.0985,
+        "longitude": 9.7386
+      }
+    }
+  }
+}

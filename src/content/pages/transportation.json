@@ -1,0 +1,58 @@
+{
+  "en": {
+    "meta": {
+      "title": "Arrival & Orientation: Getting to Riomaggiore | Cinque Terre Dispatch"
+    },
+    "hero": {
+      "badge": "The First Step",
+      "title": "The Art of<br/>Arrival",
+      "subtitle": "Riomaggiore is not reached instantly. The tunnels, the winding roads, and the sudden shift in light are all part of the transition into the village's rhythm.",
+      "image": "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=2572&auto=format&fit=crop"
+    },
+    "intro": {
+      "badge": "A Gradual Approach",
+      "leadQuote": "To arrive in Riomaggiore is to shed the speed of the modern world. Whether you come by rail, road, or sea, the village requires you to slow down before it reveals itself.",
+      "paragraphsLeft": [
+        "The geography of the Cinque Terre is <strong>defiant</strong>. For centuries, these villages were accessible only by boat or by the narrow mule tracks that crisscross the hills. Today, while modern transport has bridged the gap, the physical reality remains: Riomaggiore is a vertical world of stone and salt, where movement is measured in steps rather than kilometers.",
+        "Knowing this in advance <strong>changes your arrival</strong>. It transforms a long tunnel or a steep parking lot from a frustration into a threshold. You are entering a place where the light changes dramatically as you move between the cliffs, and where the sound of the sea replaces the hum of the highway."
+      ],
+      "paragraphsRight": [
+        "We encourage you to <strong>arrive with patience</strong>. The train may be crowded, the parking may be distant, and the boat may be at the mercy of the waves. But each of these paths offers a different perspective on the village's character. To arrive unhurried is to begin your journey already in sync with the pace of the coast.",
+        "Once you reach the station or the parking garage, <strong>the village begins</strong>. There is no 'lobby' here—only the street, the stairs, and the immediate presence of the houses. Allow yourself a moment to simply stand and breathe before you begin the final walk to your door."
+      ]
+    },
+    "orientation": {
+      "title": "Geographical Orientation",
+      "subtitle": "Riomaggiore is the easternmost of the five villages, situated on the Ligurian coast in northern Italy, between the port city of La Spezia and the historic city of Genoa."
+    },
+    "editorialInterludes": [
+      {
+        "afterIndex": 1,
+        "badge": "Editorial Interlude",
+        "title": "The Weight of the Journey",
+        "quote": "In Riomaggiore, your luggage is your first lesson in local physics. Wheeled suitcases, designed for flat airport terminals, are the natural enemies of our stone stairs. If you can, pack light. If you can't, consider a backpack. Every kilo you shed is a kilo you don't have to carry up a 14th-century staircase. The less you carry, the more you can notice."
+      },
+      {
+        "afterIndex": 2,
+        "badge": "Editorial Interlude",
+        "title": "A Vertical Reality",
+        "quote": "We must be honest: Riomaggiore is a difficult village for those with limited mobility. The beauty of the place is inseparable from its steepness. While the main street has been smoothed over the years, the soul of the village remains in the carruggi—the narrow, stepped alleys that climb the cliffs. If you struggle with stairs, plan your stay at the harbor or the very top, and use the local shuttle bus to bridge the gap.",
+        "align": "right",
+        "type": "secondary"
+      }
+    ],
+    "closing": {
+      "title": "Slow Down. You've Arrived.",
+      "badge": "The First Moment of Presence",
+      "paragraphs": [
+        "Arrival is not just the end of a journey; it is the first moment of your presence in Riomaggiore.",
+        "Resist the urge to orient yourself immediately. Don't look at the map just yet. Allow the village to unfold gradually—the way the light enters the narrow streets, the sound of the sea at the harbor, the vertical rhythm of the houses.",
+        "You are here. The village is ready for you."
+      ],
+      "primaryCta": "Plan Your Journey",
+      "primaryCtaHref": "/itinerary",
+      "secondaryCta": "Where to Rest",
+      "secondaryCtaHref": "/accommodations"
+    }
+  }
+}

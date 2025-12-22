@@ -1,0 +1,99 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import Footer from '../../../../components/Footer';
+import EditorialHero from '../../../../components/EditorialHero.astro';
+import EditorialIntro from '../../../../components/EditorialIntro.astro';
+import ClosingNote from '../../../../components/ClosingNote.astro';
+import { Train, Car, Ship, Plane } from 'lucide-react';
+import { getLanguages, getVillageSlugs, getVillageBySlug, getTransportModes, getAirports, getPageContent, type Language } from '../../../../lib/content';
+
+export function getStaticPaths() {
+    const languages = getLanguages();
+    const villageSlugs = getVillageSlugs();
+
+    return languages.flatMap(lang =>
+        villageSlugs.map(village => ({
+            params: { lang, village }
+        }))
+    );
+}
+
+const { lang, village: villageSlug } = Astro.params as { lang: Language; village: string };
+const village = getVillageBySlug(villageSlug, lang);
+const transportModes = getTransportModes(lang);
+const airports = getAirports(lang);
+const page = getPageContent('transportation', lang);
+
+if (!village) {
+    return Astro.redirect(`/${lang}/villages/`);
+}
+
+const iconMap: Record<string, any> = {
+    Train,
+    Car,
+    Ship,
+    Plane
+};
+---
+
+<Layout title={`Getting to ${village.name} | Cinque Terre Dispatch`} lang={lang} village={villageSlug}>
+    <EditorialHero
+        title={`Getting to<br/>${village.name}`}
+        subtitle={page.hero.subtitle}
+        badge={page.hero.badge}
+        image={village.image}
+    />
+
+    <EditorialIntro
+        badge={page.intro.badge}
+        leadQuote={page.intro.leadQuote}
+        paragraphs={page.intro.paragraphs}
+    />
+
+    <!-- Transport Modes -->
+    <section class="py-16 container mx-auto px-4">
+        <h2 class="font-serif text-3xl font-bold mb-12 text-center">How to Get Here</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {transportModes.map((mode) => {
+                const IconComponent = iconMap[mode.icon] || Train;
+                return (
+                    <article class="p-8 rounded-2xl border border-border/50 hover:border-primary/30 transition-colors text-center">
+                        <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
+                            <IconComponent className="w-8 h-8 text-primary" />
+                        </div>
+                        <h3 class="font-serif text-xl font-bold mb-3">{mode.name}</h3>
+                        <p class="text-muted-foreground mb-4">{mode.description}</p>
+                        <p class="text-sm font-medium text-primary">{mode.duration}</p>
+                    </article>
+                );
+            })}
+        </div>
+    </section>
+
+    <!-- Nearest Airports -->
+    <section class="py-16 bg-secondary/30">
+        <div class="container mx-auto px-4">
+            <h2 class="font-serif text-3xl font-bold mb-12 text-center">Nearest Airports</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {airports.map((airport) => (
+                    <article class="p-6 rounded-xl bg-background border border-border/50">
+                        <div class="flex items-center gap-3 mb-4">
+                            <Plane className="w-5 h-5 text-primary" />
+                            <span class="text-sm font-bold text-muted-foreground">{airport.code}</span>
+                        </div>
+                        <h3 class="font-serif text-lg font-bold mb-2">{airport.name}</h3>
+                        <p class="text-sm text-muted-foreground">{airport.distance}</p>
+                    </article>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <ClosingNote
+        badge={page.closing.badge}
+        title={page.closing.title}
+        paragraphs={page.closing.paragraphs}
+    />
+
+    <Footer lang={lang} village={villageSlug} />
+</Layout>

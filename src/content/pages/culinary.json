@@ -1,0 +1,56 @@
+{
+  "en": {
+    "meta": {
+      "title": "The Culinary Story of Riomaggiore | Cinque Terre Dispatch"
+    },
+    "hero": {
+      "badge": "Culinary Narrative",
+      "title": "The Story of<br/>the Table",
+      "subtitle": "In Riomaggiore, food is not an attraction. It is a rhythm, a memory, and a response to a vertical world.",
+      "image": "https://images.unsplash.com/photo-1499678329028-101435549a4e?q=80&w=2670&auto=format&fit=crop",
+      "imageAlt": "Riomaggiore culinary scene"
+    },
+    "intro": {
+      "badge": "The Culinary Story",
+      "leadQuote": "To eat in Riomaggiore is to understand scarcity. For centuries, this village had no flat land for cattle, no wide fields for grain. It had only the verticality of the cliffs and the depth of the sea.",
+      "paragraphsLeft": [
+        "The story begins in the <strong>terraces</strong>. Every inch of soil was earned, carved out of the rock to plant grapevines and olive trees. This is why wine here is not just a drink; it is the village's primary currency of labor. The Sciacchetrà you sip today is the same liquid gold that has sustained these families through generations of isolation.",
+        "Then there is the <strong>sea</strong>. Because the village was poor and the work was hard, the food became simple. Fish is served with little more than a squeeze of lemon and a drizzle of the oil pressed from those hillside groves. There is no need for heavy sauces when the catch was in the water three hours ago."
+      ],
+      "paragraphsRight": [
+        "You will notice that <strong>menus are short</strong>. This is not a lack of choice, but a commitment to the day. If the sea was rough, there is no sea bass. If the 'orto' (the garden) is between seasons, the vegetables will change. We eat what the land and sea allow, following a rhythm tied to light and weather.",
+        "Meals here follow the <strong>rhythm of work</strong>. A quick cone of fried fish at midday to keep moving, and a long, slow dinner as the sun dips behind the village—a time to reclaim the day from the crowds. To eat well here is to be receptive to these rhythms, to stop looking for variety and start looking for place."
+      ]
+    },
+    "transition": {
+      "title": "Where this story is still cooked",
+      "subtitle": "The following places are not a leaderboard. They are a collection of different facets of our culinary culture—each one a portrait of how Riomaggiore feeds itself and its guests."
+    },
+    "editorialInterludes": [
+      {
+        "afterIndex": 3,
+        "type": "primary",
+        "title": "The Logic of the Short Menu",
+        "quote": "In many places, a long menu is a sign of abundance. In Riomaggiore, it is often a sign of frozen storage. Look for the places that offer only four or five starters and mains. It means the chef was at the harbor this morning, and the 'orto' yesterday. Variety is the enemy of freshness in a village this small."
+      },
+      {
+        "afterIndex": 6,
+        "type": "secondary",
+        "title": "The Bread and the Oil",
+        "quote": "Before you order, look at the bread and the oil on the table. In Liguria, these are not fillers. The oil should be green-gold and smell of the hills. The bread should be simple, a vessel for that oil. If a restaurant gets these two right, you can trust them with the rest of the meal."
+      }
+    ],
+    "closing": {
+      "title": "The Best Meal is a Matter of Mood",
+      "paragraphs": [
+        "In the end, eating well in Riomaggiore is less about finding the \"perfect\" restaurant and more about matching your meal to your spirit.",
+        "Some days require the quiet of a hidden osteria; others, the salt-spray energy of the harbor rocks with a paper cone of fish. Sometimes, all you need is a glass of Sciacchetrà and the sound of the sea.",
+        "Slow down. Notice the light. Listen to the village. The table will find you."
+      ],
+      "primaryCta": "Plan Your Day",
+      "primaryCtaHref": "/itinerary",
+      "secondaryCta": "Explore the Village",
+      "secondaryCtaHref": "/village"
+    }
+  }
+}

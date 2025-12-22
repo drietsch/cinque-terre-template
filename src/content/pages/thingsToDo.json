@@ -1,0 +1,59 @@
+{
+  "en": {
+    "meta": {
+      "title": "The Art of Presence: Things to Do in Riomaggiore | Cinque Terre Dispatch"
+    },
+    "hero": {
+      "badge": "Modes of Engagement",
+      "title": "The Art of<br/>Presence",
+      "subtitle": "In Riomaggiore, 'doing' is a matter of noticing. It is the shift from searching for highlights to paying attention to the rhythm of the stone and the sea.",
+      "image": "https://images.unsplash.com/photo-1490623970972-ae8bb3da443e?q=80&w=2669&auto=format&fit=crop",
+      "imageAlt": "Riomaggiore experience"
+    },
+    "intro": {
+      "badge": "Beyond the Checklist",
+      "leadQuote": "Riomaggiore offers very few formal attractions, and that is precisely its strength. There are no museums to rush through, no monuments to check off a list.",
+      "paragraphsLeft": [
+        "We invite you to <strong>challenge the idea of productivity</strong> in your travel. The most meaningful experiences in this village unfold slowly and often without signs. They are found in the gaps between the 'must-sees'—in the way the light enters a narrow alley, or the way the sound of the sea changes as you climb higher.",
+        "To 'do' something here is to <strong>engage with the village's spirit</strong>. It is a choice of how you spend your attention. Whether you are wandering without a route, sitting on a salt-worn rock, or sharing a simple meal, you are participating in a way of life that has remained remarkably consistent despite the world's acceleration."
+      ],
+      "paragraphsRight": [
+        "This page is not a schedule to be filled, but a <strong>guide to different kinds of presence</strong>. It acknowledges that your energy, the season, and the light will dictate what feels right at any given moment. There is no 'correct' way to see Riomaggiore, only a more or less attentive one.",
+        "Slow down. <strong>Trust your senses</strong>. Allow the village to unfold at its own pace. You will find that when you stop searching for highlights, the entire place becomes one."
+      ]
+    },
+    "transition": {
+      "title": "Ways of Engaging",
+      "subtitle": "The following portraits are not activities to complete, but modes of being within the village. Choose the one that matches your mood and the light of the hour."
+    },
+    "editorialInterludes": [
+      {
+        "afterIndex": 2,
+        "badge": "Editorial Interlude",
+        "title": "The Value of Getting Lost",
+        "quote": "In a village built on a cliff, 'lost' is a relative term. You will always eventually find the main street or the sea. The time you spend in between—in the quiet carruggi where no one else is walking—is where you truly meet Riomaggiore. Don't fight the stairs; let them lead you to a view you weren't looking for."
+      },
+      {
+        "afterIndex": 4,
+        "badge": "Editorial Interlude",
+        "title": "The Unrecorded Moment",
+        "quote": "We are often so busy recording our travels that we forget to experience them. Try leaving your phone in your pocket for an hour. Sit at the harbor and just watch the water. The memory of how the salt felt on your skin and how the light looked on the houses is far more powerful than any photograph. Some things are meant to be felt, not captured.",
+        "align": "right",
+        "type": "secondary"
+      }
+    ],
+    "closing": {
+      "title": "The Memory of Presence",
+      "badge": "Doing as Being",
+      "paragraphs": [
+        "In the end, the most meaningful moments in Riomaggiore are often the ones that were unplanned and unrecorded.",
+        "It is the way the salt felt on your skin after a swim, the sound of a neighbor's shutters opening in the morning, or the silence of the high paths at dusk. These are the moments that stay with you, long after the photos have been forgotten.",
+        "Give yourself permission to slow down. Trust your senses. The village is not a task to be completed, but a rhythm to be joined."
+      ],
+      "primaryCta": "Plan Your Journey",
+      "primaryCtaHref": "/itinerary",
+      "secondaryCta": "Explore the Village",
+      "secondaryCtaHref": "/village"
+    }
+  }
+}

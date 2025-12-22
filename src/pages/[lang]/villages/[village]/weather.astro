@@ -1,0 +1,155 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import Footer from '../../../../components/Footer';
+import EditorNote from '../../../../components/EditorNote.astro';
+import PracticalInfoItem from '../../../../components/PracticalInfoItem.astro';
+import SectionHeader from '../../../../components/SectionHeader.astro';
+import { Sun, Cloud, CloudRain, Thermometer, Droplets, Navigation, Camera } from 'lucide-react';
+import { getLanguages, getVillageSlugs, getVillageBySlug, getPageContent, getWeatherWebcams, type Language } from '../../../../lib/content';
+
+export function getStaticPaths() {
+    const languages = getLanguages();
+    const villageSlugs = getVillageSlugs();
+
+    return languages.flatMap(lang =>
+        villageSlugs.map(village => ({
+            params: { lang, village }
+        }))
+    );
+}
+
+const { lang, village: villageSlug } = Astro.params as { lang: Language; village: string };
+const village = getVillageBySlug(villageSlug, lang);
+const page = getPageContent('weather', lang);
+const webcams = getWeatherWebcams(lang);
+const currentWeather = page.currentWeather;
+const forecast = page.forecast;
+
+if (!village) {
+    return Astro.redirect(`/${lang}/villages/`);
+}
+---
+
+<Layout title={`Weather in ${village.name} | Cinque Terre Dispatch`} lang={lang} village={villageSlug}>
+    <!-- Hero Section -->
+    <section class="relative h-[50vh] min-h-[400px] flex items-center overflow-hidden">
+        <div class="absolute inset-0">
+            <img
+                src={village.image}
+                alt={village.name}
+                class="w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/60"></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-4xl">
+                <div class="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white text-xs font-bold uppercase tracking-widest mb-4">
+                    {page.hero.badge}
+                </div>
+                <h1 class="font-serif text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                    Weather in {village.name}
+                </h1>
+
+                <!-- Current Weather -->
+                <div class="flex items-center gap-8">
+                    <div class="text-6xl font-serif font-bold text-white">{currentWeather.temp}°</div>
+                    <div class="text-white/80">
+                        {currentWeather.icon === "cloud" && <Cloud className="w-10 h-10" />}
+                        {currentWeather.icon === "sun" && <Sun className="w-10 h-10" />}
+                        {currentWeather.icon === "rain" && <CloudRain className="w-10 h-10" />}
+                        <p class="text-lg font-serif italic mt-2">{currentWeather.condition}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-16 container mx-auto px-4">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <!-- Forecast -->
+            <div class="lg:col-span-2">
+                <h2 class="font-serif text-3xl font-bold mb-8">{page.giuliaSection.weekAheadTitle}</h2>
+                <div class="divide-y divide-border/40">
+                    {forecast.map((day, index) => (
+                        <div class="flex items-center justify-between py-6">
+                            <div class="flex items-center gap-6">
+                                <span class="font-serif text-2xl text-primary/30 w-8">{index + 1}</span>
+                                <div>
+                                    <p class="text-xs font-bold uppercase tracking-wider text-primary mb-1">{day.day}</p>
+                                    <p class="font-serif text-lg font-bold">{day.date}</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-8">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center">
+                                        {day.icon === "sun" && <Sun className="w-5 h-5 text-amber-500" />}
+                                        {day.icon === "cloud" && <Cloud className="w-5 h-5 text-blue-400" />}
+                                        {day.icon === "rain" && <CloudRain className="w-5 h-5 text-blue-600" />}
+                                    </div>
+                                    <span class="text-sm text-muted-foreground hidden md:inline">{day.condition}</span>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-2xl font-serif font-bold">{day.high}°</span>
+                                    <span class="text-muted-foreground ml-2">{day.low}°</span>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="lg:col-span-1">
+                <div class="sticky top-24 space-y-10">
+                    <div>
+                        <h3 class="font-serif text-2xl font-bold mb-6 pb-4 border-b border-border">
+                            {page.sidebar.title}
+                        </h3>
+
+                        <div class="space-y-6">
+                            <PracticalInfoItem label={page.sidebar.detailLabels.humidity} value={currentWeather.humidity}>
+                                <Droplets slot="icon" className="w-5 h-5 text-primary" />
+                            </PracticalInfoItem>
+
+                            <PracticalInfoItem label={page.sidebar.detailLabels.windSpeed} value={currentWeather.wind}>
+                                <Navigation slot="icon" className="w-5 h-5 text-primary" />
+                            </PracticalInfoItem>
+
+                            <PracticalInfoItem label={page.sidebar.detailLabels.seaTemperature} value={currentWeather.seaTemp}>
+                                <Thermometer slot="icon" className="w-5 h-5 text-primary" />
+                            </PracticalInfoItem>
+                        </div>
+                    </div>
+
+                    <!-- Webcams -->
+                    <div class="space-y-6">
+                        <SectionHeader label="Live Webcams" />
+                        {webcams.map((cam) => (
+                            <div class="group">
+                                <div class="relative aspect-video rounded-xl overflow-hidden border border-border/50 mb-3">
+                                    <img
+                                        src={cam.image}
+                                        alt={cam.name}
+                                        class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
+                                    />
+                                    <div class="absolute top-3 left-3 flex items-center gap-2 px-2 py-1 rounded-full bg-red-600/90 text-[8px] font-bold text-white uppercase tracking-wider">
+                                        <span class="relative flex h-1.5 w-1.5">
+                                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                                            <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-white"></span>
+                                        </span>
+                                        {cam.status}
+                                    </div>
+                                </div>
+                                <h4 class="font-serif font-bold">{cam.name}</h4>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <Footer lang={lang} village={villageSlug} />
+</Layout>

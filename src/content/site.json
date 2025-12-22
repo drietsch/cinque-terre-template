@@ -1,0 +1,32 @@
+{
+  "name": "Cinque Terre Dispatch",
+  "tagline": "The premium guide to Italy's most colorful coastline.",
+  "description": "A luxury editorial travel magazine for Cinque Terre.",
+  "url": "https://cinqueterredispatch.com",
+  "locale": "en_US",
+  "defaultLanguage": "en",
+  "supportedLanguages": ["en", "it", "fr", "de"],
+  "location": {
+    "name": "Riomaggiore, Italy",
+    "established": 2024
+  },
+  "social": {
+    "instagram": "https://instagram.com/cinqueterredispatch",
+    "facebook": "https://facebook.com/cinqueterredispatch",
+    "twitter": "https://twitter.com/ctdispatch"
+  },
+  "contact": {
+    "email": "hello@cinqueterredispatch.com"
+  },
+  "seo": {
+    "titleSeparator": " | ",
+    "defaultImage": "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=2574&auto=format&fit=crop",
+    "twitterCard": "summary_large_image"
+  },
+  "features": {
+    "newsletter": true,
+    "audioGuides": true,
+    "weatherWidget": true,
+    "multiLanguage": true
+  }
+}

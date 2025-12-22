@@ -1,59 +1,21 @@
 ---
-const trendingStories = [
-    {
-        id: 1,
-        title: "Why Manarola is the Most Photogenic Village",
-        category: "Photography",
-        image: "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=2574&auto=format&fit=crop",
-        date: "Oct 12",
-        readTime: "5 min read",
-        isLead: true,
-        author: "Elena Moretti"
-    },
-    {
-        id: 2,
-        title: "The Ultimate Guide to Cinque Terre Wines",
-        category: "Food & Drink",
-        image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?q=80&w=2632&auto=format&fit=crop",
-        date: "Oct 10",
-        readTime: "4 min read",
-        author: "Marco Bianchi"
-    },
-    {
-        id: 3,
-        title: "Hidden Gems: Corniglia's Quiet Streets",
-        category: "Villages",
-        image: "https://images.unsplash.com/photo-1498503182468-3b51cbb6cb24?q=80&w=2670&auto=format&fit=crop",
-        date: "Oct 08",
-        readTime: "3 min read",
-        author: "Sofia Neri"
-    },
-    {
-        id: 4,
-        title: "Packing List: What to Bring for a Fall Trip",
-        category: "Tips",
-        image: "https://images.unsplash.com/photo-1515444744559-7be63e1600de?q=80&w=2670&auto=format&fit=crop",
-        date: "Oct 05",
-        readTime: "6 min read",
-        author: "Giulia Rossi"
-    },
-    {
-        id: 5,
-        title: "Ferry Schedules Updated for 2025",
-        category: "News",
-        image: "https://images.unsplash.com/photo-1534445867742-43195f401b6c?q=80&w=2670&auto=format&fit=crop",
-        date: "Oct 01",
-        readTime: "2 min read",
-        author: "Luca Verdi"
-    }
-];
+import { getTrendingStories, getPageContent } from '../lib/content';
+
+interface Props {
+    lang?: 'en' | 'it';
+}
+
+const { lang = 'en' } = Astro.props;
+const trendingStories = getTrendingStories(lang);
+const page = getPageContent('home', lang);
+const section = page.trendingNow;
 
 const leadStory = trendingStories[0];
 const secondaryStories = trendingStories.slice(1);
 ---
 
 <section class="py-16 container mx-auto px-4">
-    <h2 class="font-serif text-3xl md:text-4xl font-bold mb-8">Trending Now</h2>
+    <h2 class="font-serif text-3xl md:text-4xl font-bold mb-8">{section.title}</h2>
     
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Lead Story */}

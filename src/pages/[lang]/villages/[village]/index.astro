@@ -1,0 +1,99 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import Footer from '../../../../components/Footer';
+import VillageIntro from '../../../../components/VillageIntro.astro';
+import VillageSEO from '../../../../components/VillageSEO.astro';
+import FeaturedCarousel from '../../../../components/FeaturedCarousel';
+import PlacesToStay from '../../../../components/PlacesToStay.astro';
+import EatDrink from '../../../../components/EatDrink';
+import Newsletter from '../../../../components/Newsletter.astro';
+import { getLanguages, getVillageSlugs, getVillageBySlug, getPageContent, type Language } from '../../../../lib/content';
+
+export function getStaticPaths() {
+    const languages = getLanguages();
+    const villageSlugs = getVillageSlugs();
+
+    return languages.flatMap(lang =>
+        villageSlugs.map(village => ({
+            params: { lang, village }
+        }))
+    );
+}
+
+const { lang, village: villageSlug } = Astro.params as { lang: Language; village: string };
+const village = getVillageBySlug(villageSlug, lang);
+const page = getPageContent('village', lang);
+
+if (!village) {
+    return Astro.redirect(`/${lang}/villages/`);
+}
+---
+
+<Layout title={`${village.name} | Cinque Terre Dispatch`} lang={lang} village={villageSlug}>
+    <!-- Village Hero -->
+    <section class="relative h-[60vh] min-h-[500px] overflow-hidden">
+        <div class="absolute inset-0">
+            <img
+                src={village.image}
+                alt={village.name}
+                class="w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60"></div>
+        </div>
+
+        <div class="relative h-full container mx-auto px-4 flex flex-col justify-end pb-16">
+            <div class="max-w-3xl">
+                <div class="flex gap-2 mb-4">
+                    {village.tags.map(tag => (
+                        <span class="text-[10px] font-bold uppercase tracking-wider bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full border border-white/10">
+                            {tag}
+                        </span>
+                    ))}
+                </div>
+                <h1 class="font-serif text-5xl md:text-7xl font-bold text-white mb-4 leading-tight">
+                    {village.name}
+                </h1>
+                <p class="text-white/90 text-xl font-light leading-relaxed max-w-2xl">
+                    {village.description}
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Navigation -->
+    <section class="py-8 border-b border-border/40 sticky top-16 bg-background/95 backdrop-blur-md z-40">
+        <div class="container mx-auto px-4">
+            <nav class="flex flex-wrap gap-4 justify-center">
+                <a href={`/${lang}/villages/${villageSlug}/accommodation/`} class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+                    Accommodation
+                </a>
+                <a href={`/${lang}/villages/${villageSlug}/culinary/`} class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+                    Culinary
+                </a>
+                <a href={`/${lang}/villages/${villageSlug}/sights/`} class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+                    Sights
+                </a>
+                <a href={`/${lang}/villages/${villageSlug}/things-to-do/`} class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+                    Things to Do
+                </a>
+                <a href={`/${lang}/villages/${villageSlug}/events/`} class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+                    Events
+                </a>
+                <a href={`/${lang}/villages/${villageSlug}/transportation/`} class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+                    Getting Here
+                </a>
+                <a href={`/${lang}/villages/${villageSlug}/weather/`} class="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+                    Weather
+                </a>
+            </nav>
+        </div>
+    </section>
+
+    <VillageIntro lang={lang} />
+    <FeaturedCarousel client:visible lang={lang} />
+    <PlacesToStay lang={lang} />
+    <EatDrink lang={lang} />
+    <VillageSEO lang={lang} />
+    <Newsletter lang={lang} />
+    <Footer lang={lang} village={villageSlug} />
+</Layout>

@@ -1,0 +1,127 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import Footer from '../../../../components/Footer';
+import EditorialHero from '../../../../components/EditorialHero.astro';
+import EditorialIntro from '../../../../components/EditorialIntro.astro';
+import EditorNote from '../../../../components/EditorNote.astro';
+import PracticalInfoItem from '../../../../components/PracticalInfoItem.astro';
+import SectionHeader from '../../../../components/SectionHeader.astro';
+import ClosingNote from '../../../../components/ClosingNote.astro';
+import { MapPin, Clock, Utensils, Wine, Euro } from 'lucide-react';
+import { getLanguages, getVillageSlugs, getVillageBySlug, getRestaurants, getPageContent, getCommon, getItemsByVillage, type Language } from '../../../../lib/content';
+
+export function getStaticPaths() {
+    const languages = getLanguages();
+    const villageSlugs = getVillageSlugs();
+
+    return languages.flatMap(lang =>
+        villageSlugs.map(village => ({
+            params: { lang, village }
+        }))
+    );
+}
+
+const { lang, village: villageSlug } = Astro.params as { lang: Language; village: string };
+const village = getVillageBySlug(villageSlug, lang);
+const allRestaurants = getRestaurants(lang);
+const restaurants = getItemsByVillage(allRestaurants, village?.name || '');
+const page = getPageContent('culinary', lang);
+const common = getCommon(lang);
+
+if (!village) {
+    return Astro.redirect(`/${lang}/villages/`);
+}
+---
+
+<Layout title={`Where to Eat in ${village.name} | Cinque Terre Dispatch`} lang={lang} village={villageSlug}>
+    <EditorialHero
+        title={`The Culinary Story of<br/>${village.name}`}
+        subtitle={page.hero.subtitle}
+        badge={page.hero.badge}
+        image={village.image}
+    />
+
+    <EditorialIntro
+        badge={page.intro.badge}
+        leadQuote={page.intro.leadQuote}
+        paragraphs={page.intro.paragraphs}
+    />
+
+    <!-- Restaurants List -->
+    <section class="py-16 container mx-auto px-4">
+        <div class="space-y-16">
+            {restaurants.length > 0 ? (
+                restaurants.map((restaurant) => (
+                    <article class="group">
+                        <div class="relative aspect-[21/9] overflow-hidden rounded-xl mb-8">
+                            <img
+                                src={restaurant.image}
+                                alt={restaurant.name}
+                                class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                            />
+                            <span class="absolute top-6 left-6 bg-white/90 text-black px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wide shadow-sm">
+                                {restaurant.cuisine}
+                            </span>
+                        </div>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                            <div class="lg:col-span-2 space-y-8">
+                                <div>
+                                    <div class="flex items-center gap-2 mb-3">
+                                        <MapPin className="w-4 h-4 text-primary" />
+                                        <span class="text-sm font-medium text-muted-foreground">{restaurant.village}</span>
+                                    </div>
+                                    <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4 leading-tight">
+                                        {restaurant.name}
+                                    </h2>
+                                </div>
+
+                                <div class="pl-6 border-l-2 border-primary/30">
+                                    <p class="font-serif text-xl italic text-foreground/70 leading-relaxed">
+                                        {restaurant.mustTry}
+                                    </p>
+                                </div>
+
+                                <EditorNote quote={restaurant.giuliaComment} />
+                            </div>
+
+                            <div class="lg:col-span-1">
+                                <div class="sticky top-24 space-y-10">
+                                    <div>
+                                        <h3 class="font-serif text-2xl font-bold text-foreground mb-6 pb-4 border-b border-border">
+                                            {common.labels.essentialInformation}
+                                        </h3>
+
+                                        <div class="space-y-6">
+                                            <PracticalInfoItem label="Cuisine" value={restaurant.cuisine}>
+                                                <Utensils slot="icon" className="w-5 h-5 text-primary" />
+                                            </PracticalInfoItem>
+
+                                            <PracticalInfoItem label="Price Range" value={restaurant.price}>
+                                                <Euro slot="icon" className="w-5 h-5 text-primary" />
+                                            </PracticalInfoItem>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                ))
+            ) : (
+                <div class="text-center py-16">
+                    <p class="text-xl text-muted-foreground">
+                        No restaurants found for {village.name}. Check back soon!
+                    </p>
+                </div>
+            )}
+        </div>
+    </section>
+
+    <ClosingNote
+        badge={page.closing.badge}
+        title={page.closing.title}
+        paragraphs={page.closing.paragraphs}
+    />
+
+    <Footer lang={lang} village={villageSlug} />
+</Layout>

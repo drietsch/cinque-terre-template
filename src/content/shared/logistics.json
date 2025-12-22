@@ -1,0 +1,210 @@
+{
+  "en": {
+    "transportModes": [
+      {
+        "id": 1,
+        "name": "The Train",
+        "category": "The Natural Path",
+        "village": "Riomaggiore Station",
+        "image": "https://images.unsplash.com/photo-1474487059207-efd8b3a0c01f?q=80&w=2670&auto=format&fit=crop",
+        "intro": "The most seamless way to enter the village's rhythm, arriving directly at the water's edge.",
+        "description": "Arriving by train is the quintessential Cinque Terre experience. The tracks cling to the cliffs, darting in and out of tunnels until the sea suddenly opens up. From Pisa or Florence, you'll likely change at La Spezia Centrale for the 'Cinque Terre Express'—a short, 7-minute hop that feels like a portal. Once you step off the platform, a long pedestrian tunnel leads you into the heart of the village, a transition from the wide horizon to the narrow, colorful carruggi.",
+        "giuliaComment": "I always tell friends to keep their eyes on the window during the last few minutes from La Spezia. The first glimpse of the Riomaggiore harbor as you exit the tunnel is a moment you'll never forget. Don't rush through the station tunnel; it's the village's way of welcoming you slowly.",
+        "signature": "A 7-minute portal from the modern world to the ancient coast",
+        "duration": "1.5h - 3h (from major cities)",
+        "frequency": "Every 20-30 minutes (seasonal)",
+        "location": "Sea level, center of the village",
+        "practicalInfo": "The station has lifts, but the tunnel to the village is flat. Luggage storage is available. Be prepared for crowds during peak hours.",
+        "googleRating": 4.5,
+        "tripadvisorRating": 4.4
+      },
+      {
+        "id": 2,
+        "name": "The Car",
+        "category": "The Upper Approach",
+        "village": "Upper Riomaggiore",
+        "image": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2621&auto=format&fit=crop",
+        "intro": "A journey of winding roads and dramatic overlooks, arriving from above the rooftops.",
+        "description": "Driving to Riomaggiore offers a sense of scale that the train hides. The road (SP370) winds through the vineyards and olive groves, offering breathtaking views of the coastline. However, the village itself is car-free. You must park in the multi-story garage at the top of the village or along the designated blue lines on the road. From there, your arrival begins with a 10-20 minute downhill walk, carrying your bags through the vertical streets.",
+        "giuliaComment": "Driving is for those who love the journey as much as the destination. The 'Litoranea' road is one of the most beautiful in Italy. But be warned: parking is expensive and limited. If you arrive by car, you are trading convenience for a spectacular first view from the top of the village.",
+        "signature": "A descent through the vineyards into the heart of the stone",
+        "duration": "1.5h - 3.5h (from major cities)",
+        "frequency": "N/A (Private)",
+        "location": "Top of the village (Via Sant'Antonio)",
+        "practicalInfo": "Parking costs roughly €25-35 per day. Book the garage in advance if possible. Expect a steep walk down to your accommodation.",
+        "googleRating": 4.2,
+        "tripadvisorRating": 4
+      },
+      {
+        "id": 3,
+        "name": "The Boat",
+        "category": "The Scenic Horizon",
+        "village": "Riomaggiore Harbor",
+        "image": "https://images.unsplash.com/photo-1534445867742-43195f401b6c?q=80&w=2670&auto=format&fit=crop",
+        "intro": "The most dramatic entrance, seeing the village rise from the sea as the sailors once did.",
+        "description": "Arriving by boat is a seasonal luxury that offers the most iconic view of Riomaggiore's 'vertical' architecture. The ferry service connects the village with La Spezia, Portovenere, and the other Cinque Terre towns. It is a slow, salt-sprayed journey that allows you to see the scale of the cliffs and the fragility of the houses clinging to them. The boat docks directly at the small harbor, placing you immediately in the village's maritime center.",
+        "giuliaComment": "If the weather is clear and the sea is calm, take the boat at least once. It's the only way to truly understand why we built the village this way. Just remember that the service is seasonal and can be cancelled if the waves are too high. It's a gift from the sea, not a guarantee.",
+        "signature": "A slow, salt-sprayed approach to the village's front door",
+        "duration": "30m - 1.5h (depending on route)",
+        "frequency": "Hourly (Late Spring to Early Autumn)",
+        "location": "The Harbor (Marina)",
+        "practicalInfo": "Not suitable for heavy luggage. The dock can be tricky to navigate in choppy water. Check the daily schedule at the harbor or online.",
+        "googleRating": 4.7,
+        "tripadvisorRating": 4.6
+      }
+    ],
+    "airports": [
+      {
+        "name": "Pisa (PSA)",
+        "distance": "100 km",
+        "time": "1.5 hours"
+      },
+      {
+        "name": "Genoa (GOA)",
+        "distance": "115 km",
+        "time": "2 hours"
+      },
+      {
+        "name": "Florence (FLR)",
+        "distance": "170 km",
+        "time": "2.5 hours"
+      },
+      {
+        "name": "Milan (MXP/LIN)",
+        "distance": "250-280 km",
+        "time": "3-4 hours"
+      }
+    ],
+    "weatherWebcams": [
+      {
+        "id": 1,
+        "name": "Harbor View",
+        "description": "Live view of the iconic Riomaggiore harbor and boat ramp.",
+        "image": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=1000",
+        "status": "Live"
+      },
+      {
+        "id": 2,
+        "name": "Main Street (Via Colombo)",
+        "description": "Looking up the bustling main street from the lower village.",
+        "image": "https://images.unsplash.com/photo-1499678329028-101435549a4e?auto=format&fit=crop&q=80&w=1000",
+        "status": "Live"
+      }
+    ],
+    "villageEssentials": {
+      "badge": "Giulia's Traveler Intelligence",
+      "title": "Riomaggiore Essentials 2026",
+      "subtitle": "Today's atmosphere and real-time details, grounded in Riomaggiore's timeless character",
+      "columns": [
+        {
+          "icon": "Sun",
+          "title": "Today & Conditions",
+          "items": [
+            {
+              "label": "Weather",
+              "value": "☀️ 23°C, light breeze"
+            },
+            {
+              "label": "Sea Temperature",
+              "value": "🌊 21°C"
+            },
+            {
+              "label": "Sea Conditions",
+              "value": "Calm to moderate"
+            },
+            {
+              "label": "Sunset",
+              "value": "20:47"
+            }
+          ]
+        },
+        {
+          "icon": "Footprints",
+          "title": "Travel Experience",
+          "items": [
+            {
+              "label": "Crowd Rhythm",
+              "value": "Lively day, quiet eve"
+            },
+            {
+              "label": "Best Felt",
+              "value": "Slowly, on foot"
+            },
+            {
+              "label": "Village Shape",
+              "value": "Rising to the sky"
+            },
+            {
+              "label": "Food & Wine",
+              "value": "Simple, honest flavors"
+            }
+          ]
+        },
+        {
+          "icon": "History",
+          "title": "Character",
+          "items": [
+            {
+              "label": "Origins",
+              "value": "Born in 8th Century"
+            },
+            {
+              "label": "Shaped By",
+              "value": "Sea, stone, patience"
+            },
+            {
+              "label": "Traveler Rating",
+              "value": "4.6/5 on Google"
+            },
+            {
+              "label": "Remembered For",
+              "value": "\"Views that linger\""
+            }
+          ]
+        }
+      ]
+    },
+    "villageFAQs": [
+      {
+        "number": "01",
+        "question": "Where is Riomaggiore located?",
+        "answer": "Riomaggiore is located on the Ligurian coast in northern Italy and is one of the five villages of the Cinque Terre, between Manarola and La Spezia."
+      },
+      {
+        "number": "02",
+        "question": "Is Riomaggiore worth visiting?",
+        "answer": "Yes. Riomaggiore is known for its dramatic setting, authentic atmosphere, and strong connection to the sea. Travelers value it for its views, slower pace, and timeless village character."
+      },
+      {
+        "number": "03",
+        "question": "Does Riomaggiore have a beach?",
+        "answer": "Riomaggiore does not have a sandy beach. Swimming is done from rocks and the harbor, offering direct access to deep, clear sea water."
+      },
+      {
+        "number": "04",
+        "question": "What is the best time to visit?",
+        "answer": "Spring and early autumn are ideal for visiting Riomaggiore, offering pleasant temperatures, fewer crowds, and excellent conditions for walking and swimming."
+      },
+      {
+        "number": "05",
+        "question": "How do you get to Riomaggiore?",
+        "answer": "Riomaggiore is best reached by train via the Cinque Terre railway line. Cars are not allowed inside the village, making it a pedestrian-friendly destination."
+      },
+      {
+        "number": "06",
+        "question": "How long should you stay?",
+        "answer": "Many travelers visit for a day, but staying one or two nights allows you to experience quieter mornings and evenings, which are often the most memorable moments."
+      },
+      {
+        "number": "07",
+        "question": "Is Riomaggiore crowded?",
+        "answer": "Riomaggiore can be busy during peak hours in summer. Early mornings and evenings are generally calmer and more enjoyable."
+      },
+      {
+        "number": "08",
+        "question": "What is Riomaggiore known for?",
+        "answer": "Riomaggiore is known for its colorful cliffside houses, small harbor, sunsets over the Ligurian Sea, local wine, and its authentic Cinque Terre atmosphere."
+      }
+    ]
+  }
+}

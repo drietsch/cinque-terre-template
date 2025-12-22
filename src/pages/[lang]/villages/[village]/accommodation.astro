@@ -1,0 +1,129 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import Footer from '../../../../components/Footer';
+import EditorialHero from '../../../../components/EditorialHero.astro';
+import EditorialIntro from '../../../../components/EditorialIntro.astro';
+import EditorialInterlude from '../../../../components/EditorialInterlude.astro';
+import EditorNote from '../../../../components/EditorNote.astro';
+import PracticalInfoItem from '../../../../components/PracticalInfoItem.astro';
+import ReviewSummary from '../../../../components/ReviewSummary.astro';
+import SectionHeader from '../../../../components/SectionHeader.astro';
+import ClosingNote from '../../../../components/ClosingNote.astro';
+import { Star, MapPin, Clock, Home, Bed, Info } from 'lucide-react';
+import { getLanguages, getVillageSlugs, getVillageBySlug, getAccommodations, getPageContent, getCommon, getItemsByVillage, type Language } from '../../../../lib/content';
+
+export function getStaticPaths() {
+    const languages = getLanguages();
+    const villageSlugs = getVillageSlugs();
+
+    return languages.flatMap(lang =>
+        villageSlugs.map(village => ({
+            params: { lang, village }
+        }))
+    );
+}
+
+const { lang, village: villageSlug } = Astro.params as { lang: Language; village: string };
+const village = getVillageBySlug(villageSlug, lang);
+const allAccommodations = getAccommodations(lang);
+const accommodations = getItemsByVillage(allAccommodations, village?.name || '');
+const page = getPageContent('accommodations', lang);
+const common = getCommon(lang);
+
+if (!village) {
+    return Astro.redirect(`/${lang}/villages/`);
+}
+---
+
+<Layout title={`Where to Stay in ${village.name} | Cinque Terre Dispatch`} lang={lang} village={villageSlug}>
+    <EditorialHero
+        title={`Where to Stay in<br/>${village.name}`}
+        subtitle={page.hero.subtitle}
+        badge={page.hero.badge}
+        image={village.image}
+    />
+
+    <EditorialIntro
+        badge={page.intro.badge}
+        leadQuote={page.intro.leadQuote}
+        paragraphs={page.intro.paragraphs}
+    />
+
+    <!-- Accommodations List -->
+    <section class="py-16 container mx-auto px-4">
+        <div class="space-y-16">
+            {accommodations.length > 0 ? (
+                accommodations.map((place, index) => (
+                    <article class="group">
+                        <div class="relative aspect-[21/9] overflow-hidden rounded-xl mb-8">
+                            <img
+                                src={place.image}
+                                alt={place.name}
+                                class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                            />
+                            <span class="absolute top-6 left-6 bg-white/90 text-black px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wide shadow-sm">
+                                {place.type}
+                            </span>
+                        </div>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                            <div class="lg:col-span-2 space-y-8">
+                                <div>
+                                    <div class="flex items-center gap-2 mb-3">
+                                        <MapPin className="w-4 h-4 text-primary" />
+                                        <span class="text-sm font-medium text-muted-foreground">{place.village}</span>
+                                    </div>
+                                    <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4 leading-tight">
+                                        {place.name}
+                                    </h2>
+                                </div>
+
+                                <div class="pl-6 border-l-2 border-primary/30">
+                                    <p class="font-serif text-xl italic text-foreground/70 leading-relaxed">
+                                        {place.signature}
+                                    </p>
+                                </div>
+
+                                <EditorNote quote={place.giuliaComment} />
+                            </div>
+
+                            <div class="lg:col-span-1">
+                                <div class="sticky top-24 space-y-10">
+                                    <div>
+                                        <h3 class="font-serif text-2xl font-bold text-foreground mb-6 pb-4 border-b border-border">
+                                            {common.labels.essentialInformation}
+                                        </h3>
+
+                                        <div class="space-y-6">
+                                            <PracticalInfoItem label={common.labels.priceRange} value={place.price}>
+                                                <Info slot="icon" className="w-5 h-5 text-primary" />
+                                            </PracticalInfoItem>
+
+                                            <PracticalInfoItem label={common.labels.roomType} value={place.type}>
+                                                <Bed slot="icon" className="w-5 h-5 text-primary" />
+                                            </PracticalInfoItem>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                ))
+            ) : (
+                <div class="text-center py-16">
+                    <p class="text-xl text-muted-foreground">
+                        No accommodations found for {village.name}. Check back soon!
+                    </p>
+                </div>
+            )}
+        </div>
+    </section>
+
+    <ClosingNote
+        badge={page.closing.badge}
+        title={page.closing.title}
+        paragraphs={page.closing.paragraphs}
+    />
+
+    <Footer lang={lang} village={villageSlug} />
+</Layout>

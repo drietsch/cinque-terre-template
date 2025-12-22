@@ -1,0 +1,45 @@
+{
+  "en": {
+    "meta": {
+      "title": "The Editors | Cinque Terre Dispatch"
+    },
+    "hero": {
+      "badge": "The People Behind the Perspective",
+      "title": "The Voices of<br/>the Dispatch",
+      "subtitle": "Not anonymous authors, but attentive guides sharing a lived experience of the coast.",
+      "image": "/riomaggiore_harbor_1765960456019.png"
+    },
+    "intro": {
+      "badge": "Human Perspective",
+      "leadQuote": "Cinque Terre deserves to be shown by people who listen more than they promote. Every recommendation on this site is filtered through human perspective.",
+      "paragraph": "We are not experts claiming authority, but attentive guides offering context. We believe that what you read should be shaped by lived experience, attention, and care."
+    },
+    "editorLabels": {
+      "howTheyMove": "How they move",
+      "whatTheyLove": "What they love",
+      "groundedPractices": "Grounded Practices"
+    },
+    "closing": {
+      "title": "The Art of Collaboration",
+      "badge": "A Shared Attention",
+      "paragraphs": [
+        "This site is shaped by conversation, disagreement, and shared attention. It is not a static resource, but a living record of our evolving relationship with Cinque Terre.",
+        "We invite you to read these pages knowing who is speaking. Move through the villages with a sense of familiarity rather than authority, and allow the place to reveal itself to you in its own time."
+      ],
+      "values": [
+        {
+          "label": "Grounded",
+          "icon": "Anchor"
+        },
+        {
+          "label": "Attentive",
+          "icon": "Sun"
+        },
+        {
+          "label": "Honest",
+          "icon": "Wind"
+        }
+      ]
+    }
+  }
+}

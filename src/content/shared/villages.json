@@ -1,0 +1,46 @@
+{
+  "en": {
+    "villages": [
+      {
+        "id": "monterosso",
+        "slug": "monterosso-al-mare",
+        "name": "Monterosso al Mare",
+        "description": "The only one with a proper sandy beach and resort vibe.",
+        "image": "https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?q=80&w=2670&auto=format&fit=crop",
+        "tags": ["Beaches", "Resort"]
+      },
+      {
+        "id": "vernazza",
+        "slug": "vernazza",
+        "name": "Vernazza",
+        "description": "The crown jewel with a stunning harbor and castle ruins.",
+        "image": "https://images.unsplash.com/photo-1498503182468-3b51cbb6cb24?q=80&w=2670&auto=format&fit=crop",
+        "tags": ["Views", "Harbor"]
+      },
+      {
+        "id": "corniglia",
+        "slug": "corniglia",
+        "name": "Corniglia",
+        "description": "Perched high on the cliffs, quiet and authentic.",
+        "image": "https://images.unsplash.com/photo-1555979863-69fb96e63359?q=80&w=2670&auto=format&fit=crop",
+        "tags": ["Hikes", "Quiet"]
+      },
+      {
+        "id": "manarola",
+        "slug": "manarola",
+        "name": "Manarola",
+        "description": "Famous for its colorful houses tumbling down to the sea.",
+        "image": "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=2574&auto=format&fit=crop",
+        "tags": ["Photography", "Sunsets"]
+      },
+      {
+        "id": "riomaggiore",
+        "slug": "riomaggiore",
+        "name": "Riomaggiore",
+        "description": "The first stop from La Spezia, vibrant and dramatic.",
+        "image": "https://images.unsplash.com/photo-1534445867742-43195f401b6c?q=80&w=2670&auto=format&fit=crop",
+        "tags": ["Nightlife", "History"]
+      }
+    ]
+  }
+}

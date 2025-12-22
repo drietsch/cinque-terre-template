@@ -1,34 +1,21 @@
 import React from 'react';
 import { Play } from 'lucide-react';
+import { getAudioGuides, getPageContent, type Language } from '@/lib/content';
 
-const audioGuides = [
-    {
-        title: "Walking the Via dell'Amore",
-        description: "A guided audio tour of the famous Lover's Lane.",
-        duration: "12 min",
-        image: "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=2574&auto=format&fit=crop"
-    },
-    {
-        title: "Sounds of the Sea",
-        description: "Relaxing ambient sounds from Monterosso beach.",
-        duration: "30 min",
-        image: "https://images.unsplash.com/photo-1534445867742-43195f401b6c?q=80&w=2670&auto=format&fit=crop"
-    },
-    {
-        title: "History of Vernazza",
-        description: "Learn about the pirate attacks and castle defense.",
-        duration: "18 min",
-        image: "https://images.unsplash.com/photo-1498503182468-3b51cbb6cb24?q=80&w=2670&auto=format&fit=crop"
-    }
-];
+interface AudioGuidesProps {
+    lang?: Language;
+}
 
-export default function AudioGuides() {
+export default function AudioGuides({ lang = 'en' }: AudioGuidesProps) {
+    const audioGuides = getAudioGuides(lang);
+    const page = getPageContent('home', lang);
+    const section = page.audioGuides;
     return (
         <section className="py-16 bg-black text-white">
             <div className="container mx-auto px-4">
                 <div className="flex items-center justify-between mb-12">
-                    <h2 className="font-serif text-3xl md:text-4xl font-bold">Listen: Cinque Terre Stories</h2>
-                    <a href="#" className="text-sm font-medium hover:text-primary transition-colors">View all episodes</a>
+                    <h2 className="font-serif text-3xl md:text-4xl font-bold">{section.title}</h2>
+                    <a href="#" className="text-sm font-medium hover:text-primary transition-colors">{section.viewAllLabel}</a>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

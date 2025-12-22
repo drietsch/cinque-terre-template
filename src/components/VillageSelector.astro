@@ -1,44 +1,23 @@
 ---
-const villages = [
-    {
-        name: "Monterosso al Mare",
-        description: "The only one with a proper sandy beach and resort vibe.",
-        image: "https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?q=80&w=2670&auto=format&fit=crop",
-        tags: ["Beaches", "Resort"]
-    },
-    {
-        name: "Vernazza",
-        description: "The crown jewel with a stunning harbor and castle ruins.",
-        image: "https://images.unsplash.com/photo-1498503182468-3b51cbb6cb24?q=80&w=2670&auto=format&fit=crop",
-        tags: ["Views", "Harbor"]
-    },
-    {
-        name: "Corniglia",
-        description: "Perched high on the cliffs, quiet and authentic.",
-        image: "https://images.unsplash.com/photo-1555979863-69fb96e63359?q=80&w=2670&auto=format&fit=crop",
-        tags: ["Hikes", "Quiet"]
-    },
-    {
-        name: "Manarola",
-        description: "Famous for its colorful houses tumbling down to the sea.",
-        image: "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=2574&auto=format&fit=crop",
-        tags: ["Photography", "Sunsets"]
-    },
-    {
-        name: "Riomaggiore",
-        description: "The first stop from La Spezia, vibrant and dramatic.",
-        image: "https://images.unsplash.com/photo-1534445867742-43195f401b6c?q=80&w=2670&auto=format&fit=crop",
-        tags: ["Nightlife", "History"]
-    }
-];
+import { getVillages, getPageContent, getCommon } from '../lib/content';
+
+interface Props {
+    lang?: 'en' | 'it';
+}
+
+const { lang = 'en' } = Astro.props;
+const villages = getVillages(lang);
+const page = getPageContent('home', lang);
+const section = page.villageSelector;
+const common = getCommon(lang);
 ---
 
 <section id="villages" class="py-24 bg-secondary/20">
     <div class="container mx-auto px-4">
         <div class="text-center mb-16">
-            <span class="text-sm font-semibold text-primary uppercase tracking-wider">Destinations</span>
-            <h2 class="font-serif text-4xl md:text-5xl font-bold mt-2">The Five Villages</h2>
-            <p class="text-muted-foreground mt-4 max-w-2xl mx-auto text-lg">Each village has its own unique personality. Find the one that speaks to you.</p>
+            <span class="text-sm font-semibold text-primary uppercase tracking-wider">{section.badge}</span>
+            <h2 class="font-serif text-4xl md:text-5xl font-bold mt-2">{section.title}</h2>
+            <p class="text-muted-foreground mt-4 max-w-2xl mx-auto text-lg">{section.subtitle}</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
@@ -56,7 +35,7 @@ const villages = [
                         <h3 class="font-serif text-2xl font-bold mb-2">{village.name}</h3>
                         <p class="text-sm text-white/90 line-clamp-2 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-75">{village.description}</p>
                         <span class="inline-flex items-center text-sm font-medium border-b border-white pb-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-150 hover:text-primary hover:border-primary transition-colors">
-                            Explore Village
+                            {common.buttons.exploreVillage}
                         </span>
                     </div>
                 </div>

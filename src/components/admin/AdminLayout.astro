@@ -1,0 +1,93 @@
+---
+// Admin layout with sidebar navigation
+interface Props {
+  title: string;
+  activeSection?: 'dashboard' | 'agents' | 'tasks' | 'content';
+}
+
+const { title, activeSection = 'dashboard' } = Astro.props;
+
+const navItems = [
+  { id: 'dashboard', label: 'Dashboard', href: '/admin/', icon: 'LayoutDashboard' },
+  { id: 'agents', label: 'Agents', href: '/admin/agents/', icon: 'Users' },
+  { id: 'tasks', label: 'Task Queue', href: '/admin/tasks/', icon: 'ListTodo' },
+  { id: 'content', label: 'Content', href: '/admin/content/', icon: 'FileText' },
+];
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title} | Admin Console</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+</head>
+<body class="min-h-screen bg-background text-foreground">
+  <div class="flex min-h-screen">
+    <!-- Sidebar -->
+    <aside class="w-64 border-r border-border bg-card flex flex-col">
+      <div class="p-6 border-b border-border">
+        <h1 class="font-serif text-xl font-bold">Content Agents</h1>
+        <p class="text-sm text-muted-foreground">Cinque Terre Dispatch</p>
+      </div>
+
+      <nav class="flex-1 p-4">
+        <ul class="space-y-1">
+          {navItems.map(item => (
+            <li>
+              <a
+                href={item.href}
+                class:list={[
+                  "flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition-colors",
+                  activeSection === item.id
+                    ? "bg-primary text-primary-foreground"
+                    : "text-muted-foreground hover:bg-secondary hover:text-foreground"
+                ]}
+              >
+                <span class="w-5 h-5 flex items-center justify-center">
+                  {item.icon === 'LayoutDashboard' && (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+                  )}
+                  {item.icon === 'Users' && (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  )}
+                  {item.icon === 'ListTodo' && (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="6" height="6" rx="1"/><path d="m3 17 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></svg>
+                  )}
+                  {item.icon === 'FileText' && (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+                  )}
+                </span>
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <div class="p-4 border-t border-border">
+        <a href="/" class="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+          Back to Site
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col">
+      <header class="h-16 border-b border-border flex items-center px-8">
+        <h2 class="text-lg font-semibold">{title}</h2>
+      </header>
+
+      <div class="flex-1 p-8 overflow-auto">
+        <slot />
+      </div>
+    </main>
+  </div>
+</body>
+</html>
+
+<style is:global>
+  @import '../../styles/global.css';
+</style>

@@ -1,0 +1,206 @@
+{
+  "en": {
+    "stays": [
+      {
+        "id": "la-torretta-lodge",
+        "name": "La Torretta Lodge",
+        "village": "Manarola",
+        "special": "Luxury tower suite with 360 degree views.",
+        "price": "$$$",
+        "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2670&auto=format&fit=crop"
+      },
+      {
+        "id": "porto-roca",
+        "name": "Porto Roca",
+        "village": "Monterosso",
+        "special": "Infinity pool overlooking the sea.",
+        "price": "$$$",
+        "image": "https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=2525&auto=format&fit=crop"
+      },
+      {
+        "id": "mada-charm",
+        "name": "Mada Charm",
+        "village": "Vernazza",
+        "special": "Boutique rooms right on the harbor.",
+        "price": "$$",
+        "image": "https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=2574&auto=format&fit=crop"
+      },
+      {
+        "id": "il-sogno-di-manarola",
+        "name": "Il Sogno di Manarola",
+        "village": "Manarola",
+        "special": "Private terraces for sunset aperitivo.",
+        "price": "$$",
+        "image": "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=2670&auto=format&fit=crop"
+      },
+      {
+        "id": "affittacamere-le-terrazze",
+        "name": "Affittacamere Le Terrazze",
+        "village": "Corniglia",
+        "special": "Quiet escape with vineyard views.",
+        "price": "$",
+        "image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2670&auto=format&fit=crop"
+      },
+      {
+        "id": "cinque-terre-residence",
+        "name": "Cinque Terre Residence",
+        "village": "Riomaggiore",
+        "special": "Modern comfort with a hot tub.",
+        "price": "$$",
+        "image": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=2670&auto=format&fit=crop"
+      }
+    ],
+    "accommodations": [
+      {
+        "id": 1,
+        "name": "Scorci Di Mare",
+        "category": "Historic Guesthouse",
+        "village": "Riomaggiore",
+        "image": "https://images.unsplash.com/photo-1515444744559-7be63e1600de?q=80&w=2670&auto=format&fit=crop",
+        "intro": "A 14th-century building that sits so close to the harbor you can hear the boats breathing.",
+        "description": "Scorci Di Mare is for those who want to be at the center of the village's maritime heart. The rooms are carved into the ancient stone, offering a cool, quiet refuge from the sun. The windows frame the iconic view of the stacked houses and the marina, making the village feel like an extension of your own room.",
+        "giuliaComment": "I always tell people that if you stay here, you should wake up early. Watch the fishermen prepare their boats before the first train arrives. It's the only time the harbor truly belongs to itself, and you have a front-row seat.",
+        "signature": "The pulse of the marina, felt through ancient stone walls",
+        "priceRange": "$$$",
+        "practicalInfo": "Located right at the harbor. Expect some noise during the day, but it's remarkably quiet at night. Minimal stairs compared to upper village spots.",
+        "googleRating": 4.7,
+        "tripadvisorRating": 4.6
+      },
+      {
+        "id": 2,
+        "name": "The Sunset Line",
+        "category": "Luxury Guesthouse",
+        "village": "Riomaggiore",
+        "image": "https://images.unsplash.com/photo-1534445867742-43195f401b6c?q=80&w=2670&auto=format&fit=crop",
+        "intro": "High above the village, where the horizon is the only neighbor.",
+        "description": "The Sunset Line is defined by perspective. It trades the bustle of the main street for a panoramic view that stretches across the Ligurian Sea. The design is modern and minimalist, allowing the natural drama of the coastline to take center stage. It's a place for those who value silence and the slow shift of light across the water.",
+        "giuliaComment": "This is where I would stay if I wanted to disappear for a few days. The terraces are incredible--you feel like you're floating between the sky and the sea. It's a bit of a walk from the center, but that's exactly why it works.",
+        "signature": "A quiet sanctuary where the sea meets the sky",
+        "priceRange": "$$$$",
+        "practicalInfo": "Upper village location. Accessible via the public lift or a steep walk. Perfect for couples seeking privacy and modern amenities.",
+        "googleRating": 4.9,
+        "tripadvisorRating": 4.8
+      },
+      {
+        "id": 3,
+        "name": "Locanda Ca Da Iride",
+        "category": "Charming Guesthouse",
+        "village": "Riomaggiore",
+        "image": "https://images.unsplash.com/photo-1551882547-ff43c63e1c24?q=80&w=2670&auto=format&fit=crop",
+        "intro": "A garden retreat that feels like a private home tucked into the hillside.",
+        "description": "Ca Da Iride offers a different kind of Riomaggiore experience--one centered around greenery and quiet. Situated slightly away from the main thoroughfare, it features a beautiful garden where the scent of lemons and jasmine lingers. The rooms are traditional and warm, reflecting the unpretentious hospitality of a local family.",
+        "giuliaComment": "I love the garden here. In a village made of stone, having a patch of green is a luxury. It's the perfect spot for a slow breakfast before you start your hike. It feels grounded and very 'real'.",
+        "signature": "A hidden garden where the village's verticality softens",
+        "priceRange": "$$",
+        "practicalInfo": "10-minute walk from the harbor. Some uphill sections, but manageable for most. Very quiet at night.",
+        "googleRating": 4.8,
+        "tripadvisorRating": 4.7
+      },
+      {
+        "id": 4,
+        "name": "Alla Marina",
+        "category": "Boutique Guesthouse",
+        "village": "Riomaggiore",
+        "image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2670&auto=format&fit=crop",
+        "intro": "Modern comfort inside a 13th-century shell, right where the sea meets the street.",
+        "description": "Alla Marina manages to be both historic and contemporary. The building is one of the oldest in the village, but the interiors are bright, clean, and thoughtfully designed. It's located at the very end of the main street, making it the perfect base for those who want to be steps away from both the water and the best restaurants.",
+        "giuliaComment": "The staff here are what make the difference. They treat you like a guest in their own home. I always notice the light in these rooms--it reflects off the harbor water and dances on the ceilings in the afternoon.",
+        "signature": "Where history and modern hospitality meet at the water's edge",
+        "priceRange": "$$$",
+        "practicalInfo": "Harbor-side location. Very close to the boat landing and train station. Excellent soundproofing despite the central location.",
+        "googleRating": 4.6,
+        "tripadvisorRating": 4.5
+      },
+      {
+        "id": 5,
+        "name": "Cinque Terre Residence",
+        "category": "Hotel & Apartments",
+        "village": "Riomaggiore",
+        "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2670&auto=format&fit=crop",
+        "intro": "A collection of terraces and views that capture the agricultural soul of the village.",
+        "description": "This residence is unique for its connection to the vineyards. While many places focus on the sea, here you are surrounded by the terraced hills that define the region's history. The private terraces offer a quiet space to watch the sun set over the vines, and the shared jacuzzi is a welcome relief after a day of hiking.",
+        "giuliaComment": "I recommend this for families or groups who want a bit more space. The vineyard views are so peaceful--it reminds you that Riomaggiore was a farming village long before it was a tourist destination.",
+        "signature": "A peaceful retreat framed by the green of the vineyards",
+        "priceRange": "$$$",
+        "practicalInfo": "Located in a quiet part of the upper village. Offers both rooms and apartments with kitchens. Great for longer stays.",
+        "googleRating": 4.5,
+        "tripadvisorRating": 4.4
+      },
+      {
+        "id": 6,
+        "name": "Hotel Villa Argentina",
+        "category": "Traditional Hotel",
+        "village": "Riomaggiore",
+        "image": "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2670&auto=format&fit=crop",
+        "intro": "A classic village institution with views that have defined generations of travelers.",
+        "description": "Villa Argentina is one of the few traditional hotels in Riomaggiore. It offers a level of service and amenity that is rare in the village, including a dedicated breakfast room and private parking. Its position at the top of the village ensures that every room has a perspective that captures the entire sweep of the coastline.",
+        "giuliaComment": "There's a reason this place is a classic. It's reliable, comfortable, and the view from the breakfast terrace is the best way to start a day. It's for the traveler who wants the village experience without the unpredictability of a private rental.",
+        "signature": "The village's grand dame, offering comfort and a commanding view",
+        "priceRange": "$$$",
+        "practicalInfo": "Top of the village. One of the few places with private parking (must be booked). Accessible via shuttle or a long walk.",
+        "googleRating": 4.4,
+        "tripadvisorRating": 4.3
+      },
+      {
+        "id": 7,
+        "name": "EC Luxury Rooms",
+        "category": "Luxury Guesthouse",
+        "village": "Riomaggiore",
+        "image": "https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=2650&auto=format&fit=crop",
+        "intro": "Refined, modern elegance in a prime harbor-front position.",
+        "description": "EC Luxury Rooms is for the traveler who wants the grit and beauty of the harbor paired with high-end interior design. The rooms are spacious and filled with light, featuring large windows that act as living frames for the marina below. It's a sophisticated take on the traditional guesthouse.",
+        "giuliaComment": "I love the contrast here--the ancient, salt-worn harbor outside and the perfectly polished room inside. It feels very indulgent. It's the kind of place where you want to spend time just looking out the window.",
+        "signature": "A sophisticated lens on the village's most iconic view",
+        "priceRange": "$$$$",
+        "practicalInfo": "Front-row harbor location. Very close to the beach and station. High-end finishes and excellent air conditioning.",
+        "googleRating": 4.8,
+        "tripadvisorRating": 4.7
+      },
+      {
+        "id": 8,
+        "name": "Hotel del Sole",
+        "category": "Eco-friendly Hotel",
+        "village": "Riomaggiore",
+        "image": "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?q=80&w=2674&auto=format&fit=crop",
+        "intro": "A modern, sustainable approach to staying in an ancient landscape.",
+        "description": "Hotel del Sole was built with the environment in mind, using sustainable materials and energy-efficient systems. It sits high on the hillside, offering clean, simple rooms that focus on the essentials: comfort, light, and a connection to the outdoors. The private terraces are perfect for a quiet evening under the stars.",
+        "giuliaComment": "I appreciate the honesty of this place. It doesn't try to be a palace; it just tries to be a good, clean place to rest. The walk up is good for the heart, and the reward is a view that feels very open and free.",
+        "signature": "A bright, sustainable stay with a wide-angle view of the sea",
+        "priceRange": "$$",
+        "practicalInfo": "Upper village location. Modern construction means better accessibility (lifts) than many older buildings. Great value for the quality.",
+        "googleRating": 4.5,
+        "tripadvisorRating": 4.4
+      },
+      {
+        "id": 9,
+        "name": "The First",
+        "category": "Luxury Suites",
+        "village": "Riomaggiore",
+        "image": "https://images.unsplash.com/photo-1495365200479-c4ed1d35e1aa?q=80&w=2670&auto=format&fit=crop",
+        "intro": "The ultimate harbor-front suite for a truly immersive experience.",
+        "description": "The First is less of a hotel and more of a private residence for the discerning traveler. It occupies a prime position overlooking the harbor, offering a level of privacy and luxury that is rare in the center of the village. The balcony is arguably the most coveted spot in Riomaggiore for a private sunset dinner.",
+        "giuliaComment": "If you are celebrating something special, this is the place. You are right in the middle of the 'postcard', but you have your own private sanctuary. It's very romantic, especially when the village lights start to twinkle.",
+        "signature": "A private balcony over the heart of the Cinque Terre",
+        "priceRange": "$$$$$",
+        "practicalInfo": "Central harbor location. Very high demand; book months in advance. Includes a full kitchen for those who want to cook with local ingredients.",
+        "googleRating": 4.9,
+        "tripadvisorRating": 4.8
+      },
+      {
+        "id": 10,
+        "name": "Affittacamere Le Giare",
+        "category": "Traditional Guesthouse",
+        "village": "Riomaggiore",
+        "image": "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?q=80&w=2670&auto=format&fit=crop",
+        "intro": "A warm, family-run guesthouse that captures the true spirit of local hospitality.",
+        "description": "Le Giare is the kind of place that makes you feel like you've lived in Riomaggiore for years. The host is known for her incredible knowledge of the area and her genuine care for her guests. The rooms are simple but immaculate, and the sunny terrace offers a place to connect with other travelers over a glass of local wine.",
+        "giuliaComment": "This is for the traveler who wants to hear the stories of the village. The host will tell you which trail is best today and where the locals are eating. It's a place of connection, not just a place to sleep.",
+        "signature": "A home away from home in the heart of the village",
+        "priceRange": "$$",
+        "practicalInfo": "Uphill location, about 10 minutes from the station. The host often helps with luggage. Very personal service.",
+        "googleRating": 4.7,
+        "tripadvisorRating": 4.6
+      }
+    ]
+  }
+}

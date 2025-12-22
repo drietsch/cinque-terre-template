@@ -1,63 +1,28 @@
 import React from 'react';
 import { MapPin } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { getEats, getPageContent, getCommon, type Language } from '@/lib/content';
 
-const eats = [
-    {
-        name: "Nessun Dorma",
-        type: "Aperitivo",
-        village: "Manarola",
-        blurb: "The most famous view in Cinque Terre. Bruschetta & wine.",
-        image: "https://images.unsplash.com/photo-1515444744559-7be63e1600de?q=80&w=2670&auto=format&fit=crop"
-    },
-    {
-        name: "Ristorante Miky",
-        type: "Seafood",
-        village: "Monterosso",
-        blurb: "Upscale dining famous for its anchovies and pasta.",
-        image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?q=80&w=2632&auto=format&fit=crop"
-    },
-    {
-        name: "Belforte",
-        type: "Seafood",
-        village: "Vernazza",
-        blurb: "Dining inside a medieval tower overlooking the sea.",
-        image: "https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=2574&auto=format&fit=crop"
-    },
-    {
-        name: "A Pie' de Ma'",
-        type: "Wine Bar",
-        village: "Riomaggiore",
-        blurb: "Cliffside terrace perfect for sunset drinks.",
-        image: "https://images.unsplash.com/photo-1534445867742-43195f401b6c?q=80&w=2670&auto=format&fit=crop"
-    },
-    {
-        name: "Gelateria Vernazza",
-        type: "Gelato",
-        village: "Vernazza",
-        blurb: "Artisanal gelato using local lemons and honey.",
-        image: "https://images.unsplash.com/photo-1498503182468-3b51cbb6cb24?q=80&w=2670&auto=format&fit=crop"
-    },
-    {
-        name: "Il Pirata",
-        type: "Breakfast",
-        village: "Vernazza",
-        blurb: "Famous for their Sicilian cannoli and pastries.",
-        image: "https://images.unsplash.com/photo-1555979863-69fb96e63359?q=80&w=2670&auto=format&fit=crop"
-    }
-];
+interface EatDrinkProps {
+    lang?: Language;
+}
 
-export default function EatDrink() {
+export default function EatDrink({ lang = 'en' }: EatDrinkProps) {
+    const eats = getEats(lang);
+    const page = getPageContent('home', lang);
+    const section = page.eatDrink;
+    const common = getCommon(lang);
+
     return (
         <section className="py-16 bg-secondary/30">
             <div className="container mx-auto px-4">
                 <div className="flex items-end justify-between mb-12">
                     <div>
-                        <span className="text-sm font-semibold text-primary uppercase tracking-wider">Food & Drink</span>
-                        <h2 className="font-serif text-3xl md:text-4xl font-bold mt-2">Editors' Picks</h2>
+                        <span className="text-sm font-semibold text-primary uppercase tracking-wider">{section.badge}</span>
+                        <h2 className="font-serif text-3xl md:text-4xl font-bold mt-2">{section.title}</h2>
                     </div>
                     <a href="#" className="hidden md:inline-flex items-center text-sm font-medium hover:text-primary transition-colors">
-                        See all restaurants <span className="ml-1">→</span>
+                        {common.buttons.seeAllRestaurants} <span className="ml-1">→</span>
                     </a>
                 </div>
 
@@ -88,7 +53,7 @@ export default function EatDrink() {
 
                 <div className="mt-8 text-center md:hidden">
                     <a href="#" className="inline-flex items-center text-sm font-medium hover:text-primary transition-colors">
-                        See all restaurants <span className="ml-1">→</span>
+                        {common.buttons.seeAllRestaurants} <span className="ml-1">→</span>
                     </a>
                 </div>
             </div>

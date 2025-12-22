@@ -1,86 +1,24 @@
 ---
-const stories = [
-    {
-        id: 1,
-        title: "The Ultimate Guide to Cinque Terre's Best Beaches",
-        excerpt: "From sandy shores to rocky coves, here's where to swim.",
-        author: "Giulia Rossi",
-        date: "Oct 15, 2023",
-        readTime: "8 min read",
-        category: "Guides",
-        image: "https://images.unsplash.com/photo-1534445867742-43195f401b6c?q=80&w=2670&auto=format&fit=crop",
-        isLead: true
-    },
-    {
-        id: 2,
-        title: "5 Hidden Gelaterias You Need to Try",
-        excerpt: "Skip the tourist traps and find the real deal.",
-        author: "Marco Bianchi",
-        date: "Oct 14, 2023",
-        readTime: "4 min read",
-        category: "Food",
-        image: "https://images.unsplash.com/photo-1498503182468-3b51cbb6cb24?q=80&w=2670&auto=format&fit=crop"
-    },
-    {
-        id: 3,
-        title: "A Photographer's Guide to Manarola at Sunset",
-        excerpt: "Best angles and times for that perfect shot.",
-        author: "Elena Moretti",
-        date: "Oct 12, 2023",
-        readTime: "6 min read",
-        category: "Photography",
-        image: "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=2574&auto=format&fit=crop"
-    },
-    {
-        id: 4,
-        title: "Hiking the Blue Trail: What to Expect",
-        excerpt: "Difficulty levels, closures, and scenic stops.",
-        author: "Luca Verdi",
-        date: "Oct 10, 2023",
-        readTime: "10 min read",
-        category: "Guides",
-        image: "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?q=80&w=2670&auto=format&fit=crop"
-    },
-    {
-        id: 5,
-        title: "Where to Stay: Hotel vs. Airbnb",
-        excerpt: "Pros and cons for every type of traveler.",
-        author: "Sofia Neri",
-        date: "Oct 08, 2023",
-        readTime: "5 min read",
-        category: "Hotels",
-        image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2670&auto=format&fit=crop"
-    },
-    {
-        id: 6,
-        title: "Day Trip to Portovenere",
-        excerpt: "Why you should visit the 'sixth village'.",
-        author: "Giulia Rossi",
-        date: "Oct 05, 2023",
-        readTime: "7 min read",
-        category: "Guides",
-        image: "https://images.unsplash.com/photo-1555979863-69fb96e63359?q=80&w=2670&auto=format&fit=crop"
-    },
-    {
-        id: 7,
-        title: "Local Festivals in November",
-        excerpt: "What's happening in the off-season.",
-        author: "Marco Bianchi",
-        date: "Oct 01, 2023",
-        readTime: "3 min read",
-        category: "News",
-        image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?q=80&w=2632&auto=format&fit=crop"
-    }
-];
+import { getStories, getPageContent, getCommon } from '../lib/content';
+
+interface Props {
+    lang?: 'en' | 'it';
+}
+
+const { lang = 'en' } = Astro.props;
+const stories = getStories(lang);
+const page = getPageContent('home', lang);
+const section = page.latestStories;
+const common = getCommon(lang);
 
 const leadStory = stories[0];
 const otherStories = stories.slice(1);
-const filters = ["All", "Guides", "Food", "Hotels", "News & Advice"];
+const filters = common.filters;
 ---
 
 <section class="py-16 container mx-auto px-4">
     <div class="flex flex-col md:flex-row md:items-center justify-between mb-12 gap-6">
-        <h2 class="font-serif text-3xl md:text-4xl font-bold">Latest Stories</h2>
+        <h2 class="font-serif text-3xl md:text-4xl font-bold">{section.title}</h2>
         
         <div class="flex flex-wrap gap-2">
             {filters.map((filter, index) => (
@@ -151,7 +89,7 @@ const filters = ["All", "Guides", "Food", "Hotels", "News & Advice"];
     
     <div class="mt-12 text-center">
         <button class="px-8 py-3 rounded-full border border-border hover:bg-secondary transition-colors font-medium">
-            Load More Stories
+            {section.loadMoreButton}
         </button>
     </div>
 </section>

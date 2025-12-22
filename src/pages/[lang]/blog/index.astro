@@ -1,0 +1,98 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Footer from '../../../components/Footer';
+import { getLanguages, getStories, getFeaturedStories, getCommon, type Language } from '../../../lib/content';
+
+export function getStaticPaths() {
+    return getLanguages().map(lang => ({
+        params: { lang }
+    }));
+}
+
+const { lang } = Astro.params as { lang: Language };
+const stories = getStories(lang);
+const featuredStories = getFeaturedStories(lang);
+const common = getCommon(lang);
+
+const leadStory = stories[0];
+const otherStories = stories.slice(1);
+---
+
+<Layout title="The Dispatch - Stories from Cinque Terre" lang={lang}>
+    <!-- Hero -->
+    <section class="py-16 container mx-auto px-4">
+        <div class="text-center mb-16">
+            <span class="text-sm font-semibold text-primary uppercase tracking-wider">The Dispatch</span>
+            <h1 class="font-serif text-5xl md:text-6xl font-bold mt-4">Stories & Insights</h1>
+            <p class="text-xl text-muted-foreground mt-4 max-w-2xl mx-auto">
+                Deep dives, local secrets, and curated guides from the Italian Riviera.
+            </p>
+        </div>
+
+        <!-- Featured Story -->
+        {leadStory && (
+            <article class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+                <div class="relative aspect-[4/3] lg:aspect-auto overflow-hidden rounded-2xl">
+                    <img
+                        src={leadStory.image}
+                        alt={leadStory.title}
+                        class="object-cover w-full h-full"
+                    />
+                </div>
+                <div class="flex flex-col justify-center">
+                    <span class="text-sm font-semibold text-primary uppercase tracking-wider mb-4">
+                        {leadStory.category}
+                    </span>
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold mb-4 leading-tight">
+                        {leadStory.title}
+                    </h2>
+                    <p class="text-lg text-muted-foreground mb-6">
+                        {leadStory.excerpt}
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-secondary overflow-hidden">
+                            <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${leadStory.author}`} alt={leadStory.author} />
+                        </div>
+                        <div>
+                            <p class="font-medium">{leadStory.author}</p>
+                            <p class="text-sm text-muted-foreground">{leadStory.date} · {leadStory.readTime}</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        )}
+
+        <!-- Stories Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {otherStories.map((story) => (
+                <article class="group cursor-pointer">
+                    <div class="relative aspect-[4/3] overflow-hidden rounded-xl mb-4">
+                        <img
+                            src={story.image}
+                            alt={story.title}
+                            class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                        />
+                        <span class="absolute top-4 left-4 bg-white/90 text-black px-2.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wide shadow-sm">
+                            {story.category}
+                        </span>
+                    </div>
+                    <div class="space-y-3">
+                        <h3 class="font-serif text-xl font-bold group-hover:text-primary transition-colors leading-tight">
+                            {story.title}
+                        </h3>
+                        <p class="text-sm text-muted-foreground line-clamp-2">
+                            {story.excerpt}
+                        </p>
+                        <div class="flex items-center gap-3 text-sm text-muted-foreground">
+                            <span>{story.author}</span>
+                            <span>•</span>
+                            <span>{story.date}</span>
+                        </div>
+                    </div>
+                </article>
+            ))}
+        </div>
+    </section>
+
+    <Footer lang={lang} />
+</Layout>

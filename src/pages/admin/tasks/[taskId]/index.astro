@@ -1,0 +1,196 @@
+---
+// Task detail page - shows task status and content diff preview
+import AdminLayout from '../../../../components/admin/AdminLayout.astro';
+import { ContentDiff } from '../../../../components/admin/ContentDiff';
+import { Button } from '../../../../components/ui/button';
+import { Badge } from '../../../../components/ui/badge';
+import { getTask } from '../../../../lib/tasks/queue';
+import { AGENT_CONFIGS, CAPABILITY_DESCRIPTIONS } from '../../../../lib/agents/config';
+
+export const prerender = false;
+
+const { taskId } = Astro.params;
+const task = taskId ? getTask(taskId) : null;
+
+if (!task) {
+  return Astro.redirect('/admin/');
+}
+
+const agent = AGENT_CONFIGS[task.agentPersona];
+const capability = CAPABILITY_DESCRIPTIONS[task.capability];
+
+const statusColors: Record<string, string> = {
+  pending: 'bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200',
+  running: 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200',
+  completed: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200',
+  failed: 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200',
+  cancelled: 'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200',
+};
+---
+
+<AdminLayout title={`Task: ${task.id}`} activeSection="tasks">
+  <div class="space-y-6">
+    <!-- Header -->
+    <div class="flex items-start justify-between">
+      <div>
+        <div class="flex items-center gap-3 mb-2">
+          <h2 class="text-xl font-semibold">{capability.title} Task</h2>
+          <Badge className={statusColors[task.status]}>
+            {task.status.charAt(0).toUpperCase() + task.status.slice(1)}
+          </Badge>
+        </div>
+        <p class="text-sm text-muted-foreground">
+          Created by {agent.name} on {new Date(task.createdAt).toLocaleString()}
+        </p>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="/admin/" class="px-4 py-2 text-sm rounded-lg border border-border hover:bg-secondary">
+          Back
+        </a>
+        {task.status === 'completed' && task.output?.preview?.length > 0 && (
+          <button
+            id="apply-btn"
+            class="px-4 py-2 text-sm rounded-lg bg-primary text-primary-foreground hover:bg-primary/90"
+          >
+            Apply Changes
+          </button>
+        )}
+      </div>
+    </div>
+
+    <!-- Task Info -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="rounded-lg border border-border bg-card p-4">
+        <p class="text-xs uppercase tracking-wider text-muted-foreground mb-1">Agent</p>
+        <div class="flex items-center gap-2">
+          <img src={agent.image} alt={agent.name} class="w-8 h-8 rounded-full object-cover" />
+          <div>
+            <p class="text-sm font-medium">{agent.name}</p>
+            <p class="text-xs text-muted-foreground">{agent.role}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-lg border border-border bg-card p-4">
+        <p class="text-xs uppercase tracking-wider text-muted-foreground mb-1">Capability</p>
+        <p class="text-sm font-medium">{capability.title}</p>
+        <p class="text-xs text-muted-foreground">{capability.description}</p>
+      </div>
+
+      <div class="rounded-lg border border-border bg-card p-4">
+        <p class="text-xs uppercase tracking-wider text-muted-foreground mb-1">Timing</p>
+        {task.startedAt && (
+          <p class="text-sm">Started: {new Date(task.startedAt).toLocaleTimeString()}</p>
+        )}
+        {task.completedAt && (
+          <p class="text-sm">Completed: {new Date(task.completedAt).toLocaleTimeString()}</p>
+        )}
+        {task.status === 'running' && (
+          <p class="text-sm text-blue-600">In progress...</p>
+        )}
+      </div>
+    </div>
+
+    <!-- Error Message -->
+    {task.error && (
+      <div class="rounded-lg border border-destructive/50 bg-destructive/10 p-4">
+        <p class="text-sm font-medium text-destructive">Error</p>
+        <p class="text-sm text-destructive/80 mt-1">{task.error}</p>
+      </div>
+    )}
+
+    <!-- Content Diff -->
+    {task.output && (
+      <section>
+        <h3 class="text-lg font-semibold mb-4">Preview Changes</h3>
+        <ContentDiff
+          client:load
+          diffs={task.output.preview}
+          agentNotes={task.output.agentNotes}
+        />
+
+        {task.output.validationMessages?.length > 0 && (
+          <div class="mt-4 rounded-lg border border-amber-200 bg-amber-50 dark:bg-amber-950/30 p-4">
+            <p class="text-sm font-medium text-amber-800 dark:text-amber-200">Validation Notes</p>
+            <ul class="mt-2 space-y-1">
+              {task.output.validationMessages.map((msg: string) => (
+                <li class="text-sm text-amber-700 dark:text-amber-300">{msg}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </section>
+    )}
+
+    <!-- Citations (for research tasks) -->
+    {task.output?.citations && task.output.citations.length > 0 && (
+      <section>
+        <h3 class="text-lg font-semibold mb-4">Sources</h3>
+        <div class="rounded-lg border border-border bg-card divide-y divide-border">
+          {task.output.citations.map((citation: { url: string; title: string; citedText: string }) => (
+            <div class="p-4">
+              <a href={citation.url} target="_blank" rel="noopener" class="text-sm font-medium text-primary hover:underline">
+                {citation.title}
+              </a>
+              <p class="text-xs text-muted-foreground mt-1 line-clamp-2">
+                {citation.citedText}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Loading State for Running Tasks -->
+    {task.status === 'running' && (
+      <div class="rounded-lg border border-border bg-card p-8 text-center">
+        <div class="animate-spin w-8 h-8 border-2 border-primary border-t-transparent rounded-full mx-auto mb-4"></div>
+        <p class="text-muted-foreground">Agent is processing...</p>
+        <p class="text-sm text-muted-foreground mt-1">This page will update automatically</p>
+      </div>
+    )}
+  </div>
+</AdminLayout>
+
+<script define:vars={{ taskId, taskStatus: task.status }}>
+  // Apply button handler
+  const applyBtn = document.getElementById('apply-btn');
+  if (applyBtn) {
+    applyBtn.addEventListener('click', async () => {
+      if (!confirm('Apply these changes to the content files? This action cannot be undone.')) {
+        return;
+      }
+
+      applyBtn.textContent = 'Applying...';
+      applyBtn.setAttribute('disabled', 'true');
+
+      try {
+        const response = await fetch(`/admin/api/tasks/${taskId}/apply`, {
+          method: 'POST',
+        });
+        const result = await response.json();
+
+        if (result.success) {
+          alert(`Successfully applied ${result.appliedCount} changes!`);
+          window.location.href = '/admin/';
+        } else {
+          alert(`Failed to apply changes: ${result.errors?.join(', ')}`);
+          applyBtn.textContent = 'Apply Changes';
+          applyBtn.removeAttribute('disabled');
+        }
+      } catch (error) {
+        alert('Failed to apply changes');
+        applyBtn.textContent = 'Apply Changes';
+        applyBtn.removeAttribute('disabled');
+      }
+    });
+  }
+
+  // Auto-refresh for running tasks
+  if (taskStatus === 'running') {
+    setTimeout(() => {
+      window.location.reload();
+    }, 3000);
+  }
+</script>

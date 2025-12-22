@@ -1,0 +1,31 @@
+{
+  "en": {
+    "meta": {
+      "title": "Sights of Riomaggiore | Cinque Terre Dispatch"
+    },
+    "hero": {
+      "badge": "Editorial Guide",
+      "title": "Sights Worth<br/>Your Attention",
+      "subtitle": "Not a catalog, but a quiet invitation to the places that define Riomaggiore—and why they matter.",
+      "image": "/scenic_viewpoint_1765960559207.png",
+      "imageAlt": "Riomaggiore scenic viewpoint"
+    },
+    "intro": {
+      "badge": "Curated Selection",
+      "leadQuote": "Each sight here has been chosen not for completeness, but for character. These are the places that reveal something essential about Riomaggiore—its rhythm, its light, its relationship with the sea.",
+      "paragraphsLeft": [
+        "They are presented as they deserve to be: with care, context, and a human voice."
+      ],
+      "paragraphsRight": [
+        "We invite you to look beyond the surface, to notice the small details that make these places more than just photo opportunities."
+      ]
+    },
+    "closing": {
+      "title": "A Note on Exploration",
+      "paragraphs": [
+        "These sights are not meant to be checked off a list. They are invitations to slow down, to notice, to feel. Visit them in the order that makes sense for your day, or skip the ones that don't speak to you. The best experiences in Riomaggiore are often the ones you didn't plan.",
+        "— The Editors"
+      ]
+    }
+  }
+}

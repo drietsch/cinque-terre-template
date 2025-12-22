@@ -1,0 +1,57 @@
+{
+  "en": {
+    "meta": {
+      "title": "Events & Rhythms of Riomaggiore | Cinque Terre Dispatch"
+    },
+    "hero": {
+      "badge": "The Living Calendar",
+      "title": "Moments of<br/>Shared Attention",
+      "subtitle": "Events in Riomaggiore are not spectacles. They are the brief surfacing of a deep, local rhythm—moments when the village remembers who it is.",
+      "image": "https://images.unsplash.com/photo-1498503182468-3b51cbb6cb24?q=80&w=2670&auto=format&fit=crop"
+    },
+    "intro": {
+      "badge": "The Meaning of Gathering",
+      "leadQuote": "To understand an event in Riomaggiore, you must first understand that it is not for you. It is for the village, for the ancestors, and for the sea.",
+      "paragraphsLeft": [
+        "Most of our gatherings are <strong>rooted in the soil and the sea</strong>. They follow the religious calendar, the cycles of the vineyards, or the ancient traditions of the fishing boats. They are repetitive, familiar, and deeply personal. We do not celebrate to entertain, but to participate in a continuity that stretches back centuries.",
+        "You will find that <strong>spectacle is rare</strong>. The beauty of a procession or a harvest is found in its lack of polish—in the way a neighbor carries a heavy statue, or the way the smell of fermenting grapes fills the streets. These are moments of shared attention, where the village briefly reorganizes itself around a common purpose."
+      ],
+      "paragraphsRight": [
+        "The meaning of these events lies in <strong>observation and respect</strong>. We invite you to watch, to listen, and to feel the shift in the village's energy. But we ask that you do so from the edge, with the understanding that you are witnessing a private moment of community. There is no need for applause; your presence is enough.",
+        "In Riomaggiore, <strong>timing is everything</strong>. Some events last all day, others only a few luminous minutes. Some are loud and colorful, others are silent and dark. To be present for these moments is to see the village reveal itself differently, showing a face that is usually kept hidden from the midday sun."
+      ]
+    },
+    "transition": {
+      "title": "When the village gathers",
+      "subtitle": "The following portraits follow the natural flow of the year. They are not a schedule to be chased, but a story to be understood."
+    },
+    "editorialInterludes": [
+      {
+        "afterIndex": 2,
+        "title": "The Art of the Edge",
+        "quote": "The best way to experience a village event is from the edge. Don't try to be at the front of the procession or the center of the square. Find a high step, a quiet corner, or a window. From the periphery, you see the whole—the way the light hits the faces of the elders, the way the children mimic the movements of their parents. You are a witness, not a participant, and there is great beauty in that distance.",
+        "type": "primary",
+        "align": "left"
+      },
+      {
+        "afterIndex": 4,
+        "title": "Silence and Noise",
+        "quote": "Riomaggiore lives in the alternation of silence and noise. Our events are often loud—bells, singing, fireworks—but they are always followed by a deeper silence. This contrast is what gives the celebration its weight. After the fireworks of San Giovanni, the harbor feels more still than it does on any other night. The noise is a necessary release, but the silence is where the meaning settles.",
+        "type": "secondary",
+        "align": "right"
+      }
+    ],
+    "closing": {
+      "title": "The Power of Chance",
+      "paragraphs": [
+        "In the end, the most powerful moments in Riomaggiore are often the ones you didn't plan for.",
+        "It is the sound of a distant bell that leads you to a small chapel, or the sight of a monorail carrying a crate of grapes that reminds you of the season. To encounter an event by coincidence is to feel the village's rhythm in its most honest form.",
+        "Don't chase the calendar. Let the village reveal itself to you in its own time. The most memorable moments happen slightly off schedule."
+      ],
+      "primaryCta": "Explore the Village",
+      "primaryCtaHref": "/village",
+      "secondaryCta": "Where to Rest",
+      "secondaryCtaHref": "/accommodations"
+    }
+  }
+}

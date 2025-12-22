@@ -4,17 +4,25 @@ import '@fontsource/inter';
 import '@fontsource/playfair-display';
 
 import Header from '../components/Header';
+import type { Language } from '../lib/content';
 
 interface Props {
 	title?: string;
     description?: string;
+    lang?: Language;
+    village?: string;
 }
 
-const { title = "Cinque Terre Dispatch", description = "A luxury editorial travel magazine for Cinque Terre." } = Astro.props;
+const {
+    title = "Cinque Terre Dispatch",
+    description = "A luxury editorial travel magazine for Cinque Terre.",
+    lang = 'en',
+    village = 'riomaggiore'
+} = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -25,7 +33,7 @@ const { title = "Cinque Terre Dispatch", description = "A luxury editorial trave
 		<script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
 	</head>
 	<body class="font-sans antialiased bg-background text-foreground min-h-screen flex flex-col">
-        <Header client:load />
+        <Header client:load lang={lang} village={village} />
 		<main class="flex-1">
             <slot />
         </main>

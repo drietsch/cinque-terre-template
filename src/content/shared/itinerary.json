@@ -1,0 +1,71 @@
+{
+  "en": {
+    "itinerary": {
+      "name": "The Salt & Stone Path",
+      "subtitle": "A four-day journey through the rhythm of the coast, designed for those who wish to see less, but feel everything.",
+      "duration": "4 Days",
+      "pace": "Slow & Observant",
+      "effort": "Moderate",
+      "bestSeason": "April – June or September – October",
+      "image": "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=2574&auto=format&fit=crop"
+    },
+    "days": [
+      {
+        "number": 1,
+        "title": "The Gravity of Arrival",
+        "village": "Riomaggiore",
+        "rhythm": "Settling in",
+        "perspective": "The first day is not for doing. It is for arriving. Let the verticality of Riomaggiore sink in. Don't rush to the harbor; instead, find the quiet upper streets where the laundry hangs like flags of welcome. The sea is there, always, but today we just listen to it.",
+        "movement": "Arrival by train, followed by a slow ascent to the upper village.",
+        "moments": [
+          "A quiet coffee at a corner bar where the locals stand.",
+          "Watching the sunset from the rocks, not the bar.",
+          "The sound of the last train echoing through the valley."
+        ],
+        "image": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=2000"
+      },
+      {
+        "number": 2,
+        "title": "The High Silence",
+        "village": "Manarola to Corniglia",
+        "rhythm": "Elevation & Observation",
+        "perspective": "We move between villages today, but not by the shore. We take the high path to Volastra. Here, the vineyards are ancient and the air is cooler. Corniglia awaits at the end—the village that doesn't touch the sea, but watches it from a throne of stone.",
+        "movement": "The stone steps to Volastra, then the winding vineyard paths to Corniglia.",
+        "moments": [
+          "The scent of wild thyme on the ridge.",
+          "A simple lunch of focaccia overlooking the terraces.",
+          "The 382 steps of the Lardarina—taken slowly, one breath at a time."
+        ],
+        "image": "https://images.unsplash.com/photo-1499678329028-101435549a4e?auto=format&fit=crop&q=80&w=2000"
+      },
+      {
+        "number": 3,
+        "title": "The Vertical Heart",
+        "village": "Vernazza",
+        "rhythm": "Presence & Light",
+        "perspective": "Vernazza is the most famous, and for a reason. But we find its heart in the morning light, before the first boat arrives. We sit by the church of Santa Margherita, watching the water lap against the stone. It's a day for being still in a place that everyone else is rushing through.",
+        "movement": "A morning boat ride from Corniglia to see the cliffs from the water.",
+        "moments": [
+          "The cool interior of the Doria Castle at noon.",
+          "Gelato eaten on the harbor wall as the fishing boats return.",
+          "Finding the 'secret' beach through the rock tunnel."
+        ],
+        "image": "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&q=80&w=2000"
+      },
+      {
+        "number": 4,
+        "title": "The Soft Horizon",
+        "village": "Monterosso",
+        "rhythm": "Reflection & Release",
+        "perspective": "Our journey ends where the sand begins. Monterosso is wide, open, and generous. It's a place to wash the dust of the trails off in the surf. We look back at the four villages we've traversed and realize that the coast hasn't changed us—it has simply reminded us of who we are when we slow down.",
+        "movement": "The coastal path from Vernazza—the most iconic stretch of the Blue Trail.",
+        "moments": [
+          "The first sight of the orange umbrellas from the trail.",
+          "A long, final swim in the crystal waters of Fegina.",
+          "The quiet realization that you don't need to see everything to have seen it all."
+        ],
+        "image": "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&q=80&w=2000"
+      }
+    ]
+  }
+}

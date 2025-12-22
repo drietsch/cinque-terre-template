@@ -1,0 +1,100 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import Footer from '../../../../components/Footer';
+import EditorialHero from '../../../../components/EditorialHero.astro';
+import EditorialIntro from '../../../../components/EditorialIntro.astro';
+import ClosingNote from '../../../../components/ClosingNote.astro';
+import { MapPin, Calendar, Clock } from 'lucide-react';
+import { getLanguages, getVillageSlugs, getVillageBySlug, getEvents, getPageContent, getItemsByVillage, type Language } from '../../../../lib/content';
+
+export function getStaticPaths() {
+    const languages = getLanguages();
+    const villageSlugs = getVillageSlugs();
+
+    return languages.flatMap(lang =>
+        villageSlugs.map(village => ({
+            params: { lang, village }
+        }))
+    );
+}
+
+const { lang, village: villageSlug } = Astro.params as { lang: Language; village: string };
+const village = getVillageBySlug(villageSlug, lang);
+const allEvents = getEvents(lang);
+const events = getItemsByVillage(allEvents, village?.name || '');
+const page = getPageContent('events', lang);
+
+if (!village) {
+    return Astro.redirect(`/${lang}/villages/`);
+}
+---
+
+<Layout title={`Events in ${village.name} | Cinque Terre Dispatch`} lang={lang} village={villageSlug}>
+    <EditorialHero
+        title={`Events & Festivals in<br/>${village.name}`}
+        subtitle={page.hero.subtitle}
+        badge={page.hero.badge}
+        image={village.image}
+    />
+
+    <EditorialIntro
+        badge={page.intro.badge}
+        leadQuote={page.intro.leadQuote}
+        paragraphs={page.intro.paragraphs}
+    />
+
+    <!-- Events List -->
+    <section class="py-16 container mx-auto px-4">
+        <div class="space-y-8">
+            {events.length > 0 ? (
+                events.map((event) => (
+                    <article class="group flex flex-col md:flex-row gap-8 p-6 rounded-2xl border border-border/50 hover:border-primary/30 transition-colors">
+                        <div class="relative w-full md:w-64 aspect-video md:aspect-square overflow-hidden rounded-xl flex-shrink-0">
+                            <img
+                                src={event.image}
+                                alt={event.name}
+                                class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                            />
+                        </div>
+
+                        <div class="flex-1 space-y-4">
+                            <div class="flex flex-wrap items-center gap-3">
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">
+                                    {event.category}
+                                </span>
+                                <span class="flex items-center gap-1 text-sm text-muted-foreground">
+                                    <Calendar className="w-4 h-4" />
+                                    {event.date}
+                                </span>
+                            </div>
+                            <h2 class="font-serif text-2xl font-bold group-hover:text-primary transition-colors">
+                                {event.name}
+                            </h2>
+                            <p class="text-muted-foreground">
+                                {event.description}
+                            </p>
+                            <div class="flex items-center gap-2 text-sm text-muted-foreground">
+                                <MapPin className="w-4 h-4" />
+                                {event.village}
+                            </div>
+                        </div>
+                    </article>
+                ))
+            ) : (
+                <div class="text-center py-16">
+                    <p class="text-xl text-muted-foreground">
+                        No events found for {village.name}. Check back soon!
+                    </p>
+                </div>
+            )}
+        </div>
+    </section>
+
+    <ClosingNote
+        badge={page.closing.badge}
+        title={page.closing.title}
+        paragraphs={page.closing.paragraphs}
+    />
+
+    <Footer lang={lang} village={villageSlug} />
+</Layout>
