@@ -12,7 +12,57 @@ import ClosingNote from '../components/ClosingNote.astro';
 import { Star, MapPin, Clock, Train, Car, Ship, Info, Compass, Waves, Sun, Heart, Plane, Luggage, Accessibility } from 'lucide-react';
 
 const transportModes = [
-    // ... (keep the transportModes array as is)
+    {
+        id: 1,
+        name: "The Train",
+        category: "The Natural Path",
+        village: "Riomaggiore Station",
+        image: "https://images.unsplash.com/photo-1474487059207-efd8b3a0c01f?q=80&w=2670&auto=format&fit=crop",
+        intro: "The most seamless way to enter the village's rhythm, arriving directly at the water's edge.",
+        description: "Arriving by train is the quintessential Cinque Terre experience. The tracks cling to the cliffs, darting in and out of tunnels until the sea suddenly opens up. From Pisa or Florence, you'll likely change at La Spezia Centrale for the 'Cinque Terre Express'—a short, 7-minute hop that feels like a portal. Once you step off the platform, a long pedestrian tunnel leads you into the heart of the village, a transition from the wide horizon to the narrow, colorful carruggi.",
+        giuliaComment: "I always tell friends to keep their eyes on the window during the last few minutes from La Spezia. The first glimpse of the Riomaggiore harbor as you exit the tunnel is a moment you'll never forget. Don't rush through the station tunnel; it's the village's way of welcoming you slowly.",
+        signature: "A 7-minute portal from the modern world to the ancient coast",
+        duration: "1.5h - 3h (from major cities)",
+        frequency: "Every 20-30 minutes (seasonal)",
+        location: "Sea level, center of the village",
+        practicalInfo: "The station has lifts, but the tunnel to the village is flat. Luggage storage is available. Be prepared for crowds during peak hours.",
+        googleRating: 4.5,
+        tripadvisorRating: 4.4
+    },
+    {
+        id: 2,
+        name: "The Car",
+        category: "The Upper Approach",
+        village: "Upper Riomaggiore",
+        image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2621&auto=format&fit=crop",
+        intro: "A journey of winding roads and dramatic overlooks, arriving from above the rooftops.",
+        description: "Driving to Riomaggiore offers a sense of scale that the train hides. The road (SP370) winds through the vineyards and olive groves, offering breathtaking views of the coastline. However, the village itself is car-free. You must park in the multi-story garage at the top of the village or along the designated blue lines on the road. From there, your arrival begins with a 10-20 minute downhill walk, carrying your bags through the vertical streets.",
+        giuliaComment: "Driving is for those who love the journey as much as the destination. The 'Litoranea' road is one of the most beautiful in Italy. But be warned: parking is expensive and limited. If you arrive by car, you are trading convenience for a spectacular first view from the top of the village.",
+        signature: "A descent through the vineyards into the heart of the stone",
+        duration: "1.5h - 3.5h (from major cities)",
+        frequency: "N/A (Private)",
+        location: "Top of the village (Via Sant'Antonio)",
+        practicalInfo: "Parking costs roughly €25-35 per day. Book the garage in advance if possible. Expect a steep walk down to your accommodation.",
+        googleRating: 4.2,
+        tripadvisorRating: 4.0
+    },
+    {
+        id: 3,
+        name: "The Boat",
+        category: "The Scenic Horizon",
+        village: "Riomaggiore Harbor",
+        image: "https://images.unsplash.com/photo-1534445867742-43195f401b6c?q=80&w=2670&auto=format&fit=crop",
+        intro: "The most dramatic entrance, seeing the village rise from the sea as the sailors once did.",
+        description: "Arriving by boat is a seasonal luxury that offers the most iconic view of Riomaggiore's 'vertical' architecture. The ferry service connects the village with La Spezia, Portovenere, and the other Cinque Terre towns. It is a slow, salt-sprayed journey that allows you to see the scale of the cliffs and the fragility of the houses clinging to them. The boat docks directly at the small harbor, placing you immediately in the village's maritime center.",
+        giuliaComment: "If the weather is clear and the sea is calm, take the boat at least once. It's the only way to truly understand why we built the village this way. Just remember that the service is seasonal and can be cancelled if the waves are too high. It's a gift from the sea, not a guarantee.",
+        signature: "A slow, salt-sprayed approach to the village's front door",
+        duration: "30m - 1.5h (depending on route)",
+        frequency: "Hourly (Late Spring to Early Autumn)",
+        location: "The Harbor (Marina)",
+        practicalInfo: "Not suitable for heavy luggage. The dock can be tricky to navigate in choppy water. Check the daily schedule at the harbor or online.",
+        googleRating: 4.7,
+        tripadvisorRating: 4.6
+    }
 ];
 
 const airports = [
