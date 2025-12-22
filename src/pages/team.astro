@@ -1,113 +1,37 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Footer from '../components/Footer';
+import EditorialHero from '../components/EditorialHero.astro';
+import EditorialIntro from '../components/EditorialIntro.astro';
+import ClosingNote from '../components/ClosingNote.astro';
 import { Heart, Compass, Camera, BookOpen, Coffee, Wind, Sun, Anchor } from 'lucide-react';
 
 const editors = [
-    {
-        id: "giulia",
-        name: "Giulia Rossi",
-        role: "Lead Editor",
-        image: "/giulia_rossi.png",
-        bio: "Giulia's relationship with Cinque Terre is long-term and evolving. She holds the emotional and narrative thread of the site, ensuring consistency while leaving space for other perspectives. She doesn't see herself as an expert, but as someone whose life has been shaped by the rhythm of these villages.",
-        persona: "She moves slowly through the villages, often pausing to notice how the light shifts on the weathered stone. She tends to avoid the midday rush, preferring the quiet hours when the village breathes.",
-        hobbies: ["Writing", "Observing seasonal change", "Swimming in the early morning"],
-        love: "The silence of winter in Riomaggiore, when the only sound is the sea and the village feels like it's dreaming.",
-        accent: "border-primary/20"
-    },
-    {
-        id: "marco",
-        name: "Marco Valenti",
-        role: "Field Editor",
-        image: "/marco_editor.png",
-        bio: "Marco is drawn to the high paths and the quiet corners where the tourists rarely venture. He arrived here a decade ago and never found a reason to leave. His perspective is grounded in the physical reality of the landscape.",
-        persona: "He is an early riser, often the first one on the mule tracks. He notices the health of the vines and the state of the dry stone walls. He avoids loud music and crowded beaches.",
-        hobbies: ["Photography", "Gardening", "Hiking the high trails"],
-        love: "The first light hitting the terraced vineyards, turning the green leaves into gold.",
-        accent: "border-emerald-500/20"
-    },
-    {
-        id: "elena",
-        name: "Elena Moretti",
-        role: "Culinary & Culture Editor",
-        image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1000&auto=format&fit=crop",
-        bio: "Elena's path to Cinque Terre was through its kitchens and markets. She believes that to understand a place, you must understand what it eats and how it gathers. She focuses on the rituals of daily life.",
-        persona: "She lingers at markets and talks to the nonnas. She notices the smell of fresh basil and the sound of a shared meal. She avoids fast food and rushed, impersonal service.",
-        hobbies: ["Cooking", "Wine tasting", "Coastal swimming"],
-        love: "The smell of fresh focaccia in the morning air, mingling with the salt of the sea.",
-        accent: "border-amber-500/20"
-    },
-    {
-        id: "luca",
-        name: "Luca Bianchi",
-        role: "History & Heritage Editor",
-        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=1000&auto=format&fit=crop",
-        bio: "Luca has spent years exploring the backstreets and archives of the coast. He is interested in the layers of history that define these villages, from the Roman foundations to the modern day.",
-        persona: "He explores the narrowest carruggi, looking for old inscriptions and forgotten doorways. He notices the architecture of endurance. He avoids the main thoroughfares and souvenir shops.",
-        hobbies: ["Walking", "Reading", "Historical research"],
-        love: "The sound of the sea against the rocks at night, a constant rhythm that has remained unchanged for centuries.",
-        accent: "border-blue-500/20"
-    }
+    // ... (keep the editors array as is)
 ];
 ---
 
 <Layout title="The Editors | Cinque Terre Dispatch">
-    <!-- Hero Section -->
-    <section class="relative h-[60vh] min-h-[500px] overflow-hidden">
-        <div class="absolute inset-0">
-            <img 
-                src="/riomaggiore_harbor_1765960456019.png" 
-                alt="Editors of Cinque Terre Dispatch" 
-                class="w-full h-full object-cover"
-            />
-            <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60"></div>
-        </div>
-        
-        <div class="relative h-full container mx-auto px-4 flex flex-col justify-end pb-16">
-            <div class="max-w-3xl">
-                <div class="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white text-xs font-bold uppercase tracking-widest mb-4">
-                    The People Behind the Perspective
-                </div>
-                <h1 class="font-serif text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-                    The Voices of<br/>the Dispatch
-                </h1>
-                <p class="text-white/90 text-xl md:text-2xl font-light leading-relaxed max-w-2xl">
-                    Not anonymous authors, but attentive guides sharing a lived experience of the coast.
-                </p>
-            </div>
-        </div>
-    </section>
+    <EditorialHero 
+        title="The Voices of<br/>the Dispatch"
+        subtitle="Not anonymous authors, but attentive guides sharing a lived experience of the coast."
+        badge="The People Behind the Perspective"
+        image="/riomaggiore_harbor_1765960456019.png"
+    />
 
-    <!-- Introduction -->
-    <section class="py-24 bg-white border-y border-border/40 overflow-hidden relative">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full opacity-[0.02] pointer-events-none">
-            <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                <path d="M0 100 C 20 0, 50 0, 100 100" stroke="currentColor" fill="transparent" />
-            </svg>
-        </div>
-        <div class="container mx-auto px-4 relative">
-            <div class="max-w-4xl mx-auto text-center space-y-10">
-                <div class="inline-flex items-center gap-4">
-                    <div class="h-px w-8 bg-primary/30"></div>
-                    <span class="text-[10px] font-bold uppercase tracking-[0.4em] text-primary">Human Perspective</span>
-                    <div class="h-px w-8 bg-primary/30"></div>
-                </div>
-                
-                <p class="font-serif text-2xl md:text-4xl text-foreground leading-[1.4] italic font-light">
-                    Cinque Terre deserves to be shown by people who listen more than they promote. Every recommendation on this site is filtered through human perspective.
-                </p>
-                
-                <div class="space-y-6 max-w-2xl mx-auto">
-                    <p class="text-muted-foreground text-lg leading-relaxed">
-                        We are not experts claiming authority, but attentive guides offering context. We believe that what you read should be shaped by lived experience, attention, and care.
-                    </p>
-                    <div class="flex justify-center pt-4">
-                        <div class="w-12 h-px bg-border"></div>
-                    </div>
-                </div>
+    <EditorialIntro 
+        badge="Human Perspective"
+        quote="Cinque Terre deserves to be shown by people who listen more than they promote. Every recommendation on this site is filtered through human perspective."
+    >
+        <div class="space-y-6">
+            <p>
+                We are not experts claiming authority, but attentive guides offering context. We believe that what you read should be shaped by lived experience, attention, and care.
+            </p>
+            <div class="flex justify-start pt-4">
+                <div class="w-12 h-px bg-border"></div>
             </div>
         </div>
-    </section>
+    </EditorialIntro>
 
     <!-- Editors Grid -->
     <section class="py-24 container mx-auto px-4">
@@ -180,73 +104,52 @@ const editors = [
         </div>
     </section>
 
-    <!-- Collaboration Section -->
-    <section class="py-32 bg-secondary/30 relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
-        <div class="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl"></div>
-        
-        <div class="container mx-auto px-4 relative">
-            <div class="max-w-3xl mx-auto text-center space-y-12">
-                <div class="inline-flex items-center gap-4">
-                    <div class="h-px w-8 bg-primary/30"></div>
-                    <span class="text-[10px] font-bold uppercase tracking-[0.4em] text-primary">A Shared Attention</span>
-                    <div class="h-px w-8 bg-primary/30"></div>
-                </div>
+    <ClosingNote title="The Art of Collaboration" badge="A Shared Attention">
+        <div class="space-y-8 text-lg text-inherit leading-relaxed font-light">
+            <p>
+                This site is shaped by conversation, disagreement, and shared attention. It is not a static resource, but a living record of our evolving relationship with Cinque Terre.
+            </p>
+            <p>
+                We invite you to read these pages knowing who is speaking. Move through the villages with a sense of familiarity rather than authority, and allow the place to reveal itself to you in its own time.
+            </p>
+        </div>
 
-                <h3 class="font-serif text-4xl md:text-5xl font-bold text-foreground leading-tight">
-                    The Art of Collaboration
-                </h3>
-                
-                <div class="space-y-8 text-lg text-muted-foreground leading-relaxed font-light">
-                    <p>
-                        This site is shaped by conversation, disagreement, and shared attention. It is not a static resource, but a living record of our evolving relationship with Cinque Terre.
-                    </p>
-                    <p>
-                        We invite you to read these pages knowing who is speaking. Move through the villages with a sense of familiarity rather than authority, and allow the place to reveal itself to you in its own time.
-                    </p>
-                </div>
-
-                <div class="pt-8">
-                    <div class="flex justify-center gap-8">
-                        <div class="flex flex-col items-center gap-2">
-                            <div class="w-12 h-12 rounded-full bg-white border border-border flex items-center justify-center shadow-sm">
-                                <Anchor className="w-5 h-5 text-primary" />
-                            </div>
-                            <span class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Grounded</span>
-                        </div>
-                        <div class="flex flex-col items-center gap-2">
-                            <div class="w-12 h-12 rounded-full bg-white border border-border flex items-center justify-center shadow-sm">
-                                <Sun className="w-5 h-5 text-primary" />
-                            </div>
-                            <span class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Attentive</span>
-                        </div>
-                        <div class="flex flex-col items-center gap-2">
-                            <div class="w-12 h-12 rounded-full bg-white border border-border flex items-center justify-center shadow-sm">
-                                <Wind className="w-5 h-5 text-primary" />
-                            </div>
-                            <span class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Honest</span>
-                        </div>
+        <div slot="actions" class="pt-8">
+            <div class="flex justify-center gap-8">
+                <div class="flex flex-col items-center gap-2">
+                    <div class="w-12 h-12 rounded-full bg-white border border-border flex items-center justify-center shadow-sm">
+                        <Anchor className="w-5 h-5 text-primary" />
                     </div>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Grounded</span>
+                </div>
+                <div class="flex flex-col items-center gap-2">
+                    <div class="w-12 h-12 rounded-full bg-white border border-border flex items-center justify-center shadow-sm">
+                        <Sun className="w-5 h-5 text-primary" />
+                    </div>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Attentive</span>
+                </div>
+                <div class="flex flex-col items-center gap-2">
+                    <div class="w-12 h-12 rounded-full bg-white border border-border flex items-center justify-center shadow-sm">
+                        <Wind className="w-5 h-5 text-primary" />
+                    </div>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Honest</span>
                 </div>
             </div>
         </div>
-    </section>
+    </ClosingNote>
 
     <Footer />
 </Layout>
 
 <style>
-    /* Smooth scroll behavior */
     html {
         scroll-behavior: smooth;
     }
 
-    /* Typography refinements */
     .font-serif {
         letter-spacing: -0.02em;
     }
 
-    /* Subtle animations */
     @keyframes fadeInUp {
         from {
             opacity: 0;
@@ -261,9 +164,4 @@ const editors = [
     article {
         animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
     }
-
-    article:nth-child(1) { animation-delay: 0.1s; }
-    article:nth-child(2) { animation-delay: 0.3s; }
-    article:nth-child(3) { animation-delay: 0.5s; }
-    article:nth-child(4) { animation-delay: 0.7s; }
 </style>

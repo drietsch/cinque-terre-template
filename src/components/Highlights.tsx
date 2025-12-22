@@ -16,7 +16,7 @@ export default function Highlights() {
     return (
         <section className="py-16 container mx-auto px-4">
             <div className="text-center mb-12">
-                <span class="text-sm font-semibold text-primary uppercase tracking-wider">Experiences</span>
+                <span className="text-sm font-semibold text-primary uppercase tracking-wider">Experiences</span>
                 <h2 className="font-serif text-3xl md:text-4xl font-bold mt-2">Cinque Terre Highlights</h2>
             </div>
 

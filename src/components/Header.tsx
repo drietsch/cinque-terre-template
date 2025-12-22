@@ -70,7 +70,6 @@ export default function Header() {
                                         <ChevronDown className="h-4 w-4" />
                                     </button>
 
-                                    {/* @ts-ignore - el-popover is a custom element */}
                                     <el-popover
                                         id={`menu-${item.name.toLowerCase().replace(/\s+/g, '-')}`}
                                         anchor="bottom"
